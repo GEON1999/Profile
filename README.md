@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nextjs 13
 
-## Getting Started
+</br>
 
-First, run the development server:
+## What's new✨
+<img src="https://velog.velcdn.com/images/hang_kem_0531/post/ab4f8ca8-0fa1-4651-b89d-c1cf325ab4ce/image.png" />
 
-```bash
-npm run dev
-# or
-yarn dev
+### `app` Directory
+- 기존 `page` 경로 내에서 `/page/index.js` 에는 프론트엔드 기능 `/page/api/server.js` 에는 서버 기능을 구현했다면, next13에서부터는 `/app/index.js` 와 같이 바뀐다.
+- __layout__ 경로 안에서는 `nav` 와 같이 중복으로 사용되는 UI 를 공유하기 쉽게 해준다.
+- __loading__ 경로 안에서는 data fetching 시 등 로딩시의 UI 를 설정할 수 있다. 
+- 기존에 data 를 가져올 때 `getStaticProps` 혹은 `getServerSideProps` 를 사용 했는데, next13 부터는 아래와 같이 data 를 `fetch` 해올 수 있음
 ```
+// app/page.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+export default function Page() {
+  const name = use(getData());
+  return '...';
+}
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+async function getData() {
+  const res = await fetch('...');
+  const data: string = await res.json();
+  return data;
+}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+// 기존 getStaticProps 을 사용하려면 fetch(URL, { cache: 'force-cache' })
+// 기존 getServerSideProps 을 사용하려면 fetch(URL, { cache: 'no-store' })
+```
