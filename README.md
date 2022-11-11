@@ -27,3 +27,11 @@ async function getData() {
 // 기존 getStaticProps 을 사용하려면 fetch(URL, { cache: 'force-cache' })
 // 기존 getServerSideProps 을 사용하려면 fetch(URL, { cache: 'no-store' })
 ```
+
+
+</br>
+
+### Turbopack
+- Webpack 보다 700 빠른 업데이트
+- Webpack 보다 4배 빠른 cold starts(프로그램이나 운영 체제를 다시로드 하는?)
+- 최소한의 assets 만을 bundles 로 요구히기에 부팅 속도가 1.8 초로 Webpack의 16.5 초 보다 빠르다고함
