@@ -35,3 +35,12 @@ async function getData() {
 - Webpack 보다 700 빠른 업데이트
 - Webpack 보다 4배 빠른 cold starts(프로그램이나 운영 체제를 다시로드 하는?)
 - 최소한의 assets 만을 bundles 로 요구히기에 부팅 속도가 1.8 초로 Webpack의 16.5 초 보다 빠르다고함
+
+</br>
+
+### next/imgage 
+- 플랫폼에 맞게 최적화됨
+- `alt` 태그에 대한 접근성 향상
+- native lazy loading 에서 hydration 이 필요치않게 되어 빨라짐
+- 스타일과 구성이 쉬워짐
+- client-side 에서의 자바스크립트가 감소됨
