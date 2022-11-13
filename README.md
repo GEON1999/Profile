@@ -44,3 +44,16 @@ async function getData() {
 - native lazy loading 에서 hydration 이 필요치않게 되어 빨라짐
 - 스타일과 구성이 쉬워짐
 - client-side 에서의 자바스크립트가 감소됨
+
+</br> 
+
+### next/font
+- 사용자 설정 폰트를 포함한 폰트 자동 최적화
+- 개인 정보 보호와 성능 향상을 위해 외부 네트워크 요청 삭제
+- 모든 폰트 파일에 대한 자체 호스팅
+- CSS `size-adjust` property 를 통해 자동으로 레이아웃 이동을 없앰
+
+</br>
+
+새로운 폰트 시스템을 통해 __Google 폰트__ 를 편리하게 사용할 수 있음
+- CSS 및 글꼴 파일은 빌드 시 다운로드 되며 자체 호스팅됨. (브라우저에서 google 로 네트워크 요청을 보내지 않음)
