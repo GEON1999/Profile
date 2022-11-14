@@ -57,3 +57,23 @@ async function getData() {
 
 새로운 폰트 시스템을 통해 __Google 폰트__ 를 편리하게 사용할 수 있음
 - CSS 및 글꼴 파일은 빌드 시 다운로드 되며 자체 호스팅됨. (브라우저에서 google 로 네트워크 요청을 보내지 않음)
+
+</br>
+
+### next/link
+- 기존 `link`
+```
+export default function Page() {
+  return (
+    <Link href="/about">
+      <a>About Us</a>
+    </Link>
+  )
+}
+```
+- 변경 후 
+```
+export default function Page() {
+  return <Link href="/about">About Us</Link>
+}
+```
