@@ -77,3 +77,34 @@ export default function Page() {
   return <Link href="/about">About Us</Link>
 }
 ```
+
+</br> 
+
+### Middleware API Updates
+- middleware 에서 `rewrite` 혹은 `redirect` 를 사용하지 않고도 직접적으로 응답할 수 있다.
+```
+// middleware.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { isAuthenticated } from '@lib/auth';
+
+// Limit the middleware to paths starting with `/api/`
+export const config = {
+  matcher: '/api/:function*',
+};
+
+export function middleware(request: NextRequest) {
+  // Call our authentication function to check the request
+  if (!isAuthenticated(request)) {
+    // Respond with JSON indicating an error message
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'Auth failed',
+      },
+      {
+        status: 401,
+      },
+    );
+  }
+}
+```
