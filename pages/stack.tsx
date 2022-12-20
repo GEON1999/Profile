@@ -1,7 +1,23 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Layout from "../components/layout";
 
 export default function About() {
+  const [hoverJs, setHoverJs] = useState(false);
+  const onJsEnter = () => setHoverJs(true);
+  const onJsLeave = () => setHoverJs(false);
+
+  const [hoverNext, setHoverNext] = useState(false);
+  const onNextEnter = () => setHoverNext(true);
+  const onNextLeave = () => setHoverNext(false);
+
+  const [hoverReact, setHoverReact] = useState(false);
+  const onReactEnter = () => setHoverReact(true);
+  const onReactLeave = () => setHoverReact(false);
+
+  const [hoverNode, setHoverNode] = useState(false);
+  const onNodeEnter = () => setHoverNode(true);
+  const onNodeLeave = () => setHoverNode(false);
   return (
     <div>
       <Layout />
@@ -12,8 +28,28 @@ export default function About() {
         <div className="text-2xl font-thin font-serif justify-items-start mb-14">
           Main Project
         </div>
-        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
-          <div className=" space-y-5 w-96">
+        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20 mb-96">
+          <a
+            className=" space-y-5 w-96"
+            onMouseEnter={onNextEnter}
+            onMouseLeave={onNextLeave}
+            href="https://github.com/GEON1999/carrot-market"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="relative bottom-40 right-40">
+              {hoverNext ? (
+                <Image
+                  alt="project"
+                  src="/next.gif"
+                  width={500}
+                  height={600}
+                  className="absolute opacity-80"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <div className="">
               <span className="p-2 bg-white text-xl font-serif">Next.js</span>
             </div>
@@ -45,8 +81,28 @@ export default function About() {
                 <p className="text-sm text-gray-500">to deploy</p>
               </span>
             </div>
-          </div>
-          <div className=" space-y-5 w-96">
+          </a>
+          <a
+            className=" space-y-5 w-96"
+            onMouseEnter={onReactEnter}
+            onMouseLeave={onReactLeave}
+            href="https://github.com/GEON1999/Netflix-clone"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="relative bottom-40 left-40">
+              {hoverReact ? (
+                <Image
+                  src="/next.gif"
+                  width={500}
+                  height={600}
+                  className="absolute opacity-80"
+                  alt="project"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <div className="">
               <span className="p-2 bg-white text-xl font-serif">React.js</span>
             </div>
@@ -76,8 +132,28 @@ export default function About() {
                 </p>
               </span>
             </div>
-          </div>
-          <div className=" space-y-5 w-96">
+          </a>
+          <a
+            className=" space-y-5 w-96"
+            onMouseEnter={onNodeEnter}
+            onMouseLeave={onNodeLeave}
+            href="https://github.com/GEON1999/wetube-reloaded"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="relative top-20 right-40">
+              {hoverNode ? (
+                <Image
+                  src="/next.gif"
+                  width={500}
+                  height={600}
+                  className="absolute opacity-80"
+                  alt="project"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <div className="">
               <span className="p-2 bg-white text-xl font-serif">Node.js</span>
             </div>
@@ -111,8 +187,28 @@ export default function About() {
                 <p className="text-sm text-gray-500">to deploy</p>
               </span>
             </div>
-          </div>
-          <div className=" space-y-5 w-96">
+          </a>
+          <a
+            className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in"
+            onMouseEnter={onJsEnter}
+            onMouseLeave={onJsLeave}
+            href="https://github.com/GEON1999/portfolio-collection"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="relative top-20 left-40 ">
+              {hoverJs ? (
+                <Image
+                  src="/next.gif"
+                  width={500}
+                  height={600}
+                  className="absolute opacity-80"
+                  alt="project"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <div className="">
               <span className="p-2 bg-white text-xl font-serif">
                 Javascript
@@ -130,7 +226,7 @@ export default function About() {
                 <p className="text-sm text-gray-500">to mkae website fancy</p>
               </span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
