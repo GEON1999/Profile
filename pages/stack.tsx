@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Contact from "../components/contact";
 import Layout from "../components/layout";
 
 export default function About() {
@@ -21,14 +22,14 @@ export default function About() {
   return (
     <div>
       <Layout />
-      <div className="felx justify-center text-center font-serif text-5xl mb-20">
-        STACK
+      <div className="felx justify-center text-center font-serif text-5xl mb-10">
+        <span className="border-2 px-8 py-2 rounded-full border-black border-opacity-70">
+          Stack
+        </span>
       </div>
       <div className=" flex  mx-5 flex-col justify-center items-center">
-        <div className="text-2xl font-thin font-serif justify-items-start mb-14">
-          Main Project
-        </div>
-        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20 mb-96">
+        <div className="text-2xl font-serif justify-items-start mb-14"></div>
+        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20 mb-36">
           <a
             className=" space-y-5 w-96"
             onMouseEnter={onNextEnter}
@@ -37,21 +38,26 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative bottom-40 right-40">
+            <div className="relative bottom-40 md:right-40">
               {hoverNext ? (
                 <Image
                   alt="project"
                   src="/next.gif"
                   width={500}
-                  height={600}
-                  className="absolute opacity-80"
+                  height={100}
+                  className="absolute opacity-95 z-10 grayscale"
                 />
               ) : (
                 ""
               )}
             </div>
-            <div className="">
-              <span className="p-2 bg-white text-xl font-serif">Next.js</span>
+            <div>
+              <div className="absolute border-b border-gray-300 w-96" />
+              <div className="relative -top-3 text-center ">
+                <span className="text-xl font-serif bg-white px-3">
+                  Next.js
+                </span>
+              </div>
             </div>
             <div className="grid grid-cols-2  items-start  ml-5 gap-5">
               <span className="">
@@ -90,21 +96,26 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative bottom-40 left-40">
+            <div className="relative bottom-40 md:left-40">
               {hoverReact ? (
                 <Image
-                  src="/next.gif"
+                  src="/react.gif"
                   width={500}
                   height={600}
-                  className="absolute opacity-80"
+                  className="absolute opacity-95 z-10 grayscale"
                   alt="project"
                 />
               ) : (
                 ""
               )}
             </div>
-            <div className="">
-              <span className="p-2 bg-white text-xl font-serif">React.js</span>
+            <div>
+              <div className="absolute border-b border-gray-300 w-96" />
+              <div className="relative -top-3 text-center ">
+                <span className="text-xl font-serif bg-white px-3">
+                  React.js
+                </span>
+              </div>
             </div>
             <div className="grid grid-cols-2  items-start  ml-5 gap-5">
               <span className="">
@@ -141,21 +152,26 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative top-20 right-40">
+            <div className="relative top-20 md:right-40">
               {hoverNode ? (
                 <Image
-                  src="/next.gif"
+                  src="/node.gif"
                   width={500}
                   height={600}
-                  className="absolute opacity-80"
+                  className="absolute opacity-95 z-10 grayscale"
                   alt="project"
                 />
               ) : (
                 ""
               )}
             </div>
-            <div className="">
-              <span className="p-2 bg-white text-xl font-serif">Node.js</span>
+            <div>
+              <div className="absolute border-b border-gray-300 w-96" />
+              <div className="relative -top-3 text-center ">
+                <span className="text-xl font-serif bg-white px-3">
+                  Node.js
+                </span>
+              </div>
             </div>
             <div className="grid grid-cols-2  items-start  ml-5 gap-5">
               <span className="">
@@ -196,23 +212,26 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative top-20 left-40 ">
+            <div className="relative top-20 md:left-40 ">
               {hoverJs ? (
                 <Image
-                  src="/next.gif"
+                  src="/js.gif"
                   width={500}
                   height={600}
-                  className="absolute opacity-80"
+                  className="absolute opacity-95 z-10 grayscale"
                   alt="project"
                 />
               ) : (
                 ""
               )}
             </div>
-            <div className="">
-              <span className="p-2 bg-white text-xl font-serif">
-                Javascript
-              </span>
+            <div>
+              <div className="absolute border-b border-gray-300 w-96" />
+              <div className="relative -top-3 text-center ">
+                <span className="text-xl font-serif bg-white px-3">
+                  Javascript
+                </span>
+              </div>
             </div>
             <div className="grid grid-cols-2  items-start  ml-5 gap-5">
               <span className="">
@@ -229,6 +248,7 @@ export default function About() {
           </a>
         </div>
       </div>
+      <Contact />
     </div>
   );
 }
