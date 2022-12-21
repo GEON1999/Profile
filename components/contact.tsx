@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -13,9 +14,11 @@ export default function Contact() {
           </p>
         </div>
       </div>
-      <div className="md:p-4 px-2 py-1 rounded-full font-thin shadow-sm border-black border">
-        CLICK
-      </div>
+      <Link href="/contact">
+        <div className="md:p-4 px-2 py-1 rounded-full font-thin shadow-sm border-black border">
+          CLICK
+        </div>
+      </Link>
     </div>
   );
 }
