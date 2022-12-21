@@ -16,7 +16,7 @@ export default function Layout({ title, children }: LayoutProps) {
         <Link href="/">
           <div className="flex space-x-3 justify-center items-end">
             <div className="flex flex-col">
-              <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4">
+              <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4 hover:space-x-0  hover:ease-in-out ease-in-out duration-200">
                 <p>H</p>
                 <p>O</p>
                 <p>M</p>
@@ -47,19 +47,10 @@ export default function Layout({ title, children }: LayoutProps) {
                 router.asPath === "/stack" ? "font-bold" : ""
               )}
             >
-              STACK
-            </li>
-          </Link>
-          <Link href="/work">
-            <li
-              className={cls(
-                `hover:text-lg hover:ease-in ease-in-out duration-200`,
-                router.asPath === "/work" ? "font-bold" : ""
-              )}
-            >
               WORK
             </li>
           </Link>
+
           <Link href="/contact">
             <li
               className={cls(
