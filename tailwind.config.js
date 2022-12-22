@@ -23,7 +23,23 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
 
-    extend: {},
+    extend: {
+      animation: {
+        fadeIn: "fadeIn 1.5s ease-in-out",
+        fadeOut: "fadeOut 1.5s ease-in-out",
+      },
+
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 100 },
+        },
+        fadeOut: {
+          "0%": { opacity: 100 },
+          "100%": { opacity: 0 },
+        },
+      },
+    },
   },
   plugins: [],
 };
