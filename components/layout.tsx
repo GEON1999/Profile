@@ -12,56 +12,58 @@ export default function Layout({ title, children }: LayoutProps) {
 
   return (
     <div className="bg-transparent">
-      <nav className="flex justify-between mb-20 md:text-xl items-center md:pt-7 pt-3 md:mx-20 mx-4 font-bold">
-        <Link href="/">
-          <div className="flex space-x-3 justify-center items-end">
-            <div className="flex flex-col">
-              <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4 hover:space-x-0  hover:ease-in-out ease-in-out duration-200">
-                <p>H</p>
-                <p>O</p>
-                <p>M</p>
-                <p>E</p>
-              </span>
+      <nav className=" md:text-xl md:pt-7 font-bold fixed w-[100%] z-10 bg-white pb-4">
+        <div className="flex justify-between md:mx-20 mx-4 mt-5 md:mt-0">
+          <Link href="/">
+            <div className="flex space-x-3 justify-center items-end">
+              <div className="flex flex-col">
+                <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4">
+                  <p>H</p>
+                  <p>O</p>
+                  <p>M</p>
+                  <p>E</p>
+                </span>
+              </div>
+              <div className="flex flex-col font-thin items-start text-sm">
+                <p>Ready </p>
+                <p>to Begin</p>
+              </div>
             </div>
-            <div className="flex flex-col font-thin items-start text-sm">
-              <p>Ready </p>
-              <p>to Begin</p>
-            </div>
-          </div>
-        </Link>
-        <ul className="flex flex-col justify-center items-end space-x-4 text-base font-thin ">
-          <Link href="/about">
-            <li
-              className={cls(
-                `hover:text-lg hover:ease-in ease-in-out duration-200`,
-                router.asPath === "/about" ? "font-bold" : ""
-              )}
-            >
-              ABOUT
-            </li>
           </Link>
-          <Link href="/stack">
-            <li
-              className={cls(
-                `hover:text-lg hover:ease-in ease-in-out duration-200`,
-                router.asPath === "/stack" ? "font-bold" : ""
-              )}
-            >
-              WORK
-            </li>
-          </Link>
+          <ul className="flex flex-col justify-center items-end space-x-4 text-base font-thin">
+            <Link href="/about">
+              <li
+                className={cls(
+                  ``,
+                  router.asPath === "/about" ? "font-bold" : ""
+                )}
+              >
+                ABOUT
+              </li>
+            </Link>
+            <Link href="/work">
+              <li
+                className={cls(
+                  ``,
+                  router.asPath === "/work" ? "font-bold" : ""
+                )}
+              >
+                WORK
+              </li>
+            </Link>
 
-          <Link href="/contact">
-            <li
-              className={cls(
-                `hover:text-lg hover:ease-in ease-in-out duration-200`,
-                router.asPath === "/contact" ? "font-bold" : ""
-              )}
-            >
-              CONTACT
-            </li>
-          </Link>
-        </ul>
+            <Link href="/contact">
+              <li
+                className={cls(
+                  ``,
+                  router.asPath === "/contact" ? "font-bold" : ""
+                )}
+              >
+                CONTACT
+              </li>
+            </Link>
+          </ul>
+        </div>
       </nav>
       <div>{children}</div>
     </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <div className="flex space-x-[6vw] justify-center items-center my-10">
+    <div className="flex space-x-[6vw] justify-center items-center ">
       <div className="md:w-96">
         <div className="space-y-2">
           <span className="md:text-2xl text-lg font-extrabold">
@@ -15,7 +15,7 @@ export default function Contact() {
         </div>
       </div>
       <Link href="/contact">
-        <div className="md:p-4 px-2 py-1 rounded-full font-thin shadow-sm border-black border">
+        <div className="md:p-4 px-2 py-1 rounded-full font-thin shadow-sm border-black border animate-[drift_3s_linear_infinite]">
           CLICK
         </div>
       </Link>
