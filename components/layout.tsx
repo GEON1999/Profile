@@ -34,7 +34,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/about">
               <li
                 className={cls(
-                  ``,
+                  `layout-btn`,
                   router.asPath === "/about" ? "font-bold" : ""
                 )}
               >
@@ -44,7 +44,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/work">
               <li
                 className={cls(
-                  ``,
+                  `layout-btn`,
                   router.asPath === "/work" ? "font-bold" : ""
                 )}
               >
@@ -55,7 +55,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/contact">
               <li
                 className={cls(
-                  ``,
+                  `layout-btn`,
                   router.asPath === "/contact" ? "font-bold" : ""
                 )}
               >
