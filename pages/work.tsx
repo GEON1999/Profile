@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Contact from "../components/contact";
 import Layout from "../components/layout";
 import { cls } from "../libs/utils";
-import { motion, AnimatePresence } from "framer-motion";
+
 
 export default function Work() {
   const [hoverJs, setHoverJs] = useState<
@@ -43,14 +43,14 @@ export default function Work() {
   return (
     <div>
       <Layout />
-      <div className="felx justify-center text-center font-serif text-5xl mb-10">
+      <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40">
         <span className="border-2 px-8 py-2 rounded-full border-black border-opacity-70 ">
           WORK
         </span>
       </div>
       <div className=" flex  mx-5 flex-col justify-center items-center">
         <div className="text-2xl font-serif justify-items-start mb-14"></div>
-        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20 mb-36">
+        <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
           <a
             className=" space-y-5 w-96"
             onMouseEnter={onNextEnter}
