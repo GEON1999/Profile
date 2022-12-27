@@ -17,11 +17,11 @@ export default function Layout({ title, children }: LayoutProps) {
           <Link href="/">
             <div className="flex space-x-3 justify-center items-end">
               <div className="flex flex-col">
-                <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4">
-                  <p>H</p>
-                  <p>O</p>
-                  <p>M</p>
-                  <p>E</p>
+                <span className="text-5xl font-thin flex items-end text-gray-700 group -space-x-4">
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">H</p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">O</p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">M</p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">E</p>
                 </span>
               </div>
               <div className="flex flex-col font-thin items-start text-sm">
