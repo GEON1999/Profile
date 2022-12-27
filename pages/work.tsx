@@ -1,47 +1,26 @@
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Contact from "../components/contact";
 import Layout from "../components/layout";
 import { cls } from "../libs/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
+
+const variants = {
+  hover: {
+    opacity : 100
+  },
+  initial: {
+    opacity: 0
+  }
+};
 
 export default function Work() {
-  const [hoverJs, setHoverJs] = useState<
-    "beforeHover" | "hover" | "afterHover"
-  >("beforeHover");
-  const onJsEnter = () => setHoverJs("hover");
-  const onJsLeave = () => {
-    setTimeout(() => setHoverJs("beforeHover"), 1500), setHoverJs("afterHover");
-  };
-
-  const [hoverNext, setHoverNext] = useState<
-    "beforeHover" | "hover" | "afterHover"
-  >("beforeHover");
-  const onNextEnter = () => setHoverNext("hover");
-  const onNextLeave = () => {
-    setTimeout(() => setHoverNext("beforeHover"), 1500),
-      setHoverNext("afterHover");
-  };
-
-  const [hoverReact, setHoverReact] = useState<
-    "beforeHover" | "hover" | "afterHover"
-  >("beforeHover");
-  const onReactEnter = () => setHoverReact("hover");
-  const onReactLeave = () => {
-    setTimeout(() => setHoverReact("beforeHover"), 1500),
-      setHoverReact("afterHover");
-  };
-
-  const [hoverNode, setHoverNode] = useState<
-    "beforeHover" | "hover" | "afterHover"
-  >("beforeHover");
-  const onNodeEnter = () => setHoverNode("hover");
-  const onNodeLeave = () => {
-    setTimeout(() => setHoverNode("beforeHover"), 1500),
-      setHoverNode("afterHover");
-  };
+const [hoverNext, setHoverNext] = useState(false)
+const isNextHover = () => setHoverNext(true)
   return (
-    <div>
+    <AnimatePresence>
+      <div>
       <Layout />
       <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40">
         <span className="border-2 px-8 py-2 rounded-full border-black border-opacity-70 ">
@@ -52,9 +31,8 @@ export default function Work() {
         <div className="text-2xl font-serif justify-items-start mb-14"></div>
         <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
           <a
-            className=" space-y-5 w-96"
-            onMouseEnter={onNextEnter}
-            onMouseLeave={onNextLeave}
+            className=" space-y-5 w-96 group/next "
+            
             href="https://github.com/GEON1999/carrot-market"
             target="_blank"
             rel="noopener noreferrer"
@@ -65,16 +43,7 @@ export default function Work() {
                 src="/next.gif"
                 width={500}
                 height={100}
-                className={cls(
-                  "absolute opacity-95 z-10 grayscale ",
-                  hoverNext === "hover"
-                    ? "animate-fadeIn "
-                    : hoverNext === "afterHover"
-                    ? "animate-fadeOut"
-                    : hoverNext === "beforeHover"
-                    ? "hidden"
-                    : ""
-                )}
+                className="absolute  z-10 grayscale scale-0  group-hover/next:animate-[fadeInOut_1s_ease-in]  "
               />
             </div>
             <div>
@@ -115,31 +84,21 @@ export default function Work() {
             </div>
           </a>
           <a
-            className=" space-y-5 w-96"
-            onMouseEnter={onReactEnter}
-            onMouseLeave={onReactLeave}
+            className=" space-y-5 w-96 group/react:"
+            onMouseEnter={isNextHover}
             href="https://github.com/GEON1999/Netflix-clone"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="relative bottom-40 md:left-40">
+            <motion.div className="relative bottom-40 md:left-40" variants={variants} animate={hoverNext ? "hover" : "initial"}>
               <Image
                 src="/react.gif"
                 width={500}
                 height={600}
-                className={cls(
-                  "absolute opacity-95 z-10 grayscale ",
-                  hoverReact === "hover"
-                    ? "animate-fadeIn "
-                    : hoverReact === "afterHover"
-                    ? "animate-fadeOut"
-                    : hoverReact === "beforeHover"
-                    ? "hidden"
-                    : ""
-                )}
+                className="absolute opacity-95 z-10 grayscale "
                 alt="project"
               />
-            </div>
+            </motion.div >
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
@@ -176,9 +135,7 @@ export default function Work() {
             </div>
           </a>
           <a
-            className=" space-y-5 w-96"
-            onMouseEnter={onNodeEnter}
-            onMouseLeave={onNodeLeave}
+            className=" space-y-5 w-96 group/node:"
             href="https://github.com/GEON1999/wetube-reloaded"
             target="_blank"
             rel="noopener noreferrer"
@@ -188,16 +145,7 @@ export default function Work() {
                 src="/node.gif"
                 width={500}
                 height={600}
-                className={cls(
-                  "absolute opacity-95 z-10 grayscale ",
-                  hoverNode === "hover"
-                    ? "animate-fadeIn "
-                    : hoverNode === "afterHover"
-                    ? "animate-fadeOut"
-                    : hoverNode === "beforeHover"
-                    ? "hidden"
-                    : ""
-                )}
+                className="absolute opacity-95 z-10 grayscale invisible group-hover/node:visible"
                 alt="project"
               />
             </div>
@@ -241,9 +189,7 @@ export default function Work() {
             </div>
           </a>
           <a
-            className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in"
-            onMouseEnter={onJsEnter}
-            onMouseLeave={onJsLeave}
+            className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in group/js:"
             href="https://github.com/GEON1999/portfolio-collection"
             target="_blank"
             rel="noopener noreferrer"
@@ -253,16 +199,7 @@ export default function Work() {
                 src="/js.gif"
                 width={500}
                 height={600}
-                className={cls(
-                  "absolute opacity-95 z-10 grayscale ",
-                  hoverJs === "hover"
-                    ? "animate-fadeIn "
-                    : hoverJs === "afterHover"
-                    ? "animate-fadeOut"
-                    : hoverJs === "beforeHover"
-                    ? "hidden"
-                    : ""
-                )}
+                className="absolute opacity-95 z-10 grayscale invisible group-hover/js:visible"
                 alt="project"
               />
             </div>
@@ -291,5 +228,6 @@ export default function Work() {
       </div>
       <Contact />
     </div>
+    </AnimatePresence>
   );
 }
