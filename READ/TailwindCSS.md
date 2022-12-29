@@ -1,3 +1,4 @@
+## text 에 이미지 및 색으로 배경 지정
 ### 시도
 
 text 배경에 이미지를 삽입하는 디자인이 너무 마음에 들어 찾아봤다.
@@ -26,3 +27,17 @@ text 배경에 이미지를 삽입하는 디자인이 너무 마음에 들어 �
 하지만 배경 gif 의 사이즈들이 너무 작았고, 작아지니 이미지들이 이어지지 않고 짤려서 노출됐다.
 
 이를 해결하고자 해상도를 포기하고 resize 사이트에서 gif 사이즈를 2배 이상 늘려 적용했다.
+
+</br></br>
+
+## tailwind 코드 재활용
+- apply 기능을 통해 css 에 있는 'class' 와 같은 효과를 볼 수 있었다.
+```
+@layer components {
+// styles/globals.css
+    .layout-btn {
+        @apply hover:scale-150 hover:ease-in-out duration-200
+    }
+  }
+```
+위 코드를 globals.css 파일에 작성해두면 'layout-btn' 입력시 위 코드들이 적용된다.
