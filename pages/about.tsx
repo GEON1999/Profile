@@ -9,7 +9,7 @@ export default function About() {
      <Layout />
       <div className="pt-40">
         <div className="felx justify-center text-center font-serif text-5xl md:mb-20 mb-10 ">
-          <span className="border-2 px-8 py-2 rounded-full border-black border-opacity-70">
+          <span className="border-b-4 px-8 py-2  border-black border-opacity-70">
             ABOUT
           </span>
         </div>
@@ -57,7 +57,7 @@ export default function About() {
               <p className="w-[40vw]">
                 저는 시야가 좁고 경험이 부족했기에 경험이 절실했습니다. 학교를
                 그만두고 무엇을 해야 할지 알 길이 없는 저는 시야를 넓히고 더
-                많은 경험을 하기 위해 비교적 필리핀 유학을 도전 해보았습니다.
+                많은 경험을 하기 위해 필리핀 유학을 도전 해보았습니다.
                 그것이 저의 &#39;첫 도전&#39; 이였습니다.
               </p>
               <p className="w-[40vw]">
@@ -94,13 +94,13 @@ export default function About() {
                 싶었는지도 생각해보았습니다.
               </p>
               <p>저는 돈으로 시간을 사는 사람이 되고 싶습니다.</p>
-              <p>저는 제가 성취할 수 있는 일을 하는 사람이고 싶습니다.</p>
+              <p>저는 지속적으로 성취할 수 있는 일을 하는 사람이고 싶습니다.</p>
               <p>
                 그렇기에 전공으로 선택했으나 시작해보지 못했던 프로그래밍을
-                시작했고, 제가 하는 일에 성취감과 자부심을 느끼며 일하고
+                시작했고, 제가 하는 일에 성취와 자부심을 느끼며 일하고
                 싶습니다.
               </p>
-              <p>그러기 위해 끊임없이 배우고 앞으로 나아가려 합니다.</p>  
+              <p>그러기 위해 끊임없이 배우고 또 배우기로 다짐 했습니다.</p>  
             </div> 
           </div>
         </div>
