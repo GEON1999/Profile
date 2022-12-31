@@ -13,40 +13,18 @@ const variants = {
   initial: {
     opacity: 0,
     zIndex: -10,
+    x: -100,
   },
   exit: {
     opacity: 0,
+    zIndex: -10,
   },
 };
 
 export default function Work() {
-  const [toggleBox, setToggleBox] = useState(false);
-  const [toggleNext, setToggleNext] = useState(false);
-  const [toggleReact, setToggleReact] = useState(false);
-  const [toggleNode, setToggleNode] = useState(false);
-  const [toggleJs, setToggleJs] = useState(false);
-  const isBoxToggled = (id: string) => {
-    if (id !== null) {
-      if (id === "next") {
-        return setToggleNext(true), setToggleBox(true);
-      } else if (id === "react") {
-        return setToggleReact(true), setToggleBox(true);
-      } else if (id === "node") {
-        return setToggleNode(true), setToggleBox(true);
-      } else if (id === "js") {
-        return setToggleJs(true), setToggleBox(true);
-      }
-    }
-    return setToggleBox(false), console.log("no id");
-  };
-  useEffect(() => {
-    if (toggleBox === false) {
-      setToggleNext(false),
-        setToggleReact(false),
-        setToggleNode(false),
-        setToggleJs(false);
-    }
-  }, [toggleBox]);
+  const [toggleBox, setToggleBox] = useState<
+    "next" | "react" | "node" | "js" | null
+  >(null);
 
   return (
     <AnimatePresence>
@@ -61,8 +39,8 @@ export default function Work() {
           <div className="text-2xl font-serif justify-items-start mb-14"></div>
           <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
             <motion.div
-              layoutId="1"
-              onClick={() => isBoxToggled("next")}
+              layoutId="next"
+              onClick={() => setToggleBox("next")}
               className=" space-y-5 w-96 group/next"
             >
               <div>
@@ -105,8 +83,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              layoutId="react"
               className=" space-y-5 w-96 group/react:"
-              onClick={() => isBoxToggled("react")}
+              onClick={() => setToggleBox("react")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
@@ -144,8 +123,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              layoutId="node"
               className=" space-y-5 w-96 group/node:"
-              onClick={() => isBoxToggled("node")}
+              onClick={() => setToggleBox("node")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
@@ -187,8 +167,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              layoutId="js"
               className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in group/js:"
-              onClick={() => isBoxToggled("js")}
+              onClick={() => setToggleBox("js")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
@@ -220,14 +201,14 @@ export default function Work() {
           "absolute w-screen h-screen bg-gray-800 bg-opacity-20 top-0 flex flex-col",
           toggleBox ? "z-40" : "hidden"
         )}
-        onClick={() => setToggleBox(false)}
+        onClick={() => setToggleBox(null)}
       >
         <motion.div
           variants={variants}
           initial={"initial"}
-          animate={toggleNext ? "toggled" : "initial"}
-          layoutId="1"
-          exit={toggleNext ? "" : "exit"}
+          animate={toggleBox ? "toggled" : ""}
+          layoutId={toggleBox ? toggleBox : ""}
+          exit={toggleBox === null ? "exit" : ""}
           transition={{ duration: 1 }}
           className="absolute top-[30vh] left-[30vw]"
         >
@@ -239,7 +220,7 @@ export default function Work() {
           >
             <motion.img
               alt="project"
-              src="/next.gif"
+              src={`/${toggleBox}.gif`}
               width={500}
               height={500}
             />
