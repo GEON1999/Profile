@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Contact from "../components/contact";
 import Layout from "../components/layout";
 import { cls } from "../libs/utils";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import WorkDetail from "../components/workDetail";
 
 const variants = {
   toggled: {
@@ -23,9 +24,12 @@ const variants = {
 
 export default function Work() {
   const [toggleBox, setToggleBox] = useState<
-    "next" | "react" | "node" | "js" | null
+    "next" | "react" | "node" | "javascript" | null
   >(null);
 
+  useEffect(() => {
+    console.log(toggleBox);
+  }, [toggleBox]);
   return (
     <AnimatePresence>
       <div>
@@ -41,7 +45,7 @@ export default function Work() {
             <motion.div
               layoutId="next"
               onClick={() => setToggleBox("next")}
-              className=" space-y-5 w-96 group/next"
+              className=" space-y-5 w-96"
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
@@ -84,7 +88,7 @@ export default function Work() {
             </motion.div>
             <motion.div
               layoutId="react"
-              className=" space-y-5 w-96 group/react:"
+              className=" space-y-5 w-96"
               onClick={() => setToggleBox("react")}
             >
               <div>
@@ -124,7 +128,7 @@ export default function Work() {
             </motion.div>
             <motion.div
               layoutId="node"
-              className=" space-y-5 w-96 group/node:"
+              className=" space-y-5 w-96"
               onClick={() => setToggleBox("node")}
             >
               <div>
@@ -135,7 +139,7 @@ export default function Work() {
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-2  items-start  ml-5 gap-5">
+              <div className="grid grid-cols-2 items-start ml-5 gap-5">
                 <span className="">
                   <h1 className="text-lg ">Javascript</h1>
                   <p className="text-sm text-gray-500">
@@ -167,9 +171,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
-              layoutId="js"
-              className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in group/js:"
-              onClick={() => setToggleBox("js")}
+              layoutId="javascript"
+              className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in"
+              onClick={() => setToggleBox("javascript")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
@@ -203,30 +207,11 @@ export default function Work() {
         )}
         onClick={() => setToggleBox(null)}
       >
-        <motion.div
-          variants={variants}
-          initial={"initial"}
-          animate={toggleBox ? "toggled" : ""}
-          layoutId={toggleBox ? toggleBox : ""}
-          exit={toggleBox === null ? "exit" : ""}
-          transition={{ duration: 1 }}
-          className="absolute top-[30vh] left-[30vw]"
-        >
-          <div
-            className={cls(
-              "flex items-center space-x-4 grayscale",
-              toggleBox ? "z-50" : ""
-            )}
-          >
-            <motion.img
-              alt="project"
-              src={`/${toggleBox}.gif`}
-              width={500}
-              height={500}
-            />
-            <p>this is responsive web, like dangeon market</p>
-          </div>
-        </motion.div>
+        {toggleBox !== null ? (
+          <WorkDetail id={toggleBox ? toggleBox : ""} />
+        ) : (
+          ""
+        )}
       </div>
     </AnimatePresence>
   );
