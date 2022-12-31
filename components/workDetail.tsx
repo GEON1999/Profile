@@ -1,6 +1,7 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import { cls } from "../libs/utils";
+import AnimatedText from "./AnimatedText";
 
 const variants = {
   toggled: {
@@ -18,6 +19,20 @@ const variants = {
 };
 
 export default function WorkDetail({ id }: any) {
+  const placeholderText = [
+    { type: "heading1", text: "Framer Motion" },
+    {
+      type: "heading2",
+      text: "Animating responsive text!",
+    },
+  ];
+  const textBox = {
+    visible: {
+      transition: {
+        staggerChildren: 0.025,
+      },
+    },
+  };
   return (
     <AnimatePresence>
       <motion.div
@@ -44,6 +59,19 @@ export default function WorkDetail({ id }: any) {
               className="shadow-lg"
             />
           </div>
+          <motion.div
+            className="App"
+            initial="hidden"
+            // animate="visible"
+            animate={"visible"}
+            variants={textBox}
+          >
+            <div className="container">
+              {placeholderText.map((item, index) => {
+                return <AnimatedText {...item} key={index} />;
+              })}
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </AnimatePresence>
