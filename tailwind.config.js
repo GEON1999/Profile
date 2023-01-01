@@ -19,7 +19,7 @@ module.exports = {
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      "2xl": "1536px",
+      "2xl": "1610px",
       // => @media (min-width: 1536px) { ... }
     },
 
@@ -27,13 +27,11 @@ module.exports = {
       animation: {
         fadeIn: "fadeIn 1.5s ease-in",
         fadeOut: "fadeOut 1.5s ease-in-out",
-
       },
 
       keyframes: {
         fadeIn: {
-          
-           scale:100
+          scale: 100,
         },
         fadeOut: {
           "0%": { opacity: 100 },
@@ -43,15 +41,28 @@ module.exports = {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
-        textUp: { '0%' : { top: 0 }, 
-        '20%' : { top: -0.2 }, '40% ' : { top: 0 }, 
-        '60%' : { top: 0 }, '80%': { top: 0 }, '100%' : { top: 0 } },
-        wave :  {'0%' : { transform : 'rotate(0deg)'}, '10%' : { transform : 'rotate(14deg)'}, '20%' : { transform : 'rotate(-8deg)'}, '30%' : { transform : 'rotate(14deg)'},
-         '40%' : { transform : 'rotate(-4deg)'}, '50%' : { transform : 'rotate(10deg)'}, '60%' : { transform : 'rotate(0deg)'}, '100%' : { transform : 'rotate(0deg)'}, },
+        textUp: {
+          "0%": { top: 0 },
+          "20%": { top: -0.2 },
+          "40% ": { top: 0 },
+          "60%": { top: 0 },
+          "80%": { top: 0 },
+          "100%": { top: 0 },
+        },
+        wave: {
+          "0%": { transform: "rotate(0deg)" },
+          "10%": { transform: "rotate(14deg)" },
+          "20%": { transform: "rotate(-8deg)" },
+          "30%": { transform: "rotate(14deg)" },
+          "40%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(10deg)" },
+          "60%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
         fadeInOut: {
           "0%": { scale: 0 },
           "100%": { scale: 10 },
-        }
+        },
       },
     },
   },
