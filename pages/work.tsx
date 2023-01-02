@@ -17,15 +17,24 @@ export default function Work() {
     <AnimatePresence>
       <div>
         <Layout />
-        <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40">
-          <span className="border-b-2 px-8 py-2  border-black border-opacity-70 ">
-            WORK
-          </span>
+
+        <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
+          <div className=" ">
+            <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
+              WORK
+            </span>
+          </div>
+          <div>
+            <span className=" text-base px-4 py-1 border-slate-400 text-slate-400">
+              Click the boxes below to see a preview
+            </span>
+          </div>
         </div>
         <div className=" flex  mx-5 flex-col justify-center items-center">
           <div className="text-2xl font-serif justify-items-start mb-14"></div>
           <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
             <motion.div
+              whileHover={{ scale: 1.1 }}
               layoutId="Next"
               onClick={() => setToggleBox("Next")}
               className=" space-y-5 w-96 cursor-pointer"
@@ -70,8 +79,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              whileHover={{ scale: 1.1 }}
               layoutId="React"
-              className=" space-y-5 w-96 cursor-pointer"
+              className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("React")}
             >
               <div>
@@ -110,8 +120,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              whileHover={{ scale: 1.1 }}
               layoutId="Node"
-              className=" space-y-5 w-96 cursor-pointer"
+              className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("Node")}
             >
               <div>
@@ -154,8 +165,9 @@ export default function Work() {
               </div>
             </motion.div>
             <motion.div
+              whileHover={{ scale: 1.1 }}
               layoutId="Js"
-              className="space-y-5 w-96 transition duration-1000 ease-out hover:ease-in cursor-pointer"
+              className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("Js")}
             >
               <div>
