@@ -16,12 +16,20 @@ export default function Layout({ title, children }: LayoutProps) {
         <div className="flex justify-between md:mx-20 mx-4 mt-5 md:mt-0">
           <Link href="/">
             <div className="flex space-x-3 justify-center items-end">
-              <div className="flex flex-col">
+              <div className="flex flex-col cursor-pointer">
                 <span className="text-5xl font-thin flex items-end text-gray-700 group -space-x-4">
-                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">H</p>
-                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">O</p>
-                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">M</p>
-                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">E</p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">
+                    H
+                  </p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">
+                    O
+                  </p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">
+                    M
+                  </p>
+                  <p className="group-hover:mx-0.5 hover:ease-out duration-150">
+                    E
+                  </p>
                 </span>
               </div>
               <div className="flex flex-col font-thin items-start text-sm">
@@ -34,7 +42,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/about">
               <li
                 className={cls(
-                  `layout-btn`,
+                  `layout-btn cursor-pointer`,
                   router.asPath === "/about" ? "font-bold" : ""
                 )}
               >
@@ -44,7 +52,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/work">
               <li
                 className={cls(
-                  `layout-btn`,
+                  `layout-btn cursor-pointer`,
                   router.asPath === "/work" ? "font-bold" : ""
                 )}
               >
@@ -55,7 +63,7 @@ export default function Layout({ title, children }: LayoutProps) {
             <Link href="/contact">
               <li
                 className={cls(
-                  `layout-btn`,
+                  `layout-btn cursor-pointer`,
                   router.asPath === "/contact" ? "font-bold" : ""
                 )}
               >
