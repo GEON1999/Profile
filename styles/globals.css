@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .layout-btn {
-        @apply hover:scale-150 hover:ease-in-out duration-200
-    }
+  .layout-btn {
+    @apply hover:scale-150 hover:ease-in-out duration-200;
   }
+}

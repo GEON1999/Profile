@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence, useInView } from "framer-motion";
 
 export default function Contact() {
   return (

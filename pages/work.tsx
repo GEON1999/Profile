@@ -19,7 +19,7 @@ export default function Work() {
         <Layout />
 
         <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
-          <div className=" ">
+          <div>
             <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
               WORK
             </span>
