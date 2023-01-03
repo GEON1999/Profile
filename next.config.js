@@ -9,14 +9,6 @@ const nextConfig = {
         silent: true,
       },
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "gifimage.net",
-      },
-    ],
-  },
 };
 
 module.exports = nextConfig;
