@@ -54,11 +54,16 @@ export default function WorkDetail({ id }: any) {
               id ? "z-40" : ""
             )}
           >
-            <img
-              alt="project"
-              src={`/${id}.gif`}
-              className="shadow-2xl  lg:w-[30rem] lg:h-[30rem] xl:w-[40rem] xl:h-[40rem] w-80 h-80 mb-4"
-            />
+            <div className=" shadow-2xl  lg:w-[30rem] lg:h-[30rem] xl:w-[40rem] xl:h-[40rem] w-80 h-80 mb-4">
+              <Image
+                alt="project"
+                src={`/${id}.gif`}
+                layout="responsive"
+                height={500}
+                width={500}
+                className=""
+              />
+            </div>
 
             <motion.div
               className="App"
