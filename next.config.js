@@ -9,6 +9,10 @@ const nextConfig = {
         silent: true,
       },
   },
+  images: {
+    loader: "akamai",
+    path: "/",
+  },
 };
 
 module.exports = nextConfig;
