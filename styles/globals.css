@@ -6,4 +6,7 @@
   .layout-btn {
     @apply hover:scale-150 hover:ease-in-out duration-200;
   }
+  .Link-btn {
+    @apply hover:scale-125 duration-150 hover:ease-in-out;
+  }
 }
