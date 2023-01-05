@@ -45,3 +45,21 @@ text 배경에 이미지를 삽입하는 디자인이 너무 마음에 들어 �
 ```
 
 위 코드를 globals.css 파일에 작성해두면 'layout-btn' 입력시 위 코드들이 적용된다.
+
+</br></br>
+
+## Next Image blur
+- work 부분에서 프로젝트를 간단하게 gif 로 업로드 했는데, 해당 부분 로딩이 상당히 길게 느껴졌다.
+- img 나 data 를 불러올 때 skeleton effect 가 사용자 경험에 도움이 된다는 걸 본적이 있어 Next Image 를 통해 시도 해보았다.
+```
+<Image
+    alt="project"
+    src={`/images/${id}.gif`}
+    layout="responsive"
+    height={500}
+    width={500}
+    placeholder="blur"
+    blurDataURL={`/images/${id}.gif`}
+/>
+```
+- 코드는 정말 단순하게 `placeholder="blur"` 와 blur 처리를 위한 이미지 url 만 있으면 됐다.
