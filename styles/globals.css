@@ -4,9 +4,9 @@
 
 @layer components {
   .layout-btn {
-    @apply hover:scale-150 hover:ease-in-out duration-200;
+    @apply md:hover:scale-150 md:hover:ease-in-out duration-200;
   }
   .Link-btn {
-    @apply hover:scale-125 duration-150 hover:ease-in-out;
+    @apply md:hover:scale-125 duration-150 md:hover:ease-in-out;
   }
 }
