@@ -61,7 +61,8 @@ export default function WorkDetail({ id }: any) {
                 layout="responsive"
                 height={500}
                 width={500}
-                className=""
+                placeholder="blur"
+                blurDataURL={`/images/${id}.gif`}
               />
             </div>
 
