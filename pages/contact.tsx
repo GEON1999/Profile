@@ -1,12 +1,12 @@
 import Layout from "../components/layout";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 
 export default function Contact() {
   const [state, setState] = useState<"initial" | "github" | "mail">("initial");
   return (
-    <AnimatePresence>
+    <div>
       <div>
         <Layout />
         <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
@@ -95,6 +95,6 @@ export default function Contact() {
           </a>
         </Link>
       </div>
-    </AnimatePresence>
+    </div>
   );
 }

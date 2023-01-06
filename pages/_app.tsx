@@ -1,11 +1,12 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { motion, AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="w-full h-full">
+    <AnimatePresence>
       <Component {...pageProps} />
-    </div>
+    </AnimatePresence>
   );
 }
 

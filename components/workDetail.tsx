@@ -35,9 +35,6 @@ export default function WorkDetail({ id }: any) {
       },
     },
   };
-  useEffect(() => {
-    console.log("id는", id);
-  }, [id]);
   return (
     <AnimatePresence>
       <div className="flex justify-center">

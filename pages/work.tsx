@@ -9,15 +9,10 @@ export default function Work() {
   const [toggleBox, setToggleBox] = useState<
     "Next" | "React" | "Node" | "Js" | null
   >(null);
-
-  useEffect(() => {
-    console.log(toggleBox);
-  }, [toggleBox]);
   return (
-    <AnimatePresence>
+    <div>
       <div>
         <Layout />
-
         <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
           <div>
             <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
@@ -206,6 +201,6 @@ export default function Work() {
           ""
         )}
       </div>
-    </AnimatePresence>
+    </div>
   );
 }
