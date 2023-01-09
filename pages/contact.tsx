@@ -54,7 +54,7 @@ export default function Contact() {
           </Link>
         </div>
       </div>
-      <div className="w-full h-96 xl:h-[32rem] bg-slate-200 bg-opacity-20 mt-10 flex justify-center items-center text-center">
+      <div className="w-full h-64 xl:h-[26rem] bg-slate-200 bg-opacity-20 mt-10 flex justify-center items-center text-center">
         <span className="text-xl opacity-60 font-serif">
           {state === "initial"
             ? "Click Icon"
@@ -65,11 +65,10 @@ export default function Contact() {
             : ""}
         </span>
       </div>
-
-      <div className="flex justify-center text-center items-center flex-col mt-40 mb-10">
+      <div className="flex justify-center text-center items-center flex-col mt-10 lg:mt-14 mb-10">
         <p className="font-mono">How was this website? </p>
         <p className="font-mono text-slate-400 text-sm">
-          if you don&#39;t mind, plz take part in the survey
+          if you don&#39;t mind, please take part in the survey
         </p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
