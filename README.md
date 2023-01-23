@@ -1,110 +1,62 @@
-# Nextjs 13
+<div align="center">
+  <a href="https://profile-one-topaz.vercel.app">
+    <img height="120" src="https://imagedelivery.net/xE6X7mlbIExkQau-XHoj-A/da86e014-02bf-4628-0f97-fb27d37c0f00/public" />
+    <br />
+    <a display="block" href="https://profile-one-topaz.vercel.app">이력서 이동</a>
+  </a>
+</div>
 
-</br>
+<br /><br/>
 
-## What's new✨
-<img src="https://velog.velcdn.com/images/hang_kem_0531/post/ab4f8ca8-0fa1-4651-b89d-c1cf325ab4ce/image.png" />
+## Preview
 
-### `app` Directory
-- 기존 `page` 경로 내에서 `/page/index.js` 에는 프론트엔드 기능 `/page/api/server.js` 에는 서버 기능을 구현했다면, next13에서부터는 `/app/index.js` 와 같이 바뀐다.
-- __layout__ 경로 안에서는 `nav` 와 같이 중복으로 사용되는 UI 를 공유하기 쉽게 해준다.
-- __loading__ 경로 안에서는 data fetching 시 등 로딩시의 UI 를 설정할 수 있다. 
-- 기존에 data 를 가져올 때 `getStaticProps` 혹은 `getServerSideProps` 를 사용 했는데, next13 부터는 아래와 같이 data 를 `fetch` 해올 수 있음
-```
-// app/page.js
+> Home
+- `background-clip: text` css 효과를 활용해 home 화면을 디자인 했음
 
-export default function Page() {
-  const name = use(getData());
-  return '...';
-}
+<br/>
 
-async function getData() {
-  const res = await fetch('...');
-  const data: string = await res.json();
-  return data;
-}
+  <div align="center">
+    <img height="500" src="preview/home.gif" />
+  </div>
 
-// 기존 getStaticProps 을 사용하려면 fetch(URL, { cache: 'force-cache' })
-// 기존 getServerSideProps 을 사용하려면 fetch(URL, { cache: 'no-store' })
-```
+</br></br>
+
+> About
+- framer motion 의 `useInView` hook 을 통해 text 컨테이너가 시야에 들어오면 노출되도록 하는 애니메이션 효과 적용
+  <div align="center">
+    <img height="500" src="preview/about.gif" />
+    
+<br/> 
+
+  </div>
+  
+</br></br>
+
+> Work
+- 특정 컨테이너가 클릭 됐을 시 background-color 가 회색으로 변하고 work 의 detail component 가 노출되도록 함
+  - framer motion 의 `layoutId` 를 활용하여 detail component 컨테이너의 아이디를 클릭된 박스에 따라 부여하여 클릭된 박스가 중앙으로 이동하는 것 처럼 애니메이션 구현
+  
+<br/>
+
+  <div align="center">
+    <img height="500" src="preview/myWork.gif" />
+  </div>
+ 
+ </br></br>
+
+> Contact
+- github, mail 아이콘 클릭 시 각자에 맞는 새탭이 열리도록 구현
+- 아래 설문참여 버튼을 누르면 웹사이트에 대한 만족도 등의 설문이 진행되도록 구현
+  - 웹사이트 보완을 위함
+  
+<br/>
+
+  <div align="center">
+    <img height="500" src="preview/contact.gif" />
+  </div>
+ 
+ </br></br>
 
 
-</br>
-
-### Turbopack
-- Webpack 보다 700 빠른 업데이트
-- Webpack 보다 4배 빠른 cold starts(프로그램이나 운영 체제를 다시로드 하는?)
-- 최소한의 assets 만을 bundles 로 요구히기에 부팅 속도가 1.8 초로 Webpack의 16.5 초 보다 빠르다고함
-
-</br>
-
-### next/imgage 
-- 플랫폼에 맞게 최적화됨
-- `alt` 태그에 대한 접근성 향상
-- native lazy loading 에서 hydration 이 필요치않게 되어 빨라짐
-- 스타일과 구성이 쉬워짐
-- client-side 에서의 자바스크립트가 감소됨
-
-</br> 
-
-### next/font
-- 사용자 설정 폰트를 포함한 폰트 자동 최적화
-- 개인 정보 보호와 성능 향상을 위해 외부 네트워크 요청 삭제
-- 모든 폰트 파일에 대한 자체 호스팅
-- CSS `size-adjust` property 를 통해 자동으로 레이아웃 이동을 없앰
-
-</br>
-
-새로운 폰트 시스템을 통해 __Google 폰트__ 를 편리하게 사용할 수 있음
-- CSS 및 글꼴 파일은 빌드 시 다운로드 되며 자체 호스팅됨. (브라우저에서 google 로 네트워크 요청을 보내지 않음)
-
-</br>
-
-### next/link
-- 기존 `link`
-```
-export default function Page() {
-  return (
-    <Link href="/about">
-      <a>About Us</a>
-    </Link>
-  )
-}
-```
-- 변경 후 
-```
-export default function Page() {
-  return <Link href="/about">About Us</Link>
-}
-```
-
-</br> 
-
-### Middleware API Updates
-- middleware 에서 `rewrite` 혹은 `redirect` 를 사용하지 않고도 직접적으로 응답할 수 있다.
-```
-// middleware.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { isAuthenticated } from '@lib/auth';
-
-// Limit the middleware to paths starting with `/api/`
-export const config = {
-  matcher: '/api/:function*',
-};
-
-export function middleware(request: NextRequest) {
-  // Call our authentication function to check the request
-  if (!isAuthenticated(request)) {
-    // Respond with JSON indicating an error message
-    return NextResponse.json(
-      {
-        success: false,
-        message: 'Auth failed',
-      },
-      {
-        status: 401,
-      },
-    );
-  }
-}
-```
+## Built with
+Next.js / tailwindCss / framer-motion / typescript
