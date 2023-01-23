@@ -43,6 +43,7 @@ export default function Contact() {
                 strokeWidth={1.5}
                 stroke="currentColor"
                 className="w-7 h-7 md:w-10 md:h-10 cursor-pointer"
+                onClick={() => setState("mail")}
               >
                 <path
                   strokeLinecap="round"
