@@ -144,7 +144,7 @@ export default function WorkDetail({ id }: any) {
                   <Link
                     href={
                       id === "Next"
-                        ? "https://carrot-market-4enoiaajg-geon1999.vercel.app/"
+                        ? "https://carrot-market-drab.vercel.app/"
                         : id === "React"
                         ? "https://geon1999.github.io/Netflix-clone/"
                         : id === "Node"
