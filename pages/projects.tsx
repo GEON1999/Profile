@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Contact from "../components/contact";
 import Layout from "../components/layout";
-import { cls } from "../libs/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectDetail from "../components/ProjectDetail";
+import { cls } from "../libs/utils";
+import projectData from "../project.json";
 
 export default function Projects() {
   const [toggleBox, setToggleBox] = useState<
-    "Next" | "React" | "Node" | "Js" | null
+    "DayShare" | "React" | "Node" | "Js" | null
   >(null);
+
   return (
     <div>
       <div>
@@ -30,23 +32,23 @@ export default function Projects() {
           <div className="md:grid md:grid-cols-2 flex flex-col  gap-20">
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="Next"
-              onClick={() => setToggleBox("Next")}
+              layoutId="project-DayShare"
+              onClick={() => setToggleBox("DayShare")}
               className=" space-y-5 w-96 cursor-pointer"
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
                 <div className="relative -top-3 text-center ">
                   <span className="text-xl font-serif bg-white px-3">
-                    Next.js
+                    DayShare
                   </span>
                 </div>
               </div>
               <div className="grid grid-cols-2  items-start  ml-5 gap-5">
                 <span className="">
-                  <h1 className="text-lg ">Typescript</h1>
+                  <h1 className="text-lg">Next.js 14</h1>
                   <p className="text-sm text-gray-500">
-                    to manage error & improve productivity
+                    to make a server side web app
                   </p>
                 </span>
                 <span>
@@ -55,27 +57,31 @@ export default function Projects() {
                     to make responsive web
                   </p>
                 </span>
+                <span>
+                  <h1 className="text-lg">AWS</h1>
+                  <p className="text-sm text-gray-500">to manage DB & server</p>
+                </span>
+                <span>
+                  <h1 className="text-lg">Flutter</h1>
+                  <p className="text-sm text-gray-500">
+                    to make a cross platform mobile app
+                  </p>
+                </span>
+                <span>
+                  <h1 className="text-lg">FastAPI</h1>
+                  <p className="text-sm text-gray-500">
+                    to make a server side API
+                  </p>
+                </span>
                 <span className="">
-                  <h1 className="text-lg">SWR</h1>
-                  <p className="text-sm text-gray-500">to fetch data</p>
-                </span>
-                <span>
-                  <h1 className="text-lg">Planet & Prisma</h1>
-                  <p className="text-sm text-gray-500">to manage DB with SQL</p>
-                </span>
-                <span>
-                  <h1 className="text-lg">IronSession</h1>
-                  <p className="text-sm text-gray-500">to save session</p>
-                </span>
-                <span>
-                  <h1 className="text-lg">Vercel</h1>
-                  <p className="text-sm text-gray-500">to deploy</p>
+                  <h1 className="text-lg ">zustand</h1>
+                  <p className="text-sm text-gray-500">to manage state</p>
                 </span>
               </div>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="React"
+              layoutId="project-React"
               className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("React")}
             >
@@ -116,7 +122,7 @@ export default function Projects() {
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="Node"
+              layoutId="project-Node"
               className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("Node")}
             >
@@ -161,7 +167,7 @@ export default function Projects() {
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="Js"
+              layoutId="project-Js"
               className=" space-y-5 w-96 cursor-pointer "
               onClick={() => setToggleBox("Js")}
             >
@@ -188,19 +194,31 @@ export default function Projects() {
         </div>
         <Contact />
       </div>
-      <div
-        className={cls(
-          "fixed w-full h-full bg-gray-800 bg-opacity-20 top-0 bottom-0 left-0 right-0 ",
-          toggleBox ? "z-40" : "hidden"
-        )}
-        onClick={() => setToggleBox(null)}
-      >
-        {toggleBox !== null ? (
-          <ProjectDetail id={toggleBox ? toggleBox : ""} />
-        ) : (
-          ""
+
+      {/* 숨겨진 이미지 프리로더 (선택적) */}
+      <div className="hidden">
+        {projectData.projects.map((project) =>
+          project.images?.map((imgSrc: string, idx: number) => (
+            <img key={`${project.id}-${idx}`} src={imgSrc} alt="preload" />
+          ))
         )}
       </div>
+
+      <AnimatePresence>
+        {toggleBox !== null && (
+          <div
+            className={cls(
+              "fixed w-full h-full bg-gray-800 bg-opacity-20 top-0 bottom-0 left-0 right-0 z-40"
+            )}
+          >
+            <ProjectDetail
+              id={toggleBox}
+              layoutId={`project-${toggleBox}`}
+              onClose={() => setToggleBox(null)}
+            />
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

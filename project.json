@@ -1,0 +1,90 @@
+{
+  "projects": [
+    {
+      "id": "DayShare",
+      "name": "DayShare",
+      "description": "연인, 동호회, 육아 등 다양한 관계 속에서 함께 일기를 공유할 수 있는 웹",
+      "technologies": [
+        "Next.js",
+        "Tailwind",
+        "AWS",
+        "Flutter",
+        "FastAPI",
+        "zustand",
+        "NextAuth"
+      ],
+      "images": [
+        "/images/dayshare/1.png",
+        "/images/dayshare/2.png",
+        "/images/dayshare/3.png",
+        "/images/dayshare/4.png",
+        "/images/dayshare/5.png"
+      ],
+      "work": [
+        {
+          "title": "실시간 알림 기능 구현",
+          "description": [
+            "실시간 알림 기능을 구현하기 위해 Firebase Cloud Messaging(FCM)을 활용하여 푸시 알림 시스템을 구축하였습니다."
+          ]
+        },
+        {
+          "title": "AI 기반 일기 공감 시스템 개발",
+          "description": [
+            "AI 기반 일기 공감 시스템을 개발하기 위해 감정 분석과 키워드 추출을 통해 맞춤형 AI 답변을 제공하였습니다."
+          ]
+        },
+        {
+          "title": "크로스 플랫폼 모바일 앱 개발",
+          "description": [
+            "웹 기반 서비스의 접근성 한계를 극복하기 위해 Flutter를 활용해 단일 코드베이스로 모바일 앱을 개발 및 배포하였습니다."
+          ]
+        },
+        {
+          "title": "실시간 채팅 시스템 구축",
+          "description": [
+            "실시간 채팅 시스템을 구축하기 위해 FastAPI WebSocket을 활용하여 실시간 양방향 통신 시스템을 구축하였습니다."
+          ]
+        }
+      ],
+
+      "issues": [
+        {
+          "title": "서버 아키텍처 최적화",
+          "description": [
+            "서버 아키텍처 최적화를 위해 Prisma ORM을 통해 직접 데이터베이스 연결 방식으로 인해 복잡한 데이터 요청 시 N+1 쿼리 문제와 서버 부하 발생"
+          ],
+          "solution": ["AWS RDS와 EC2 인스턴스를 활용해 FastAPI 백엔드로 전환"],
+          "result": [
+            "N+1 쿼리 최적화 및 서브쿼리 도입으로 응답 시간 60% 이상 단축"
+          ]
+        },
+        {
+          "title": "토큰 관리 개선",
+          "description": [
+            "Access token 및 Refresh token 유효성 검사가 완료되기 이전에 화면 랜더링이 완료되어서, token이 만료 되었을 때 빈 화면이 노출되는 현상 발생"
+          ],
+          "solution": [
+            "NextAuth 워크플로우 분석 및 토큰 검증 프로세스 재설계",
+            "렌더링 이전 JWT 콜백에서 선제적 토큰 유효성 검증 로직 구현",
+            "세션 객체에 토큰 상태 정보 저장하여 UI 컴포넌트와 동기화"
+          ],
+          "result": [
+            "토큰 만료 시 사용자 경험 개선(빈 화면 → 즉각적인 로그인 페이지 리다이렉트)"
+          ]
+        },
+        {
+          "title": "보안 강화를 위한 토큰 관리 시스템 개선",
+          "description": [
+            "Refresh token의 만료기간이 고정되어 탈취 시 장기간 악용에 대한 우려 발생"
+          ],
+          "solution": [
+            "Refresh Token Rotation(RTR) 패턴 적용으로 토큰 사용 시마다 새로운 토큰 발급"
+          ],
+          "result": ["Refresh token 탈취 위험 감소"]
+        }
+      ],
+      "github": "https://github.com/GEON1999/Day_Share_renew",
+      "website": "https://dayshare.site/"
+    }
+  ]
+}
