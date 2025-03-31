@@ -59,6 +59,16 @@ export default function Layout({ title, children }: LayoutProps) {
                 WORK
               </li>
             </Link>
+            <Link href="/projects">
+              <li
+                className={cls(
+                  `layout-btn cursor-pointer`,
+                  router.asPath === "/projects" ? "font-bold" : ""
+                )}
+              >
+                PROJECTS
+              </li>
+            </Link>
 
             <Link href="/contact">
               <li

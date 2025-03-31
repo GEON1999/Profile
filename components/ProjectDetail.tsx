@@ -20,7 +20,7 @@ const variants = {
   },
 };
 
-export default function WorkDetail({ id }: any) {
+export default function ProjectDetail({ id }: any) {
   const placeholderText = [
     { type: "heading1", text: `${id} Project.` },
     {
