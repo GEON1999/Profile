@@ -20,6 +20,8 @@
         "/images/dayshare/4.png",
         "/images/dayshare/5.png"
       ],
+      "period": "2024.08 ~ 진행중",
+      "role": "Full Stack Developer",
       "work": [
         {
           "title": "실시간 알림 기능 구현",
@@ -85,6 +87,119 @@
       ],
       "github": "https://github.com/GEON1999/Day_Share_renew",
       "website": "https://dayshare.site/"
+    },
+    {
+      "id": "LauncherAdmin",
+      "name": "LauncherAdmin",
+      "description": "새로운 버전의 PC방 런처를 관리하는 웹",
+      "technologies": [
+        "Nextjs14",
+        "Typescript",
+        "NextAuth",
+        "multer",
+        "react-hook-form",
+        "axios",
+        "valtio",
+        "tanstack-query",
+        "tailwindcss"
+      ],
+      "images": ["/images/pcl/1.png", "/images/pcl/2.png"],
+      "period": "2024.05 ~ 2024.09",
+      "role": "Frontend Developer",
+      "work": [
+        {
+          "title": "퍼블리싱 작업",
+          "description": [
+            "Zepplin 디자인 시안을 Tailwind CSS를 활용하여 반응형 웹으로 구현"
+          ]
+        },
+        {
+          "title": "Valtio를 활용한 효율적인 상태 관리",
+          "description": [
+            "PC방 광고 관리 시스템에서 실시간 데이터 일관성이 매출에 직결되기에, Valtio의 프록시 기반 반응형 특성을 활용하여 효율적인 상태 관리 시스템 구현"
+          ]
+        },
+        {
+          "title": "NextAuth를 활용한 인증 시스템 구현",
+          "description": [
+            "NextAuth를 활용하여 소셜 로그인 기능을 구현하고, 로그인 프로세스를 구현"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Battlepod",
+      "name": "Battlepod",
+      "description": "각종 게임을 통해 토너먼트를 개최하고 상품을 제공해주는 서비스",
+      "technologies": [
+        "React",
+        "gsap",
+        "multer",
+        "ngrok",
+        "react-hook-form",
+        "passport",
+        "react-dropzone",
+        "valtio",
+        "axios"
+      ],
+      "images": [
+        "/images/battlepod/1.png",
+        "/images/battlepod/2.png",
+        "/images/battlepod/3.png",
+        "/images/battlepod/4.png"
+      ],
+      "period": "2024.05 ~ 2024.09",
+      "role": "Frontend Developer",
+      "work": [
+        {
+          "title": "기존 프로젝트의 신규 업데이트 및 유지보수 전담",
+          "description": ["기존 프로젝트의 신규 업데이트 및 유지보수 전담"]
+        },
+        {
+          "title": "Passport를 활용한 소셜 로그인 기능 구현",
+          "description": [
+            "Passport의 KakaoStrategy, LocalStrategy를 활용해 모듈화된 인증 시스템 구축 및 확장성 있는 소셜 로그인 기능 구현"
+          ]
+        },
+        {
+          "title": "RSO(Riot Sign On) 연동",
+          "description": [
+            "토너먼트에 가장 큰 비중을 차지하는 League of Legends의 RSO(Riot Sign On) 연동을 통해 사용자 접근성을 극대화"
+          ]
+        },
+        {
+          "title": "드래그 앤 드롭을 통한 파일 업로드 기능 구현",
+          "description": ["React Dropzone을 활용하여 파일 업로드 기능을 구현"]
+        },
+        {
+          "title": "기브어웨이 즉시추첨 기능 구현",
+          "description": [
+            "기존의 응모 시스템과 별도로 즉시추첨 기능을 구현하여 사용자 경험을 개선"
+          ]
+        },
+        {
+          "title": "PC방 전광판 개발",
+          "description": [
+            "특정 IP 주소에서만 접근 가능한 PC방 전광판 페이지를 개발하여 토너먼트 진행 상황을 실시간으로 표시"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Playdonut",
+      "name": "Playdonut",
+      "description": "플레이도넛의 포트폴리오 웹",
+      "technologies": ["Javascript", "HTML", "CSS"],
+      "period": "2023.06 ~ 2024.05",
+      "images": ["/images/playdonut/1.png", "/images/playdonut/2.png"],
+      "role": "Publishing Developer",
+      "work": [
+        {
+          "title": "퍼블리싱 및 유지보수 전담",
+          "description": ["PSD를 통한 퍼블리싱 작업 및 유지보수 전담"]
+        }
+      ],
+      "website": "https://www.playdonut.com/battlepod/"
     }
   ]
 }

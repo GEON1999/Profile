@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Contact from "../components/contact";
 import Layout from "../components/layout";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +8,7 @@ import projectData from "../project.json";
 
 export default function Projects() {
   const [toggleBox, setToggleBox] = useState<
-    "DayShare" | "React" | "Node" | "Js" | null
+    "DayShare" | "LauncherAdmin" | "Battlepod" | "Playdonut" | null
   >(null);
 
   return (
@@ -48,145 +48,171 @@ export default function Projects() {
                 <span className="">
                   <h1 className="text-lg">Next.js 14</h1>
                   <p className="text-sm text-gray-500">
-                    to make a server side web app
+                    Enhanced loading speed with server components
                   </p>
                 </span>
                 <span>
                   <h1 className="text-lg">Tailwind</h1>
                   <p className="text-sm text-gray-500">
-                    to make responsive web
+                    Consistent design with utility classes for faster
+                    development
                   </p>
                 </span>
                 <span>
                   <h1 className="text-lg">AWS</h1>
-                  <p className="text-sm text-gray-500">to manage DB & server</p>
+                  <p className="text-sm text-gray-500">
+                    RDS for database, EC2 for hosting, S3 for file storage
+                  </p>
                 </span>
                 <span>
                   <h1 className="text-lg">Flutter</h1>
                   <p className="text-sm text-gray-500">
-                    to make a cross platform mobile app
+                    Single codebase for iOS/Android development
                   </p>
                 </span>
                 <span>
                   <h1 className="text-lg">FastAPI</h1>
                   <p className="text-sm text-gray-500">
-                    to make a server side API
+                    Async processing with auto documentation
                   </p>
                 </span>
                 <span className="">
                   <h1 className="text-lg ">zustand</h1>
-                  <p className="text-sm text-gray-500">to manage state</p>
+                  <p className="text-sm text-gray-500">
+                    Minimized boilerplate for simpler state management
+                  </p>
                 </span>
               </div>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="project-React"
+              layoutId="project-LauncherAdmin"
               className=" space-y-5 w-96 cursor-pointer "
-              onClick={() => setToggleBox("React")}
+              onClick={() => setToggleBox("LauncherAdmin")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
                 <div className="relative -top-3 text-center ">
                   <span className="text-xl font-serif bg-white px-3">
-                    React.js
+                    Launcher Admin
                   </span>
                 </div>
               </div>
               <div className="grid grid-cols-2  items-start  ml-5 gap-5">
+                <span>
+                  <h1 className="text-lg">Nextjs 14</h1>
+                  <p className="text-sm text-gray-500">
+                    Enhanced loading speed with server components
+                  </p>
+                </span>
                 <span className="">
                   <h1 className="text-lg ">Typescript</h1>
                   <p className="text-sm text-gray-500">
-                    to manage error & improve productivity
-                  </p>
-                </span>
-                <span>
-                  <h1 className="text-lg">Styled-components</h1>
-                  <p className="text-sm text-gray-500">
-                    To make the code light and simple
+                    Type safety to prevent runtime errors and enable
+                    autocomplete
                   </p>
                 </span>
                 <span className="">
-                  <h1 className="text-lg">Framer Motion</h1>
+                  <h1 className="text-lg">tanstack query</h1>
                   <p className="text-sm text-gray-500">
-                    to make a natural animation effect
+                    Optimized data fetching with caching and auto-refetching
                   </p>
                 </span>
                 <span>
-                  <h1 className="text-lg">React Query</h1>
+                  <h1 className="text-lg">valtio</h1>
                   <p className="text-sm text-gray-500">
-                    to handle data and error
+                    Real-time data sync critical for ad management platform
+                  </p>
+                </span>
+                <span>
+                  <h1 className="text-lg">axios</h1>
+                  <p className="text-sm text-gray-500">
+                    Consistent API communication with interceptors
+                  </p>
+                </span>
+                <span>
+                  <h1 className="text-lg">NextAuth</h1>
+                  <p className="text-sm text-gray-500">
+                    Seamless integration with Next.js for streamlined
+                    authentication
                   </p>
                 </span>
               </div>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="project-Node"
+              layoutId="project-Battlepod"
               className=" space-y-5 w-96 cursor-pointer "
-              onClick={() => setToggleBox("Node")}
+              onClick={() => setToggleBox("Battlepod")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
                 <div className="relative -top-3 text-center ">
                   <span className="text-xl font-serif bg-white px-3">
-                    Node.js
+                    Battlepod
                   </span>
                 </div>
               </div>
               <div className="grid grid-cols-2 items-start ml-5 gap-5">
                 <span className="">
-                  <h1 className="text-lg ">Js</h1>
+                  <h1 className="text-lg ">React</h1>
                   <p className="text-sm text-gray-500">
-                    to make web page interactive
+                    Component-based UI for reusability and maintainability
                   </p>
                 </span>
                 <span>
-                  <h1 className="text-lg">MongoDB</h1>
+                  <h1 className="text-lg">gsap</h1>
                   <p className="text-sm text-gray-500">
-                    to handle data without SQL
+                    High-performance animations for smooth user experience
                   </p>
                 </span>
                 <span className="">
-                  <h1 className="text-lg">Pug</h1>
+                  <h1 className="text-lg">ngrok</h1>
                   <p className="text-sm text-gray-500">
-                    to make the HTML code simple
+                    HTTPS and external access in local development
                   </p>
                 </span>
                 <span>
-                  <h1 className="text-lg">Scss</h1>
+                  <h1 className="text-lg">passport</h1>
                   <p className="text-sm text-gray-500">
-                    to reduce amount of lines in its code
+                    Multiple authentication strategies for custom auth logic
                   </p>
-                </span>
-                <span>
-                  <h1 className="text-lg">Heroku</h1>
-                  <p className="text-sm text-gray-500">to deploy</p>
                 </span>
               </div>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1 }}
-              layoutId="project-Js"
+              layoutId="project-Playdonut"
               className=" space-y-5 w-96 cursor-pointer "
-              onClick={() => setToggleBox("Js")}
+              onClick={() => setToggleBox("Playdonut")}
             >
               <div>
                 <div className="absolute border-b border-gray-300 w-96" />
                 <div className="relative -top-3 text-center ">
-                  <span className="text-xl font-serif bg-white px-3">Js</span>
+                  <span className="text-xl font-serif bg-white px-3">
+                    Playdonut
+                  </span>
                 </div>
               </div>
               <div className="grid grid-cols-2  items-start  ml-5 gap-5">
                 <span className="">
+                  <h1 className="text-lg ">Javascript</h1>
+                  <p className="text-sm text-gray-500">
+                    Lightweight solution for rapid development without
+                    frameworks
+                  </p>
+                </span>
+                <span className="">
                   <h1 className="text-lg ">HTML</h1>
                   <p className="text-sm text-gray-500">
-                    to divide elements structurally
+                    Simple markup for quick prototyping and minimal overhead
                   </p>
                 </span>
                 <span>
                   <h1 className="text-lg">CSS</h1>
-                  <p className="text-sm text-gray-500">to mkae website fancy</p>
+                  <p className="text-sm text-gray-500">
+                    Pure styles for efficient rendering and smaller bundle size
+                  </p>
                 </span>
               </div>
             </motion.div>

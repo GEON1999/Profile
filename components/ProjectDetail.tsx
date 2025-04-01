@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import AnimatedText from "./AnimatedText";
-import { Issue, Project, Work } from "../types";
+import { Issue, Work } from "../types";
 import projectData from "../project.json";
 
 interface ProjectDetailProps {
@@ -34,6 +33,8 @@ export default function ProjectDetail({
     issues,
     github,
     website,
+    period,
+    role,
   } = project;
 
   const textBox = {
@@ -45,11 +46,13 @@ export default function ProjectDetail({
   };
 
   const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    setCurrentImageIndex((prev) => (prev + 1) % (images?.length || 0));
   };
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + (images?.length || 0)) % (images?.length || 0)
+    );
   };
 
   return (
@@ -100,8 +103,8 @@ export default function ProjectDetail({
                     src={images[currentImageIndex]}
                     alt={`${name} screenshot`}
                     layout="fill"
-                    objectFit="cover"
                     priority={true}
+                    objectFit="contain"
                   />
                 </div>
 
@@ -156,8 +159,8 @@ export default function ProjectDetail({
                         onClick={() => setCurrentImageIndex(index)}
                         className={`w-2 h-2 rounded-full ${
                           index === currentImageIndex
-                            ? "bg-white"
-                            : "bg-white bg-opacity-50"
+                            ? "bg-gray-700"
+                            : "bg-gray-300"
                         }`}
                       />
                     ))}
@@ -170,10 +173,22 @@ export default function ProjectDetail({
           <div className="flex flex-col space-y-6">
             <motion.div initial="hidden" animate="visible" variants={textBox}>
               <div className="container mb-4 font-serif">
-                <h1 className="text-3xl font-bold">{name}</h1>
+                <div className="flex space-x-4 items-center">
+                  <h1 className="text-3xl font-bold">{name}</h1>
+                  <p className="text-gray-500 font-sans text-sm">
+                    - {period} -
+                  </p>
+                </div>
                 <p className="text-gray-600 font-sans">{description}</p>
               </div>
             </motion.div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-2">role</h3>
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <p className="text-gray-600 font-sans">{role}</p>
+              </div>
+            </div>
 
             <div>
               <h3 className="text-xl font-semibold mb-2">Technologies</h3>
