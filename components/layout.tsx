@@ -37,7 +37,7 @@ export default function Layout({ title, children }: LayoutProps) {
               </div>
             </div>
           </Link>
-          <ul className="flex flex-col justify-center items-end space-x-4 text-base font-thin">
+          <ul className="flex lg:flex-row flex-col justify-center items-end space-x-8 text-base font-thin">
             <Link href="/about">
               <li
                 className={cls(
@@ -55,7 +55,7 @@ export default function Layout({ title, children }: LayoutProps) {
                   router.asPath === "/work" ? "font-bold" : ""
                 )}
               >
-                WORK
+                CAREER
               </li>
             </Link>
             <Link href="/projects">

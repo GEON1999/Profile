@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectDetail from "../components/ProjectDetail";
 import { cls } from "../libs/utils";
-import projectData from "../project.json";
 
 export default function Projects() {
   const [toggleBox, setToggleBox] = useState<
@@ -219,15 +218,6 @@ export default function Projects() {
           </div>
         </div>
         <Contact />
-      </div>
-
-      {/* 숨겨진 이미지 프리로더 (선택적) */}
-      <div className="hidden">
-        {projectData.projects.map((project) =>
-          project.images?.map((imgSrc: string, idx: number) => (
-            <img key={`${project.id}-${idx}`} src={imgSrc} alt="preload" />
-          ))
-        )}
       </div>
 
       <AnimatePresence>
