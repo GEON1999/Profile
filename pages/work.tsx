@@ -25,7 +25,7 @@ export default function Work() {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col gap-10 lg:gap-20 w-full px-4 lg:px-40 mt-4 lg:mt-10">
+        <div className="flex flex-col gap-10 lg:gap-20  px-4 lg:px-40 mt-4 lg:mt-10">
           <div className="flex lg:flex-row flex-col lg:gap-10 gap-3 ">
             <div className="w-28 h-28 lg:w-40 lg:h-40 rounded-full overflow-hidden flex justify-center items-center border border-gray-300 aspect-square">
               <img src="/images/career/playdonut_logo.png" alt="work1" />
