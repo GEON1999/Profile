@@ -175,21 +175,16 @@ export default function ProjectDetail({
               <div className="container mb-4 font-serif">
                 <div className="flex space-x-4 items-center">
                   <h1 className="text-3xl font-bold">{name}</h1>
-                  <p className="text-gray-500 font-sans text-sm">
-                    - {period} -
-                  </p>
+                  {role === "personal" && (
+                    <p className="text-gray-500 font-sans text-sm">
+                      (1人 개인 프로젝트)
+                    </p>
+                  )}
                 </div>
+                <p className="text-gray-500 font-sans text-sm">{period}</p>
                 <p className="text-gray-600 font-sans">{description}</p>
               </div>
             </motion.div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-2">role</h3>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-gray-600 font-sans">{role}</p>
-              </div>
-            </div>
-
             <div>
               <h3 className="text-xl font-semibold mb-2">Technologies</h3>
               <div className="flex flex-wrap gap-2">
