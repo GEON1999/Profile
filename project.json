@@ -152,10 +152,6 @@
       "role": "Frontend Developer",
       "work": [
         {
-          "title": "기존 프로젝트의 신규 업데이트 및 유지보수 전담",
-          "description": ["기존 프로젝트의 신규 업데이트 및 유지보수 전담"]
-        },
-        {
           "title": "Passport를 활용한 소셜 로그인 기능 구현",
           "description": [
             "Passport의 KakaoStrategy, LocalStrategy를 활용해 모듈화된 인증 시스템 구축 및 확장성 있는 소셜 로그인 기능 구현"

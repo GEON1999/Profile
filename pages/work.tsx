@@ -40,14 +40,11 @@ export default function Work() {
 
               <p className="mt-8">프론트엔드 개발</p>
               <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
-                <li>
-                  기존 Trimou 템플릿 엔진 기반의 토너먼트 주최 어드민 웹을
-                  새로운 코드베이스로 이관 및 재구축
-                </li>
+                <li>e스포츠 관련 토너먼트 플랫폼 개발</li>
                 <li>PC방 사용자의 활동을 추적하는 웹 MVP 개발</li>
-
-                <li>PC방 런처의 사내 어드민 웹 개발</li>
+                <li>PC방 런처 어드민 페이지 신규 개발 및 유지보수</li>
                 <li>포트폴리오 웹 퍼블리싱 및 유지보수 전담</li>
+                <li>Code Migration (Trimou → Next.js)</li>
               </ul>
             </div>
           </div>
