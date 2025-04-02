@@ -38,7 +38,7 @@ export default function Layout({ title, children }: LayoutProps) {
             </div>
           </Link>
           <ul className="flex lg:flex-row flex-col justify-center items-end space-x-8 text-base font-thin">
-            <Link href="/about">
+            {/* <Link href="/about">
               <li
                 className={cls(
                   `layout-btn cursor-pointer`,
@@ -47,7 +47,7 @@ export default function Layout({ title, children }: LayoutProps) {
               >
                 ABOUT
               </li>
-            </Link>
+            </Link> */}
             <Link href="/work">
               <li
                 className={cls(
