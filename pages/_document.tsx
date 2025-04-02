@@ -5,9 +5,12 @@ class CustomDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <meta property="og:description" content="About Geon" />
+          <meta
+            property="og:description"
+            content="Geon's Frontend Developer Portfolio"
+          />
           <meta property="author" content="Geon" />
-          <meta property="og:title" content="Resume" />
+          <meta property="og:title" content="Geon's Portfolio" />
           <meta
             property="og:image"
             content="https://imagedelivery.net/xE6X7mlbIExkQau-XHoj-A/b018655f-68ca-4df4-47c6-33d8f6da2600/public"
