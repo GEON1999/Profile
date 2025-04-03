@@ -121,9 +121,7 @@
         },
         {
           "title": "NextAuth를 활용한 인증 시스템 구현",
-          "description": [
-            "NextAuth를 활용하여 소셜 로그인 기능을 구현하고, 로그인 프로세스를 구현"
-          ]
+          "description": ["NextAuth를 활용하여 로그인 프로세스를 구현"]
         }
       ]
     },
