@@ -67,21 +67,21 @@ export default function About() {
   const isInView2 = useInView(ref2, { once: true });
   const isInView3 = useInView(ref3, { once: true });
   return (
-    <section id="about" className="py-24 my-24 bg-gray-50">
+    <section id="about" className="py-24 my-24 bg-gray-50 scroll-mt-24">
       <motion.div>
-        <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl md:mb-20 mb-10 ">
+        <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl md:mb-20 mb-5 ">
           <span className="border-b-2 px-8 py-1  border-black border-opacity-70">
             ABOUT
           </span>
           <div>
             <span className=" text-base px-4 py-1 border-slate-400 text-slate-400">
-              scroll down to read more
+              About real me
             </span>
           </div>
         </div>
         <div className="md:mx-20 mx-4 ">
           <div className="">
-            <div className="space-y-8 mb-32 lg:w-[40vw] flex justify-center lg:justify-start flex-col font-light text-gray-600">
+            <div className="mb-32 lg:w-[40vw] flex justify-center lg:justify-start flex-col font-light text-gray-600">
               <motion.h1
                 ref={ref}
                 variants={titleFadeIn}
@@ -89,37 +89,40 @@ export default function About() {
                 animate={isInView ? "animate" : ""}
                 className="w-[40w] md:text-2xl text-lg font-mono text-black  "
               >
-                Present.
+                Phantom Fear.
               </motion.h1>
               <motion.h2
                 variants={titleFadeIn}
                 initial={"initail"}
                 animate={isInView ? "animate" : ""}
-                className="relative bottom-5 font-medium text-black"
+                className="mt-1 mb-5 font-medium text-black"
               >
-                “현재에 대하여”
+                “공포의 허상”
               </motion.h2>
               <motion.div
-                className="space-y-8"
+                className="space-y-6"
                 variants={textFadeIn}
                 initial={"initail"}
                 animate={isInView ? "animate" : ""}
               >
                 <p>
-                  우리 인간은 현재를 심리적 인지로 2~3초 정도밖에 하지 못한다고
-                  합니다. 2~3초 그 짧은 시간이 지나면 과거가 되는 것이지요.
-                  테세우스의 배와 같이 저의 몸을 구성하는 세포들 또한 계속해서
-                  교체됩니다.
+                  삶을 대하는 태도가 무거워질 때면, 보이지 않는 저편에서
+                  ‘두려움’이라는 이름의 파도가 우리를 덮칠 듯 다가옵니다. 여유가
+                  부족한 순간에는 스스로 만들어낸 공포에 휘둘리며 멈춰 서기도
+                  하지요.
                 </p>
                 <p>
-                  신체적으로도, 정신적으로도 과거의 저와 현재의 저는 같은
-                  사람이라고 단언하기 쉽지 않죠. 그렇기에 저는 이 찰나의 순간인
-                  '현재'의 중요성을 매번 되뇌입니다.
+                  저 또한 두려움과 후회의 늪에 빠져, 아무것도 할 수 없다는
+                  주문을 스스로에게 걸며 한동안 주저앉아 있었습니다.
                 </p>
-                <p>현재를 알아차리고, 온전히 만끽하기 위해 노력합니다.</p>
+                <p>
+                  그러다 문득 ‘두려움은 허상일 뿐’이고, 우리는 그저 찰나의
+                  순간을 지나가고 있다는 사실을 깨달았습니다. 그 순간 저는
+                  자유로움을 느꼈습니다.
+                </p>
               </motion.div>
             </div>
-            <div className="space-y-8 flex flex-col lg:items-end font-light text-gray-600 mb-32">
+            <div className="flex flex-col lg:items-end font-light text-gray-600 mb-32">
               <motion.h1
                 className="lg:w-[40w] md:text-2xl text-lg font-mono text-black"
                 ref={ref2}
@@ -127,41 +130,49 @@ export default function About() {
                 initial={"initail"}
                 animate={isInView2 ? "animate" : ""}
               >
-                MindControl.
+                Awareness.
               </motion.h1>
               <motion.h2
                 variants={titleFadeIn2}
                 initial={"initail"}
                 animate={isInView2 ? "animate" : ""}
-                className="relative bottom-5 font-medium text-black"
+                className="mt-1 mb-5 font-medium text-black"
               >
-                “두려움에 대하여”
+                “알아차림”
               </motion.h2>
               <motion.div
-                className="space-y-8 flex flex-col items-end"
+                className="space-y-6 flex flex-col items-end"
                 variants={textFadeIn2}
                 initial={"initail"}
                 animate={isInView2 ? "animate" : ""}
               >
                 <p className="lg:w-[40vw]">
-                  삶을 대하는 태도가 심각해 질 때면 보이지 않는 곳 저편에서
-                  두려움들이 스멀스멀 올라오기 시작합니다.
+                  심리학자들은 우리가 현재를 겨우 2~3초만 인지할 수 있다고
+                  말합니다. 그 짧고도 짧은 시간이 지나면 심리적으로는 과거가
+                  되어버리는 것이지요. 테세우스의 배처럼 우리 몸을 이루는 세포도
+                  끊임없이 교체되기에, ‘지난 나’가 진정한 ‘나’인지도 확신할 수
+                  없습니다. 결국 확신할 수 있는 것은 이 순간, 이 찰나뿐 일지도
+                  모르겠습니다.
                 </p>
                 {/* <p className="lg:w-[40vw]">
                   첫걸음은 &#39;필리핀 유학&#39;이었습니다.
                 </p> */}
                 <p className="lg:w-[40vw]">
-                  그럴 때마다 저는 이 모든 것이 찰나를 지나는 중일 뿐이라는 것을
-                  되뇌입니다. 아주 찰나의 순간을 지나가는 중이라는 것을 인지하는
-                  것만으로 자유로워지는 듯 합니다.
+                  그래서 저는 이 찰나를, 아주 잠깐의 현재를 온전히 살아가는 대에
+                  집중하고자 노력했습니다. 매일 절반 이상을 보내는 직장을 단순한
+                  수입수단으로만 여기지 않고, 진심으로 좋아하는 일을 하기로
+                  결심했습니다.
                 </p>
                 <p className="lg:w-[40vw]">
-                  자유를, 지금을 온전히 만끽하고자 삶을 살고자 하는 저는
-                  자연스럽게, 제가 하고싶은 걸 해야겠다는 다짐을 하게되었습니다.
+                  독서와 글쓰기를 즐기며, 눈에 보이는 기록과 성과에서 만족을
+                  얻는 제게 프론트엔드 개발은 가장 자연스러운 선택이었습니다.
+                  독학으로 시작해 회사에서 실제 프로젝트를 경험하면서, 개발이
+                  제게 단순한 생계 수단을 넘어 ‘자아를 실현하는 창구’임을
+                  확신하게 되었습니다.
                 </p>
               </motion.div>
             </div>
-            <div className="space-y-8  lg:w-[40vw] flex justify-center lg:justify-start flex-col font-light text-gray-600">
+            <div className="lg:w-[40vw] flex justify-center lg:justify-start flex-col font-light text-gray-600">
               <motion.h1
                 ref={ref3}
                 variants={titleFadeIn}
@@ -169,36 +180,33 @@ export default function About() {
                 animate={isInView3 ? "animate" : ""}
                 className="w-[40w] md:text-2xl text-lg font-mono text-black"
               >
-                Programming.
+                Breakthrough.
               </motion.h1>
               <motion.h2
-                className="relative bottom-5 font-medium text-black"
+                className="mt-1 mb-4 font-medium text-black"
                 variants={titleFadeIn}
                 initial={"initail"}
                 animate={isInView3 ? "animate" : ""}
               >
-                “나에게 개발이란”
+                “도약”
               </motion.h2>
               <motion.div
-                className="space-y-8"
+                className="space-y-6"
                 variants={textFadeIn}
                 initial={"initail"}
                 animate={isInView3 ? "animate" : ""}
               >
                 <p>
-                  그것이 저에게는 개발이었습니다. 읽기를 좋아하고 눈에 보이는
-                  기록과 흔적 남기기를 좋아하는 성향의 저에겐 개발이 흥미로웠고,
-                  운영 회사를 다니면서 독학을 하였습니다.
-                </p>
-                <p>저는 그래서 프로그래밍이 좋았습니다.</p>
-                <p>
-                  이후 제가 작성한 코드를 통해 프로젝트를 만들고, 개발 회사에
-                  입사해서 제가 만들고 업데이트한 서비스가 사용자들에게 닿았을
-                  땐 큰 쾌감을 느꼈습니다.
+                  이제 저는 더 뛰어난 개발자가 되고자 합니다. 아직 부족한
+                  알고리즘과 컴퓨터 과학 기초 지식을 꾸준히 쌓아, 전체 흐름을
+                  이해하고 선택의 이유를 명확히 설명할 수 있는 역량을 갖추려
+                  노력 중입니다.
                 </p>
                 <p>
-                  저는 여전히 개발이 재미있고, 배움에 열정적입니다. 이 마음을
-                  간직하며 계속해서 더 좋은 코드를, 서비스를 만들어나가겠습니다.
+                  끊임없이 배우고 유연한 자세로 수용하며, 팀과 사용자에게
+                  편안함을 주는 코드를 손수 만들어가겠습니다. 앞으로 함께할
+                  여정에서도 이 열정을 잃지 않고, 팀에 활기를 불어넣는 사람이
+                  되겠습니다.
                 </p>
               </motion.div>
             </div>
