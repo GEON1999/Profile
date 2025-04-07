@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Contact() {
   const [state, setState] = useState<"initial" | "github" | "mail">("initial");
   return (
-    <section id="contact" className="py-20 my-20">
-      <div className="felx justify-center text-center font-serif text-5xl flex-col mb-40">
+    <section id="contact" className="my-24">
+      <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl flex-col mb-40">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
             CONTACT

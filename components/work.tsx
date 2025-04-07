@@ -1,7 +1,7 @@
 export default function Work() {
   return (
-    <section id="career" className="py-20 my-20">
-      <div className="felx justify-center text-center font-serif text-5xl mb-10 flex-col">
+    <section id="career" className="my-24">
+      <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl mb-10 flex-col">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
             CAREER
