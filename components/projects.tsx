@@ -9,8 +9,8 @@ export default function Projects() {
   >(null);
 
   return (
-    <section id="projects" className="py-24 my-24 bg-gray-50">
-      <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl mb-10 flex-col">
+    <section id="projects" className="py-24 my-24 bg-gray-50 scroll-mt-24">
+      <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl mb-5 flex-col">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
             PROJECTS
