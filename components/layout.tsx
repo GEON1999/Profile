@@ -13,7 +13,13 @@ export default function Layout({ title, children }: LayoutProps) {
     <div className="bg-transparent">
       <nav className=" md:text-xl md:pt-7 font-bold fixed w-[100%] z-10 bg-white pb-4">
         <div className="flex justify-between md:mx-20 mx-4 mt-5 md:mt-0">
-          <Link href="/">
+          <a
+            onClick={() => {
+              document.getElementById("home")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
             <div className="group flex space-x-3 justify-center items-end">
               <div className="flex flex-col cursor-pointer">
                 <span className="text-5xl font-thin flex items-end text-gray-700  -space-x-4">
@@ -36,19 +42,24 @@ export default function Layout({ title, children }: LayoutProps) {
                 <p>to Begin</p>
               </div>
             </div>
-          </Link>
+          </a>
           <ul className="flex lg:flex-row flex-col justify-center items-end space-x-8 text-base font-thin">
-            {/* <Link href="/about">
-              <li
-                className={cls(
-                  `layout-btn cursor-pointer`,
-                  router.asPath === "/about" ? "font-bold" : ""
-                )}
-              >
-                ABOUT
-              </li>
-            </Link> */}
-            <Link href="/work">
+            <a
+              onClick={() => {
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              <li className={cls(`layout-btn cursor-pointer`)}>ABOUT</li>
+            </a>
+            <a
+              onClick={() => {
+                document
+                  .getElementById("career")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <li
                 className={cls(
                   `layout-btn cursor-pointer`,
@@ -57,8 +68,14 @@ export default function Layout({ title, children }: LayoutProps) {
               >
                 CAREER
               </li>
-            </Link>
-            <Link href="/projects">
+            </a>
+            <a
+              onClick={() => {
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <li
                 className={cls(
                   `layout-btn cursor-pointer`,
@@ -67,9 +84,15 @@ export default function Layout({ title, children }: LayoutProps) {
               >
                 PROJECTS
               </li>
-            </Link>
+            </a>
 
-            <Link href="/contact">
+            <a
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <li
                 className={cls(
                   `layout-btn cursor-pointer`,
@@ -78,7 +101,7 @@ export default function Layout({ title, children }: LayoutProps) {
               >
                 CONTACT
               </li>
-            </Link>
+            </a>
           </ul>
         </div>
       </nav>
