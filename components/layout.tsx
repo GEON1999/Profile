@@ -60,14 +60,7 @@ export default function Layout({ title, children }: LayoutProps) {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <li
-                className={cls(
-                  `layout-btn cursor-pointer`,
-                  router.asPath === "/work" ? "font-bold" : ""
-                )}
-              >
-                CAREER
-              </li>
+              <li className={cls(`layout-btn cursor-pointer`)}>CAREER</li>
             </a>
             <a
               onClick={() => {
@@ -76,14 +69,7 @@ export default function Layout({ title, children }: LayoutProps) {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <li
-                className={cls(
-                  `layout-btn cursor-pointer`,
-                  router.asPath === "/projects" ? "font-bold" : ""
-                )}
-              >
-                PROJECTS
-              </li>
+              <li className={cls(`layout-btn cursor-pointer`)}>PROJECTS</li>
             </a>
 
             <a
@@ -93,14 +79,7 @@ export default function Layout({ title, children }: LayoutProps) {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <li
-                className={cls(
-                  `layout-btn cursor-pointer`,
-                  router.asPath === "/contact" ? "font-bold" : ""
-                )}
-              >
-                CONTACT
-              </li>
+              <li className={cls(`layout-btn cursor-pointer`)}>CONTACT</li>
             </a>
           </ul>
         </div>
