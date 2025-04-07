@@ -68,7 +68,7 @@ export default function About() {
   const isInView3 = useInView(ref3, { once: true });
   return (
     <section id="about">
-      <motion.div className="pt-40">
+      <motion.div className="py-20 my-20 bg-gray-50">
         <div className="felx justify-center text-center font-serif text-5xl md:mb-20 mb-10 ">
           <span className="border-b-2 px-8 py-1  border-black border-opacity-70">
             ABOUT

@@ -9,8 +9,8 @@ export default function Projects() {
   >(null);
 
   return (
-    <section id="projects">
-      <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
+    <section id="projects" className="py-20 my-20 bg-gray-50">
+      <div className="felx justify-center text-center font-serif text-5xl mb-10 flex-col">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
             PROJECTS
@@ -34,7 +34,7 @@ export default function Projects() {
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
-                <span className="text-xl font-serif bg-white px-3">
+                <span className="text-xl font-serif bg-gray-50 px-3">
                   DayShare
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function Projects() {
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
-                <span className="text-xl font-serif bg-white px-3">
+                <span className="text-xl font-serif bg-gray-50 px-3">
                   Launcher Admin
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default function Projects() {
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
-                <span className="text-xl font-serif bg-white px-3">
+                <span className="text-xl font-serif bg-gray-50 px-3">
                   Battlepod
                 </span>
               </div>
@@ -182,7 +182,7 @@ export default function Projects() {
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
-                <span className="text-xl font-serif bg-white px-3">
+                <span className="text-xl font-serif bg-gray-50 px-3">
                   Playdonut
                 </span>
               </div>

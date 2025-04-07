@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <section id="home" className="text-center relative   ">
+    <section id="home" className="text-center relative pt-36 lg:py-20">
       <div className="text-[25vw] font-extrabold text-transparent  bg-clip-text md:bg-[url('../imgs/sea.gif')] bg-[url('../imgs/dark.gif')]  flex flex-col">
         <span>GEON</span>
       </div>

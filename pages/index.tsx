@@ -7,12 +7,13 @@ import Home from "../components/home";
 export default function Index() {
   return (
     <div>
-      <Layout />
-      <Home />
-      <About />
-      <Work />
-      <Projects />
-      <Contact />
+      <Layout>
+        <Home />
+        <About />
+        <Work />
+        <Projects />
+        <Contact />
+      </Layout>
     </div>
   );
 }

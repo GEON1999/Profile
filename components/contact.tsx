@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Contact() {
   const [state, setState] = useState<"initial" | "github" | "mail">("initial");
   return (
-    <section id="contact">
-      <div className="felx justify-center text-center font-serif text-5xl mb-10 pt-40 flex-col">
+    <section id="contact" className="py-20 my-20">
+      <div className="felx justify-center text-center font-serif text-5xl flex-col mb-40">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
             CONTACT
@@ -49,46 +49,6 @@ export default function Contact() {
                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
               />
             </svg>
-          </a>
-        </Link>
-      </div>
-      <div className="w-full h-64 xl:h-[26rem] bg-slate-200 bg-opacity-20 mt-10 flex justify-center items-center text-center">
-        <span className="text-xl opacity-60 font-serif">
-          {state === "initial"
-            ? "Click Icon"
-            : state === "github"
-            ? "https://github.com/GEON1999"
-            : state === "mail"
-            ? "phgst12@gmail.com"
-            : ""}
-        </span>
-      </div>
-      <div className="flex justify-center text-center items-center flex-col mt-10 lg:mt-14 mb-10">
-        <p className="font-mono">How was this website? </p>
-        <p className="font-mono text-slate-400 text-sm">
-          if you don&#39;t mind, please take part in the survey
-        </p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6  animate-bounce text-slate-600 my-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <Link href="https://forms.gle/vtpBJ4M19RguGBW27">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-2 px-3 rounded-full bg-white border-black border text-sm hover:bg-black hover:text-white hover:ease-out duration-1000"
-          >
-            PARTAKE
           </a>
         </Link>
       </div>
