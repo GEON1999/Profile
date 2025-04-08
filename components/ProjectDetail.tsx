@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Issue, Work } from "../types";
 import projectData from "../project.json";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 interface ProjectDetailProps {
   id: string;
@@ -17,6 +20,7 @@ export default function ProjectDetail({
   onClose,
 }: ProjectDetailProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const project = projectData.projects.find(
     (p) => p.id === id || p.name === id
@@ -53,6 +57,70 @@ export default function ProjectDetail({
     setCurrentImageIndex(
       (prev) => (prev - 1 + (images?.length || 0)) % (images?.length || 0)
     );
+  };
+
+  const NextArrow = (props: any) => (
+    <button
+      {...props}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 z-10 text-white transition-all"
+      onClick={props.onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </button>
+  );
+
+  const PrevArrow = (props: any) => (
+    <button
+      {...props}
+      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 z-10 text-white transition-all"
+      onClick={props.onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"
+        />
+      </svg>
+    </button>
+  );
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (_: any, next: number) => setCurrentImageIndex(next),
+    customPaging: (i: number) => (
+      <div
+        className={`w-3 h-3 mx-1 rounded-full ${
+          i === currentImageIndex ? "bg-gray-700" : "bg-gray-300"
+        }`}
+      />
+    ),
   };
 
   return (
@@ -98,74 +166,31 @@ export default function ProjectDetail({
           <div className="relative aspect-video border border-gray-200 rounded overflow-hidden shadow-lg">
             {images && images.length > 0 && (
               <>
-                <div className="w-full h-full relative">
-                  <Image
-                    src={images[currentImageIndex]}
-                    alt={`${name} screenshot`}
-                    layout="fill"
-                    priority={true}
-                    objectFit="contain"
-                  />
+                {imageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-500"></div>
+                  </div>
+                )}
+                <Slider {...sliderSettings}>
+                  {images.map((img, idx) => (
+                    <div key={idx} className="outline-none">
+                      <div className="relative aspect-video">
+                        <Image
+                          src={img}
+                          alt={`${name} screenshot ${idx}`}
+                          layout="fill"
+                          objectFit="contain"
+                          priority={idx === 0}
+                          onLoadingComplete={() => setImageLoading(false)}
+                          onLoad={() => setImageLoading(false)}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </Slider>
+                <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm z-10">
+                  {currentImageIndex + 1} / {images.length}
                 </div>
-
-                {images.length > 1 && (
-                  <div className="absolute inset-0 flex justify-between items-center">
-                    <button
-                      onClick={handlePrevImage}
-                      className="bg-black bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 m-2 text-white transition-all"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15.75 19.5L8.25 12l7.5-7.5"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={handleNextImage}
-                      className="bg-black bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 m-2 text-white transition-all"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                )}
-
-                {images.length > 1 && (
-                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                    {images.map((_: string, index: number) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-2 h-2 rounded-full ${
-                          index === currentImageIndex
-                            ? "bg-gray-700"
-                            : "bg-gray-300"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                )}
               </>
             )}
           </div>
