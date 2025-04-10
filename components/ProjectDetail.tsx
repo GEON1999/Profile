@@ -7,6 +7,7 @@ import projectData from "../project.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+// @ts-ignore - 리액트 슬라이더 타입 문제 해결
 
 interface ProjectDetailProps {
   id: string;
@@ -20,6 +21,7 @@ export default function ProjectDetail({
   onClose,
 }: ProjectDetailProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
 
   const project = projectData.projects.find(
     (p) => p.id === id || p.name === id
@@ -112,6 +114,20 @@ export default function ProjectDetail({
     ),
   };
 
+  useEffect(() => {
+    if (project?.images) {
+      setImagesLoaded(new Array(project.images.length).fill(false));
+    }
+  }, [project]);
+
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded((prev) => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
+
   return (
     <div
       className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-20"
@@ -155,10 +171,16 @@ export default function ProjectDetail({
           <div className="relative aspect-video border border-gray-200 rounded overflow-hidden shadow-lg">
             {images && images.length > 0 && (
               <>
+                {/* @ts-ignore */}
                 <Slider {...sliderSettings}>
                   {images.map((img, idx) => (
                     <div key={idx} className="outline-none">
                       <div className="relative aspect-video">
+                        {!imagesLoaded[idx] && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                            <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
+                          </div>
+                        )}
                         <Image
                           src={img}
                           alt={`${name} screenshot ${idx}`}
@@ -166,6 +188,8 @@ export default function ProjectDetail({
                           objectFit="contain"
                           priority={idx === 0}
                           quality={100}
+                          onLoadingComplete={() => handleImageLoad(idx)}
+                          style={{ opacity: imagesLoaded[idx] ? 1 : 0 }}
                         />
                       </div>
                     </div>
