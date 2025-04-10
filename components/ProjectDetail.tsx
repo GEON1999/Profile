@@ -20,7 +20,6 @@ export default function ProjectDetail({
   onClose,
 }: ProjectDetailProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageLoading, setImageLoading] = useState(true);
 
   const project = projectData.projects.find(
     (p) => p.id === id || p.name === id
@@ -47,16 +46,6 @@ export default function ProjectDetail({
         staggerChildren: 0.025,
       },
     },
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % (images?.length || 0));
-  };
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + (images?.length || 0)) % (images?.length || 0)
-    );
   };
 
   const NextArrow = (props: any) => (
@@ -166,11 +155,6 @@ export default function ProjectDetail({
           <div className="relative aspect-video border border-gray-200 rounded overflow-hidden shadow-lg">
             {images && images.length > 0 && (
               <>
-                {imageLoading && (
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-500"></div>
-                  </div>
-                )}
                 <Slider {...sliderSettings}>
                   {images.map((img, idx) => (
                     <div key={idx} className="outline-none">
@@ -181,8 +165,7 @@ export default function ProjectDetail({
                           layout="fill"
                           objectFit="contain"
                           priority={idx === 0}
-                          onLoadingComplete={() => setImageLoading(false)}
-                          onLoad={() => setImageLoading(false)}
+                          quality={100}
                         />
                       </div>
                     </div>

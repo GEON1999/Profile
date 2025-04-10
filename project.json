@@ -190,20 +190,57 @@
       ]
     },
     {
-      "id": "Playdonut",
-      "name": "Playdonut",
-      "description": "플레이도넛의 포트폴리오 웹",
-      "technologies": ["Javascript", "HTML", "CSS"],
-      "period": "2023.06 ~ 2024.05",
-      "images": ["/images/playdonut/1.png", "/images/playdonut/2.png"],
-      "role": "Publishing Developer",
+      "id": "Battlepod-Admin",
+      "name": "Battlepod Admin",
+      "description": "토너먼트 대회 및 이벤트 관리를 위한 어드민 페이지",
+      "technologies": [
+        "Nextjs12",
+        "Typescript",
+        "tanstack-query",
+        "passport",
+        "mui"
+      ],
+      "period": "2023.04 ~ 2023.08",
+      "images": [
+        "/images/battlepod-admin/1.JPG",
+        "/images/battlepod-admin/2.JPG",
+        "/images/battlepod-admin/3.JPG",
+        "/images/battlepod-admin/4.JPG",
+        "/images/battlepod-admin/5.JPG",
+        "/images/battlepod-admin/6.JPG",
+        "/images/battlepod-admin/7.JPG",
+        "/images/battlepod-admin/8.JPG",
+        "/images/battlepod-admin/9.JPG",
+        "/images/battlepod-admin/10.JPG",
+        "/images/battlepod-admin/11.JPG",
+        "/images/battlepod-admin/12.JPG",
+        "/images/battlepod-admin/13.JPG"
+      ],
+      "role": "Frontend Developer",
       "work": [
         {
-          "title": "퍼블리싱 및 유지보수 전담",
-          "description": ["PSD를 통한 퍼블리싱 작업 및 유지보수 전담"]
+          "title": "이슈 관리",
+          "description": [
+            "JIRA를 활용한 체계적 QA 이슈 관리로 버그 해결 프로세스 효율화"
+          ]
+        },
+        {
+          "title": "데이터 상태 관리",
+          "description": ["TanStack Query 도입으로 데이터 상태 관리 향상"]
         }
       ],
-      "website": "https://www.playdonut.com/battlepod/"
+      "issues": [
+        {
+          "title": "코드 마이그레이션",
+          "description": [
+            "Trimou 엔진 기반 레거시 어드민 시스템의 유지보수 복잡성 및 확장성 제한"
+          ],
+          "solution": [
+            "Trimou 템플릿 엔진에서 Next.js 12 프레임워크로 전체 코드 마이그레이션"
+          ],
+          "result": ["코드 유지보수 효율성 및 기능 확장성 대폭 향상"]
+        }
+      ]
     }
   ]
 }

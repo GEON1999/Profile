@@ -5,7 +5,7 @@ import { cls } from "../libs/utils";
 
 export default function Projects() {
   const [toggleBox, setToggleBox] = useState<
-    "DayShare" | "LauncherAdmin" | "Battlepod" | "Playdonut" | null
+    "DayShare" | "LauncherAdmin" | "Battlepod" | "Battlepod-Admin" | null
   >(null);
 
   return (
@@ -175,35 +175,41 @@ export default function Projects() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1 }}
-            layoutId="project-Playdonut"
+            layoutId="project-Battlepod-Admin"
             className=" space-y-5 w-96 cursor-pointer "
-            onClick={() => setToggleBox("Playdonut")}
+            onClick={() => setToggleBox("Battlepod-Admin")}
           >
             <div>
               <div className="absolute border-b border-gray-300 w-96" />
               <div className="relative -top-3 text-center ">
                 <span className="text-xl font-serif bg-gray-50 px-3">
-                  Playdonut
+                  Battlepod Admin
                 </span>
               </div>
             </div>
             <div className="grid grid-cols-2  items-start  ml-5 gap-5">
               <span className="">
-                <h1 className="text-lg ">Javascript</h1>
+                <h1 className="text-lg ">Nextjs12</h1>
                 <p className="text-sm text-gray-500">
-                  Lightweight solution for rapid development without frameworks
+                  Enhanced loading speed with server components
                 </p>
               </span>
               <span className="">
-                <h1 className="text-lg ">HTML</h1>
+                <h1 className="text-lg ">Typescript</h1>
                 <p className="text-sm text-gray-500">
-                  Simple markup for quick prototyping and minimal overhead
+                  Type safety to prevent runtime errors and enable autocomplete
                 </p>
               </span>
               <span>
-                <h1 className="text-lg">CSS</h1>
+                <h1 className="text-lg">MUI</h1>
                 <p className="text-sm text-gray-500">
-                  Pure styles for efficient rendering and smaller bundle size
+                  Consistent design with utility classes for faster development
+                </p>
+              </span>
+              <span>
+                <h1 className="text-lg">passport</h1>
+                <p className="text-sm text-gray-500">
+                  Local authentication for secure user management
                 </p>
               </span>
             </div>
