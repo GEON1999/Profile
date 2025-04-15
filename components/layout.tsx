@@ -20,26 +20,26 @@ export default function Layout({ title, children }: LayoutProps) {
               });
             }}
           >
-            <div className="group flex space-x-3 justify-center items-end">
+            <div className="group flex space-x-3 justify-center items-center">
               <div className="flex flex-col cursor-pointer">
                 <span className="text-5xl font-thin flex items-end text-gray-700  -space-x-4">
                   <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
-                    H
+                    G
+                  </p>
+                  <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                    E
                   </p>
                   <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
                     O
                   </p>
                   <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
-                    M
-                  </p>
-                  <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
-                    E
+                    N
                   </p>
                 </span>
               </div>
               <div className="flex flex-col font-thin items-start text-sm">
-                <p>Ready </p>
-                <p>to Begin</p>
+                <p>Build </p>
+                <p>Together</p>
               </div>
             </div>
           </a>
