@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 my-24 bg-gray-50 scroll-mt-24">
+    <section id="about" className="py-24 my-24 bg-[#F9FAFB] scroll-mt-24">
       <div>
         <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl md:mb-[105px] mb-5 ">
           <span className="border-b-2 px-8 py-1  border-black border-opacity-70">

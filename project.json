@@ -25,27 +25,19 @@
       "work": [
         {
           "title": "실시간 알림 기능 구현",
-          "description": [
-            "실시간 알림 기능을 구현하기 위해 Firebase Cloud Messaging(FCM)을 활용하여 푸시 알림 시스템을 구축하였습니다."
-          ]
+          "description": ["FCM을 활용해 푸시 알림 시스템 구축"]
         },
         {
           "title": "AI 기반 일기 공감 시스템 개발",
-          "description": [
-            "AI 기반 일기 공감 시스템을 개발하기 위해 감정 분석과 키워드 추출을 통해 맞춤형 AI 답변을 제공하였습니다."
-          ]
+          "description": ["감정 분석과 키워드 추출로 AI 맞춤 답변 제공"]
         },
         {
           "title": "크로스 플랫폼 모바일 앱 개발",
-          "description": [
-            "웹 기반 서비스의 접근성 한계를 극복하기 위해 Flutter를 활용해 단일 코드베이스로 모바일 앱을 개발 및 배포하였습니다."
-          ]
+          "description": ["Flutter로 단일 코드베이스 모바일 앱 개발"]
         },
         {
           "title": "실시간 채팅 시스템 구축",
-          "description": [
-            "실시간 채팅 시스템을 구축하기 위해 FastAPI WebSocket을 활용하여 실시간 양방향 통신 시스템을 구축하였습니다."
-          ]
+          "description": ["FastAPI WebSocket으로 실시간 양방향 통신 구현"]
         }
       ],
 
@@ -109,19 +101,15 @@
       "work": [
         {
           "title": "퍼블리싱 작업",
-          "description": [
-            "Zepplin 디자인 시안을 Tailwind CSS를 활용하여 반응형 웹으로 구현"
-          ]
+          "description": ["Tailwind CSS로 Zepplin 시안 반응형 웹 퍼블리싱"]
         },
         {
           "title": "Valtio를 활용한 효율적인 상태 관리",
-          "description": [
-            "PC방 광고 관리 시스템의 실시간 데이터 동기화 요구사항에 따라, Valtio의 프록시 기반 자동 상태 추적 기능을 활용해 상태 변경 시 UI 자동 갱신 시스템을 구현"
-          ]
+          "description": ["Valtio로 실시간 동기화 상태 관리 구현"]
         },
         {
           "title": "NextAuth를 활용한 인증 시스템 구현",
-          "description": ["NextAuth를 활용하여 로그인 프로세스를 구현"]
+          "description": ["NextAuth로 로그인 인증 시스템 구현"]
         }
       ],
       "issues": [
@@ -161,31 +149,23 @@
       "work": [
         {
           "title": "Passport를 활용한 소셜 로그인 기능 구현",
-          "description": [
-            "Passport의 KakaoStrategy, LocalStrategy를 활용해 모듈화된 인증 시스템 구축 및 확장성 있는 소셜 로그인 기능 구현"
-          ]
+          "description": ["카카오·로컬 소셜 로그인 기능 구현"]
         },
         {
           "title": "RSO(Riot Sign On) 연동",
-          "description": [
-            "토너먼트에 가장 큰 비중을 차지하는 League of Legends의 RSO(Riot Sign On) 연동을 통해 사용자 접근성을 극대화"
-          ]
+          "description": ["Valtio로 실시간 동기화 상태 관리 구현"]
         },
         {
           "title": "드래그 앤 드롭을 통한 파일 업로드 기능 구현",
-          "description": ["React Dropzone을 활용하여 파일 업로드 기능을 구현"]
+          "description": ["React Dropzone으로 파일 업로드 구현"]
         },
         {
           "title": "기브어웨이 즉시추첨 기능 구현",
-          "description": [
-            "기존의 응모 시스템과 별도로 즉시추첨 기능을 구현하여 사용자 경험을 개선"
-          ]
+          "description": ["즉시추첨 기능으로 기브어웨이 UX 개선"]
         },
         {
           "title": "PC방 전광판 개발",
-          "description": [
-            "특정 IP 주소에서만 접근 가능한 PC방 전광판 페이지를 개발하여 토너먼트 진행 상황을 실시간으로 표시"
-          ]
+          "description": ["PC방 전용 전광판 페이지 개발 및 실시간 표시"]
         }
       ]
     },
@@ -221,12 +201,12 @@
         {
           "title": "이슈 관리",
           "description": [
-            "JIRA를 활용한 체계적 QA 이슈 관리로 버그 해결 프로세스 효율화"
+            "JIRA를 활용한 체계적 QA 이슈 관리로 버그 해결 프로세스 효율화"
           ]
         },
         {
           "title": "데이터 상태 관리",
-          "description": ["TanStack Query 도입으로 데이터 상태 관리 향상"]
+          "description": ["TanStack Query 도입으로 데이터 상태 관리 향상"]
         }
       ],
       "issues": [
