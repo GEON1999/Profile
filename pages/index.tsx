@@ -9,10 +9,12 @@ export default function Index() {
     <div>
       <Layout>
         <Home />
-        <About />
-        <Work />
-        <Projects />
-        <Contact />
+        <div className="bg-[#F9FAFB]">
+          <About />
+          <Work />
+          <Projects />
+          <Contact />
+        </div>
       </Layout>
     </div>
   );

@@ -3,7 +3,7 @@ import projectData from "../project.json";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 my-24 bg-[#F9FAFB] scroll-mt-24">
+    <section id="projects" className="py-40 my-24 bg-[#F9FAFB] scroll-mt-24">
       <div className="felx justify-center text-center font-serif text-4xl lg:text-5xl mb-12 xl:mb-[90px] flex-col">
         <div>
           <span className="border-b-2 border-black border-opacity-70 px-8 py-1 ">
