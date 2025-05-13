@@ -14,7 +14,7 @@ interface ProjectDetailProps {
 export default function ProjectDetail({ id }: ProjectDetailProps) {
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
   const [activeTab, setActiveTab] = useState<
-    "challenges" | "solutions" | "result"
+    "challenges" | "tech" | "solutions" | "result"
   >("challenges");
 
   const project = projectData.projects.find(
@@ -121,6 +121,37 @@ export default function ProjectDetail({ id }: ProjectDetailProps) {
           <div className="text-[15px] bg-white rounded-lg px-4 py-2 shadow-md">
             <h4 className="font-bold">{issue.title}</h4>
             <p className="text-[13px]">{issue.description[0]}</p>
+            <ul className="list-disc list-inside text-[13px] ">
+              {issue.description.map((desc: string, idx: number) => {
+                if (idx === 0) {
+                  return null;
+                }
+                return <li key={idx}>{desc}</li>;
+              })}
+            </ul>
+          </div>
+        );
+      case "tech":
+        console.log("tech", issue.tech);
+        return (
+          <div className="text-[15px] bg-white rounded-lg px-4 py-2 shadow-md">
+            <h4 className="font-bold">{issue.title}</h4>
+            <div>
+              {(issue.tech || []).map(
+                (tech: [string, string[]], idx: number) => {
+                  return (
+                    <div key={idx}>
+                      <p>{tech[0]}</p>
+                      <ul className="list-disc list-inside text-[13px] ">
+                        {tech[1].map((desc: string, idx: number) => (
+                          <li key={idx}>{desc}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }
+              )}
+            </div>
           </div>
         );
       case "solutions":
@@ -259,7 +290,7 @@ export default function ProjectDetail({ id }: ProjectDetailProps) {
           </div>
         </div>
 
-        <div className="flex flex-col space-y-6 w-full md:w-auto 2xl:w-[564px]">
+        <div className="flex flex-col space-y-6 w-full md:w-[564px]">
           <div>
             <h3 className="text-[20px] font-bold mb-2">Technologies</h3>
             <div className="flex flex-wrap gap-2">
@@ -304,9 +335,20 @@ export default function ProjectDetail({ id }: ProjectDetailProps) {
                   }`}
                   onClick={() => setActiveTab("challenges")}
                 >
-                  Challenges
+                  Issues
                 </button>
-                <div className="h-[1px] w-[10%] md:w-[115px] border-t border-[#999999]"></div>
+                <div className="h-[1px] w-[10%] md:w-[60px] border-t border-[#999999]"></div>
+                <button
+                  className={`${
+                    activeTab === "tech"
+                      ? " text-black"
+                      : "text-[#999999] hover:text-black"
+                  }`}
+                  onClick={() => setActiveTab("tech")}
+                >
+                  TechDetails
+                </button>
+                <div className="h-[1px] w-[10%] md:w-[60px] border-t border-[#999999]"></div>
                 <button
                   className={`${
                     activeTab === "solutions"
@@ -317,7 +359,7 @@ export default function ProjectDetail({ id }: ProjectDetailProps) {
                 >
                   Solutions
                 </button>
-                <div className="h-[1px] w-[10%] md:w-[115px] border-t border-[#999999]"></div>
+                <div className="h-[1px] w-[10%] md:w-[60px] border-t border-[#999999]"></div>
                 <button
                   className={`${
                     activeTab === "result"

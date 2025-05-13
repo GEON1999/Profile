@@ -21,4 +21,5 @@ export interface Issue {
   description: string[];
   solution: string[];
   result: string[];
+  tech: [string, string[]][];
 }
