@@ -20,7 +20,7 @@
         "/images/dayshare/4.png",
         "/images/dayshare/5.png"
       ],
-      "period": "2024.08 ~ 진행중",
+      "period": "2024.08 ~ 2025.03",
       "role": "personal",
       "work": [
         {
@@ -128,6 +128,49 @@
       ],
       "github": "https://github.com/GEON1999/Day_Share_renew",
       "website": "https://dayshare.site/"
+    },
+    {
+      "id": "Pomomon",
+      "name": "Pomomon",
+      "description": "AI 페어 프로그래밍으로 완성한 게이미피케이션 뽀모도로 타이머",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "TailwindCSS",
+        "Vite",
+        "Chrome Extension"
+      ],
+      "images": [
+        "/images/pomomon/5.jpg",
+        "/images/pomomon/1.jpg",
+        "/images/pomomon/2.jpg",
+        "/images/pomomon/3.jpg",
+        "/images/pomomon/4.jpg"
+      ],
+      "period": "2025.06 ~ 2025.06",
+      "role": "personal",
+      "work": [
+        {
+          "title": "아키텍처 설계",
+          "description": [
+            "AI와 함께 요구사항을 분석하고, Redux Toolkit을 기반으로 확장성과 유지보수성을 고려한 상태 관리 아키텍처를 신속하게 설계했습니다."
+          ]
+        },
+        {
+          "title": "핵심 기능 구현",
+          "description": [
+            "복잡한 비동기 타이머 로직과 데이터 동기화 문제를 AI와 함께 TDD 방식으로 해결하며 코드의 안정성을 확보했습니다."
+          ]
+        },
+        {
+          "title": "학습 비용 절감",
+          "description": [
+            "Chrome Extension API와 같이 생소한 기술 스택을 AI의 도움으로 빠르게 학습하고 프로젝트에 즉시 적용하여 개발 병목 현상을 해결했습니다."
+          ]
+        }
+      ],
+      "website": "https://chromewebstore.google.com/detail/pomomon-%ED%8F%AC%EB%AA%A8%EB%8F%84%EB%A1%9C-%ED%83%80%EC%9D%B4%EB%A8%B8-%ED%8F%AC%EC%BC%93%EB%AA%AC-%EA%B0%80%EC%B1%A0/fgcbmplfejiglnnmfiaimmkkdkejlidg?hl=ko"
     },
     {
       "id": "LauncherAdmin",
