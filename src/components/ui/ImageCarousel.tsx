@@ -47,23 +47,25 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
         <div className="flex">
           {images.map((img, idx) => (
             <div key={idx} className="flex-[0_0_100%] min-w-0">
-              <div className="relative w-full h-[250px] md:h-[350px] lg:h-[420px] 2xl:h-[483px]">
+              <div className="relative w-full h-[250px] md:h-[350px] lg:h-[420px] 2xl:h-[483px] flex items-center justify-center">
                 {!imagesLoaded[idx] && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg">
                     <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-500 rounded-full animate-spin" />
                   </div>
                 )}
-                <Image
-                  src={img}
-                  alt={`${alt} screenshot ${idx + 1}`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 842px"
-                  priority={idx === 0}
-                  quality={85}
-                  onLoad={() => handleImageLoad(idx)}
-                  style={{ opacity: imagesLoaded[idx] ? 1 : 0 }}
-                />
+                <div className={`relative w-full h-full ${img.includes('purple-ui') ? 'max-w-[200px] max-h-[120px] lg:max-w-[300px] lg:max-h-[150px]' : ''}`}>
+                  <Image
+                    src={img}
+                    alt={`${alt} screenshot ${idx + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 842px"
+                    priority={idx === 0}
+                    quality={100}
+                    onLoad={() => handleImageLoad(idx)}
+                    style={{ opacity: imagesLoaded[idx] ? 1 : 0 }}
+                  />
+                </div>
               </div>
             </div>
           ))}
