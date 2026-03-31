@@ -5,6 +5,8 @@ export const careers: Career[] = [
     id: "purpleyoung",
     company: "Purple Young",
     logo: "/images/career/purpleyoung_logo.png",
+    logoWidth: 92,
+    logoHeight: 52,
     period: "2025.07 - 현재",
     description:
       "1인 프론트엔드 체제에서 4개 이상의 주요 프로덕트 런칭을 주도하고, AI 워크플로우를 사내에 안착시킨 성과를 인정받았습니다.",
@@ -42,6 +44,8 @@ export const careers: Career[] = [
     id: "playdonut",
     company: "Playdonut",
     logo: "/images/career/playdonut_logo.png",
+    logoWidth: 90,
+    logoHeight: 90,
     period: "2023.04 - 2024.09",
     description:
       "PC방 런처를 기반으로 e스포츠 토너먼트 대회를 주최하는 플랫폼 서비스",

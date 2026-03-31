@@ -21,11 +21,11 @@ export default function Career() {
           {careers.map((career) => (
             <div
               key={career.id}
-              className="flex flex-col lg:flex-row gap-6 lg:gap-10 lg:bg-white rounded-2xl lg:shadow-[0_2px_10px_rgba(0,0,0,0.06)] py-[32px] px-[24px] lg:px-[40px] items-start"
+              className="flex flex-col lg:flex-row gap-6 lg:gap-10 bg-white rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] py-[32px] px-[24px] lg:px-[40px] items-start"
             >
               {/* Left Column: Logo & Role */}
               <div className="flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:w-[150px] shrink-0">
-                <div className="w-20 h-20 lg:w-[126px] lg:h-[126px] rounded-2xl overflow-hidden flex justify-center items-center border border-[#DDDDDD] aspect-square bg-[#FAFAFA]">
+                <div className="w-20 h-20 lg:w-[126px] lg:h-[126px] rounded-2xl overflow-hidden flex justify-center items-center border border-[#DDDDDD] aspect-square bg-white">
                   <Image
                     src={career.logo}
                     alt={career.company}
