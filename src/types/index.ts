@@ -44,7 +44,16 @@ export interface Career {
   description: string;
   role: string;
   roleColor: string;
-  highlights: string[];
+  highlights?: string[];
+  
+  // 특별 성과 및 세부 내용 표시를 위한 선택적 필드
+  specialAchievement?: string;
+  techStack?: string[];
+  dxTools?: string[];
+  achievements?: {
+    title: string;
+    description: string[];
+  }[];
 }
 
 // ─── About 데이터 타입 ────────────────────────────

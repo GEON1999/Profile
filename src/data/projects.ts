@@ -2,6 +2,223 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "PurpleYoung-Admin",
+    name: "퍼플영 어드민",
+    description:
+      "퍼플영 B2B 파트너 및 사내 매니저를 위한 맞춤형 견적·공고 관리 어드민 플랫폼",
+    technologies: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Zustand",
+      "TailwindCSS",
+      "TanStack Query",
+    ],
+    images: [
+      "/images/purple-admin/1.png",
+    ],
+    period: "2025.07 ~ 현재",
+    role: "전담",
+    work: [
+      {
+        title: "B2B/사내 어드민 Full-Cycle 주도",
+        description: [
+          "초기 환경 세팅부터 컴포넌트 설계, 런칭까지 단독 수행",
+        ],
+      },
+      {
+        title: "BFF(Backend For Frontend) 아키텍처 설계",
+        description: [
+          "클라이언트와 서버 간 데이터 의존성 분리 및 최적화",
+        ],
+      },
+      {
+        title: "비즈니스 규제 및 보안 대응",
+        description: [
+          "AI 기본법 대응 및 이미지 워터마크 API 일괄 적용 등 신속한 로직 구현",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "UI 변경에 따른 잦은 API 수정 및 배포 병목 현상",
+        description: [
+          "기존 API 응답 구조에 UI가 강하게 결합되어 있어, 화면 변경 시 서버 배포가 동반되어야 하는 비효율 발생",
+        ],
+        techDetails: [
+          {
+            category: "BFF 패턴 도입: Next.js RSC",
+            reasoning: [
+              "page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 적용",
+              "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성 분리",
+            ],
+          },
+        ],
+        solution: [
+          "Next.js RSC를 활용하여 page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 도입",
+          "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성을 분리",
+        ],
+        result: [
+          "API 수정 없이 유연한 UI 변경 가능",
+          "배포 병목 해소 및 개발 주기 단축",
+        ],
+      },
+      {
+        title: "복잡한 포매팅 로직으로 인한 클라이언트 성능 저하 및 번들 비대화",
+        description: [
+          "클라이언트에서 대량의 데이터를 매핑하고 가공함에 따라 로딩 지연 및 번들 사이즈 증가",
+        ],
+        techDetails: [
+          {
+            category: "서버 컴포넌트(RSC) 격리",
+            reasoning: [
+              "데이터 페칭과 포매팅 로직을 서버 컴포넌트로 격리",
+              "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI 즉각 제공",
+            ],
+          },
+        ],
+        solution: [
+          "서버 컴포넌트(RSC)로 데이터 페칭과 포매팅 로직을 격리하여 클라이언트 번들 사이즈 대폭 축소",
+          "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI를 즉각 제공",
+        ],
+        result: [
+          "클라이언트 번들 사이즈 대폭 축소",
+          "체감 로딩 시간(UX) 획기적 개선",
+        ],
+      },
+      {
+        title: "글로벌 타입(Swagger) 에러의 연쇄 전파",
+        description: [
+          "단일 OpenAPI 스키마 의존으로 인해 한 필드의 변경이 전체 페이지의 타입 에러로 직결",
+        ],
+        techDetails: [
+          {
+            category: "페이지 단위 타입 격리(Isolation)",
+            reasoning: [
+              "클라이언트 컴포넌트가 독립적인 인터페이스(DTO)를 가지도록 설계",
+              "스키마 변경 시 영향 범위를 해당 페이지로만 국한",
+            ],
+          },
+        ],
+        solution: [
+          "페이지 단위 타입 격리(Isolation) 적용",
+          "클라이언트 컴포넌트가 독립적인 인터페이스(DTO)를 가지도록 설계",
+        ],
+        result: [
+          "스키마 변경 시 영향 범위를 해당 페이지로만 국한시키는 타입 안정성 확보",
+        ],
+      },
+    ],
+  },
+  {
+    id: "PurpleUI",
+    name: "purple-ui",
+    description:
+      "기획, 디자인, 개발 간의 병목을 해결하고 워크플로우를 자동화하는 사내 통합 디자인 시스템",
+    technologies: [
+      "Claude (Skill-creator)",
+      "Figma MCP",
+      "Antigravity AI",
+      "Windsurf",
+      "Storybook",
+    ],
+    images: [
+      "/images/purple-ui/1.png",
+    ],
+    period: "2025.07 ~ 현재",
+    role: "전담",
+    work: [
+      {
+        title: "모노레포 기반 3-Layer 아키텍처 설계",
+        description: [
+          "원자, 비즈니스 조합, 프로젝트 레이어로 컴포넌트 분리",
+        ],
+      },
+      {
+        title: "AI 에이전트 연동 자동화 파이프라인 구축",
+        description: [
+          "디자인 검증, 코드 생성, 시각 검증의 End-to-End 자동화",
+        ],
+      },
+      {
+        title: "점진적 레거시 마이그레이션 전략 적용",
+        description: [
+          "환경별 패키지 전환 및 Strangler Fig 패턴 도입",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "디자인-개발 간 싱크로율 저하 및 반복 구현의 비효율",
+        description: [
+          "프로젝트마다 디자인 토큰이 미세하게 다르고, 수동 코딩으로 인한 시각적 불일치(Drift) 누적",
+        ],
+        techDetails: [
+          {
+            category: "AI 자동화 파이프라인",
+            reasoning: [
+              "Skill-creator를 활용해 사내 컨벤션에 맞춘 Claude Skill 자체 구축",
+              "Figma MCP 및 Antigravity AI를 연동하여 토큰 검증 → 코드 자동 생성 → pixel 비교 자동화 스킬 구현",
+            ],
+          },
+        ],
+        solution: [
+          "figma-design-validator(토큰 검증) → figma-to-purple-ui(코드 자동 생성) → figma-visual-diff(pixel 비교) 자동화 스킬 구현",
+          "Figma MCP 및 Antigravity AI 연동으로 End-to-End 자동화",
+        ],
+        result: [
+          "신규 UI 반영 시간을 수일에서 수시간으로 단축",
+          "시각적 불일치(Drift) 제거",
+        ],
+      },
+      {
+        title: "다중 어드민 환경에서의 UI 파편화 및 높은 유지보수 비용",
+        description: [
+          "파트너 및 매니저 어드민에서 동일 컴포넌트를 중복 구현하여 브랜드 일관성 훼손",
+        ],
+        techDetails: [
+          {
+            category: "SSOT(Single Source of Truth) 디자인 시스템",
+            reasoning: [
+              "단일 소스 오브 트루스(SSOT) 역할을 하는 purple-ui 패키지 구축",
+              "중복 컴포넌트를 0개로 단일화",
+            ],
+          },
+        ],
+        solution: [
+          "단일 소스 오브 트루스(SSOT) 역할을 하는 purple-ui 디자인 시스템 패키지 구축",
+          "중복 컴포넌트를 0개로 단일화",
+        ],
+        result: [
+          "1인 프론트엔드 체제의 유지보수 리소스 최소화",
+          "브랜드 일관성 확보",
+        ],
+      },
+      {
+        title: "레거시 시스템의 급격한 디자인 전환 리스크",
+        description: [
+          "기존 운영 중인 프로덕트에 신규 디자인 시스템을 일괄 적용 시 발생할 수 있는 런타임 에러 우려",
+        ],
+        techDetails: [
+          {
+            category: "Strangler Fig 패턴 기반 점진적 교체",
+            reasoning: [
+              "리스크가 적은 원자 컴포넌트부터 4-Phase로 나누어 점진적 교체",
+              "pnpm 훅 기반의 로컬 패키지 Override 전략 적용",
+            ],
+          },
+        ],
+        solution: [
+          "4-Phase(준비 → 원자 교체 → 비즈니스 UI 추출 → 안정화)로 나누어 점진적 교체 진행",
+          "pnpm 훅 기반의 로컬 패키지 Override 전략을 적용하여 개발 환경에서의 실시간 검증 안정성 확보",
+        ],
+        result: [
+          "운영 중단 없이 안전한 디자인 시스템 전환",
+          "환경별 실시간 검증으로 품질 보장",
+        ],
+      },
+    ],
+  },
+  {
     id: "DayShare",
     name: "DayShare",
     description:

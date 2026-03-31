@@ -6,19 +6,19 @@ export default function Hero() {
       id="home"
       className="text-center relative pt-56 lg:h-[90vh] flex flex-col justify-center"
     >
-      <div className="mb-32">
-        {/* GEON Text with video background */}
-        <div className="relative inline-block">
-          <div className="text-[25vw] font-extrabold text-white flex flex-col leading-none">
+      <div className="mb-32 flex flex-col">
+        {/* GEON — video visible INSIDE the text */}
+        <div className="relative inline-block bg-white overflow-hidden">
+          <div className="text-[25vw] font-extrabold text-black flex flex-col leading-none select-none">
             <span>GEON</span>
           </div>
-          {/* Video overlay for text mask — sea.mp4 on md+, dark.mp4 on mobile */}
+          {/* sea.mp4 for desktop, dark.mp4 for mobile — screen blend makes video show through black text, white stays white */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover hidden md:block"
+            className="absolute inset-0 w-full h-full object-cover hidden md:block pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
             <source src="/videos/sea.mp4" type="video/mp4" />
@@ -28,16 +28,16 @@ export default function Hero() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover md:hidden"
+            className="absolute inset-0 w-full h-full object-cover md:hidden pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
             <source src="/videos/dark.mp4" type="video/mp4" />
           </video>
         </div>
 
-        {/* Adaptability Text with dark.mp4 background */}
-        <div className="relative inline-block mt-2">
-          <span className="flex justify-center text-[3vw] font-extrabold text-white leading-none">
+        {/* Adaptability — video visible INSIDE each letter */}
+        <div className="relative inline-block bg-white overflow-hidden mt-2">
+          <span className="flex justify-center text-[3vw] font-extrabold text-black leading-none select-none">
             {"Adaptability".split("").map((char, i) => (
               <p key={i}>{char}</p>
             ))}
@@ -47,7 +47,7 @@ export default function Hero() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
             <source src="/videos/dark.mp4" type="video/mp4" />
