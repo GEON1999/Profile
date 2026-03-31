@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
-import SectionTitle from "@/components/ui/SectionTitle";
 
 interface ContactFormData {
   name: string;
@@ -13,14 +12,16 @@ interface ContactFormData {
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const { register, handleSubmit, reset } = useForm<ContactFormData>();
+  const { register, handleSubmit } = useForm<ContactFormData>();
 
   const onSubmit = () => {
     if (!formRef.current) return;
     setLoading(true);
-    setStatus("idle");
+    setSuccess(false);
+    setError(false);
 
     emailjs
       .sendForm(
@@ -30,12 +31,11 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
-        setStatus("success");
+        setSuccess(true);
         setLoading(false);
-        reset();
       })
       .catch(() => {
-        setStatus("error");
+        setError(true);
         setLoading(false);
       });
   };
@@ -43,99 +43,105 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 bg-[#F9FAFB] border-t border-gray-200 scroll-mt-20"
+      className="pt-36 pb-80 px-10 bg-[#F9FAFB] border-t border-[#999999]"
     >
-      <SectionTitle
-        title="CONTACT"
-        subtitle="Contact me in a convenient way"
-      />
+      <div className="flex justify-center text-center font-serif text-4xl lg:text-5xl flex-col mb-10">
+        <div>
+          <span className="border-b-2 border-black border-opacity-70 px-8 py-1">
+            CONTACT
+          </span>
+        </div>
+        <div>
+          <span className="text-base px-4 py-1 border-slate-400 text-slate-400">
+            Contact me in a convenient way
+          </span>
+        </div>
+      </div>
 
-      <div className="section-container max-w-2xl">
+      <div>
         <form
           ref={formRef}
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4"
+          className="max-w-md mx-auto mt-8 flex flex-col items-center"
         >
-          <input
-            {...register("name", { required: true })}
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-900 bg-white transition-all"
-          />
-          <input
-            {...register("email", { required: true })}
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-900 bg-white transition-all"
-          />
-          <textarea
-            {...register("message", { required: true })}
-            name="message"
-            placeholder="Your Message"
-            required
-            rows={6}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-900 bg-white transition-all resize-none"
-          />
+          <div className="mb-4">
+            <input
+              {...register("name", { required: true })}
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-[340px] lg:w-[626px] h-[40px] px-3 py-2 border border-[#999999] focus:outline-none focus:ring-1 focus:ring-black bg-transparent"
+            />
+          </div>
 
-          <div className="flex flex-col lg:flex-row-reverse justify-between items-start lg:items-center gap-4">
+          <div className="mb-4">
+            <input
+              {...register("email", { required: true })}
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="w-[340px] lg:w-[626px] h-[40px] px-3 py-2 border border-[#999999] focus:outline-none focus:ring-1 focus:ring-black bg-transparent"
+            />
+          </div>
+
+          <div className="mb-4">
+            <textarea
+              {...register("message", { required: true })}
+              name="message"
+              placeholder="Your Message"
+              required
+              rows={5}
+              className="w-[340px] lg:w-[626px] h-[200px] px-3 py-2 border border-[#999999] focus:outline-none focus:ring-1 focus:ring-black bg-transparent"
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row-reverse justify-between w-[340px] lg:w-[626px] text-[12px] lg:text-[15px] space-y-4 lg:space-y-0">
             <button
               type="submit"
               disabled={loading}
-              className="bg-gray-900 text-white py-2.5 px-8 rounded-lg hover:bg-gray-800 transition-colors disabled:bg-gray-400 text-sm font-medium"
+              className="bg-black text-white py-2 lg:w-[138px] hover:bg-gray-800 transition-colors disabled:bg-gray-400"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-
-            <div className="flex gap-6 text-sm text-gray-500">
-              <div className="flex items-center gap-1.5">
+            <div className="flex space-x-5 justify-between lg:justify-center items-left">
+              <div className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
+                  <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
                 </svg>
-                <span>phgst12@gmail.com</span>
+                <p>phgst12@gmail.com</p>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
+                  <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
                 </svg>
-                <span>+82 10-7700-5140</span>
+                <p>+82 10-7700-5140</p>
               </div>
             </div>
           </div>
 
-          {status === "success" && (
-            <p className="text-green-600 text-center text-sm mt-2">
-              메시지가 성공적으로 전송되었습니다!
+          {success && (
+            <p className="mt-3 text-green-600 text-center">
+              Message sent successfully!
             </p>
           )}
-          {status === "error" && (
-            <p className="text-red-600 text-center text-sm mt-2">
-              전송에 실패했습니다. 다시 시도해 주세요.
+
+          {error && (
+            <p className="mt-3 text-red-600 text-center">
+              Failed to send message. Please try again.
             </p>
           )}
         </form>

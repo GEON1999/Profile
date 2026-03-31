@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navItems = [
   { label: "ABOUT", href: "#about" },
@@ -11,57 +11,44 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm"
-          : "bg-white"
-      }`}
-    >
-      <nav className="section-container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
-        <a
-          href="#home"
-          className="group flex items-center gap-3"
-        >
-          <span className="text-4xl md:text-5xl font-thin text-gray-700 flex -tracking-[0.15em]">
-            {"GEON".split("").map((char, i) => (
-              <span
-                key={i}
-                className="md:group-hover:tracking-normal transition-all duration-150"
-              >
-                {char}
+    <nav className="md:text-xl md:pt-7 font-bold fixed w-full z-10 bg-white pb-4">
+      <div className="flex justify-between md:mx-20 mx-4 mt-5 md:mt-0">
+        {/* Logo — intentionally overlapping letters */}
+        <a href="#home">
+          <div className="group flex space-x-3 justify-center items-center">
+            <div className="flex flex-col cursor-pointer">
+              <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4">
+                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                  G
+                </p>
+                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                  E
+                </p>
+                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                  O
+                </p>
+                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                  N
+                </p>
               </span>
-            ))}
-          </span>
-          <span className="hidden sm:flex flex-col font-thin text-xs text-gray-500 leading-tight">
-            <span>Build</span>
-            <span>Together</span>
-          </span>
+            </div>
+            <div className="flex flex-col font-thin items-start text-sm">
+              <p>Build </p>
+              <p>Together</p>
+            </div>
+          </div>
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="hidden lg:flex flex-row justify-center items-end space-x-8 text-base font-thin">
           {navItems.map(({ label, href }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="text-sm font-light text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-200 inline-block"
-              >
+            <a key={label} href={href}>
+              <li className="cursor-pointer hover:scale-110 transition-all duration-200">
                 {label}
-              </a>
-            </li>
+              </li>
+            </a>
           ))}
         </ul>
 
@@ -88,28 +75,24 @@ export default function Header() {
             }`}
           />
         </button>
-      </nav>
+      </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white/95 backdrop-blur-md ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white ${
           isOpen ? "max-h-60" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col items-center gap-4 py-6">
           {navItems.map(({ label, href }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
+            <a key={label} href={href} onClick={() => setIsOpen(false)}>
+              <li className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
                 {label}
-              </a>
-            </li>
+              </li>
+            </a>
           ))}
         </ul>
       </div>
-    </header>
+    </nav>
   );
 }

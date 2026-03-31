@@ -1,58 +1,71 @@
 import { careers } from "@/data/career";
-import SectionTitle from "@/components/ui/SectionTitle";
 import Image from "next/image";
 
 export default function Career() {
   return (
-    <section id="career" className="py-24 bg-[#F9FAFB] scroll-mt-20">
-      <SectionTitle title="CAREER" subtitle="A collection of my work experience" />
-
-      <div className="section-container">
-        <div className="flex flex-col gap-6 max-w-[1000px] mx-auto">
+    <section id="career" className="my-24 scroll-mt-40 bg-[#F9FAFB]">
+      <div className="flex justify-center text-center font-serif text-4xl lg:text-5xl mb-5 flex-col">
+        <div>
+          <span className="border-b-2 border-black border-opacity-70 px-8 py-1">
+            CAREER
+          </span>
+        </div>
+        <div>
+          <span className="text-base px-4 py-1 border-slate-400 text-slate-400">
+            A collection of my work experience
+          </span>
+        </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <div className="flex flex-col gap-10 px-4 lg:px-40 mt-4 lg:mt-10">
           {careers.map((career) => (
             <div
               key={career.id}
-              className="flex flex-col lg:flex-row items-center lg:gap-10 gap-4 bg-white rounded-2xl shadow-sm py-6 px-8"
+              className="flex lg:flex-row flex-col items-center lg:gap-10 gap-3 lg:bg-white rounded-2xl lg:shadow-sm py-[25px] px-[32px]"
             >
               {/* Logo */}
-              <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-200 flex-shrink-0">
+              <div className="w-28 h-28 lg:w-[126px] lg:h-[126px] rounded-2xl overflow-hidden flex justify-center items-center border border-[#DDDDDD] aspect-square">
                 <Image
                   src={career.logo}
                   alt={career.company}
                   width={career.logoWidth ?? 126}
                   height={career.logoHeight ?? 126}
-                  className="object-contain"
+                  className={
+                    career.logoWidth
+                      ? `w-[${career.logoWidth}px] h-[${career.logoHeight}px]`
+                      : ""
+                  }
                 />
               </div>
 
               {/* Info */}
               <div className="lg:w-[400px] w-full text-center lg:text-left">
                 <h3
-                  className="text-2xl font-bold"
+                  className="text-[24px] font-bold"
                   style={{ color: career.roleColor }}
                 >
                   {career.company}
                 </h3>
-                <p className="text-gray-600 font-bold text-[15px]">
+                <p className="text-[#404040] font-bold text-[15px]">
                   {career.period}
                 </p>
-                <p className="text-gray-600 font-bold text-[15px] mt-2">
+                <p className="text-[#404040] font-bold text-[15px] mt-2">
                   {career.description}
                 </p>
               </div>
 
-              {/* Divider — desktop only */}
-              <div className="hidden lg:block border-l border-gray-200 h-28 flex-shrink-0" />
+              {/* Divider */}
+              <div className="hidden lg:block border-l border-[#DDDDDD] h-[120px] w-[1px]" />
 
               {/* Highlights */}
-              <div className="w-full lg:w-[350px]">
-                <span
-                  className="inline-block text-white text-center rounded-full text-[13px] px-4 py-0.5 mb-2"
+              <div className="w-full lg:w-[350px] mt-4 lg:mt-0">
+                <p
+                  className="text-white w-[108px] mx-auto lg:mx-0 text-center rounded-full text-[13px] py-[1px]"
                   style={{ backgroundColor: career.roleColor }}
                 >
                   {career.role}
-                </span>
-                <ul className="list-disc list-inside text-[13px] text-gray-700 space-y-0.5">
+                </p>
+                <ul className="list-disc list-inside text-[13px] text-black mt-1">
                   {career.highlights.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}

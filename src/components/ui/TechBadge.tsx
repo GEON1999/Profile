@@ -4,7 +4,7 @@ interface TechBadgeProps {
 
 export default function TechBadge({ name }: TechBadgeProps) {
   return (
-    <span className="px-3 py-1.5 bg-gray-900 rounded-full text-sm text-white hover:bg-[#0026A4] transition-colors cursor-default">
+    <span className="px-[10px] py-[5px] bg-black rounded-full text-sm text-white hover:bg-[#0026A4]">
       {name}
     </span>
   );
