@@ -1,67 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "540px",
-      // => @media (min-width: 640px) { ... }
-
       md: "768px",
-      // => @media (min-width: 768px) { ... }
-
       lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
       xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-
-      "2xl": "1610px",
-      // => @media (min-width: 1536px) { ... }
+      "2xl": "1536px",
     },
-
     extend: {
-      animation: {
-        fadeIn: "fadeIn 1.5s ease-in",
-        fadeOut: "fadeOut 1.5s ease-in-out",
+      fontFamily: {
+        sans: ["Pretendard", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        serif: ["Playfair Display", "Georgia", "serif"],
       },
-
+      animation: {
+        "fade-in": "fadeIn 0.8s ease-out",
+        "fade-in-up": "fadeInUp 0.8s ease-out",
+        "slide-in-right": "slideInRight 0.6s ease-out",
+      },
       keyframes: {
         fadeIn: {
-          scale: 100,
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        fadeOut: {
-          "0%": { opacity: 100 },
-          "100%": { opacity: 0 },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        drift: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        textUp: {
-          "0%": { top: 0 },
-          "20%": { top: -0.2 },
-          "40% ": { top: 0 },
-          "60%": { top: 0 },
-          "80%": { top: 0 },
-          "100%": { top: 0 },
-        },
-        wave: {
-          "0%": { transform: "rotate(0deg)" },
-          "10%": { transform: "rotate(14deg)" },
-          "20%": { transform: "rotate(-8deg)" },
-          "30%": { transform: "rotate(14deg)" },
-          "40%": { transform: "rotate(-4deg)" },
-          "50%": { transform: "rotate(10deg)" },
-          "60%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(0deg)" },
-        },
-        fadeInOut: {
-          "0%": { scale: 0 },
-          "100%": { scale: 10 },
+        slideInRight: {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
       },
     },
