@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&family=Noto+Serif:wght@400;500;700&family=Inter:wght@400;500;700&display=swap");
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Noto Sans", system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .layout-btn {
+    @apply md:hover:scale-150 md:hover:ease-in-out duration-200;
+  }
+  .Link-btn {
+    @apply md:hover:scale-125 duration-150 md:hover:ease-in-out;
+  }
+}
