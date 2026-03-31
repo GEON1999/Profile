@@ -4,15 +4,11 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400 py-12">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 px-10">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <span className="text-2xl font-thin text-white tracking-tight">
               GEON
-            </span>
-            <span className="text-xs font-thin leading-tight">
-              <span className="block">Build</span>
-              <span className="block">Together</span>
             </span>
           </div>
 
