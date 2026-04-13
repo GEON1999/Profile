@@ -62,6 +62,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                     sizes="(max-width: 768px) 100vw, 842px"
                     priority={idx === 0}
                     quality={100}
+                    unoptimized={img.includes('purple-ui')}
                     onLoad={() => handleImageLoad(idx)}
                     style={{ opacity: imagesLoaded[idx] ? 1 : 0 }}
                   />
