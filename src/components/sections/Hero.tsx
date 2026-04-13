@@ -18,6 +18,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            poster="/videos/sea-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover hidden md:block pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
@@ -28,6 +29,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            poster="/videos/dark-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover md:hidden pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
@@ -47,6 +49,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            poster="/videos/dark-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
