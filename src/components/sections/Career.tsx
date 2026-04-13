@@ -11,7 +11,7 @@ export default function Career() {
           </span>
         </div>
         <div>
-          <span className="text-base px-4 py-1 border-slate-400 text-slate-400">
+          <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
             A collection of my work experience
           </span>
         </div>
@@ -46,14 +46,14 @@ export default function Career() {
                   >
                     {career.role}
                   </p>
-                  <p className="text-[#888888] text-[13px] font-medium hidden lg:block">
+                  <p className="text-gray-500 text-[13px] font-medium hidden lg:block">
                     {career.period}
                   </p>
                 </div>
               </div>
 
               {/* Mobile Period */}
-              <p className="text-[#888888] text-[13px] font-medium lg:hidden -mt-2">
+              <p className="text-gray-500 text-[13px] font-medium lg:hidden -mt-2">
                 {career.period}
               </p>
 

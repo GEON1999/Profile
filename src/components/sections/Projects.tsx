@@ -11,7 +11,7 @@ export default function Projects() {
           </span>
         </div>
         <div>
-          <span className="text-base px-4 py-1 border-slate-400 text-slate-400">
+          <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
             My recent projects
           </span>
         </div>

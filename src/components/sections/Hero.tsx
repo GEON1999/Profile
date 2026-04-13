@@ -1,4 +1,4 @@
-"use client";
+const ADAPTABILITY_CHARS = "Adaptability".split("");
 
 export default function Hero() {
   return (
@@ -18,6 +18,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover hidden md:block pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
@@ -28,6 +29,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover md:hidden pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >
@@ -38,8 +40,8 @@ export default function Hero() {
         {/* Adaptability — video visible INSIDE each letter */}
         <div className="relative inline-block bg-white overflow-hidden mt-2">
           <span className="flex justify-center text-[3vw] font-extrabold text-black leading-none select-none">
-            {"Adaptability".split("").map((char, i) => (
-              <p key={i}>{char}</p>
+            {ADAPTABILITY_CHARS.map((char, i) => (
+              <span key={i}>{char}</span>
             ))}
           </span>
           <video
@@ -47,6 +49,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             style={{ mixBlendMode: "screen" }}
           >

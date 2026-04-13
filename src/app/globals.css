@@ -2,19 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&family=Noto+Serif:wght@400;500;700&family=Inter:wght@400;500;700&display=swap");
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
-  body {
-    font-family: "Noto Sans", system-ui, -apple-system, sans-serif;
+  /* Accessibility: Focus visible */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+  }
+
+  /* Accessibility: Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
+  /* Accessibility: Skip link */
+  .skip-link {
+    @apply absolute -top-20 left-0 bg-black text-white px-4 py-2 z-[100] focus:top-0 transition-all;
+  }
+
   .layout-btn {
     @apply md:hover:scale-150 md:hover:ease-in-out duration-200;
   }
