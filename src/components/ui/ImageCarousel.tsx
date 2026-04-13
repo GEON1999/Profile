@@ -74,66 +74,73 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
       </div>
 
       {/* Navigation Arrows */}
-      <button
-        onClick={scrollPrev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white transition-all opacity-0 group-hover:opacity-100"
-        aria-label="이전 이미지"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 19.5L8.25 12l7.5-7.5"
-          />
-        </svg>
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white transition-all opacity-0 group-hover:opacity-100"
-        aria-label="다음 이미지"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white transition-all opacity-0 group-hover:opacity-100"
+            aria-label="이전 이미지"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-5 h-5"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white transition-all opacity-0 group-hover:opacity-100"
+            aria-label="다음 이미지"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-5 h-5"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </>
+      )}
+
 
       {/* Dots */}
-      <div className="flex justify-center flex-wrap mt-0">
-        {images.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => emblaApi?.scrollTo(idx)}
-            className="flex items-center justify-center min-w-[44px] min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
-            aria-label={`이미지 ${idx + 1}로 이동`}
-          >
-            <span
-              className={`w-2 h-2 rounded-full transition-all ${
-                idx === selectedIndex ? "bg-gray-900 w-6" : "bg-gray-300"
-              }`}
-            />
-          </button>
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="flex justify-center flex-wrap mt-0">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => emblaApi?.scrollTo(idx)}
+              className="flex items-center justify-center min-w-[44px] min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
+              aria-label={`이미지 ${idx + 1}로 이동`}
+            >
+              <span
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === selectedIndex ? "bg-gray-900 w-6" : "bg-gray-300"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
