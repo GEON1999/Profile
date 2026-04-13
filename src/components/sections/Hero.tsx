@@ -1,4 +1,4 @@
-"use client";
+const ADAPTABILITY_CHARS = "Adaptability".split("");
 
 export default function Hero() {
   return (
@@ -40,8 +40,8 @@ export default function Hero() {
         {/* Adaptability — video visible INSIDE each letter */}
         <div className="relative inline-block bg-white overflow-hidden mt-2">
           <span className="flex justify-center text-[3vw] font-extrabold text-black leading-none select-none">
-            {"Adaptability".split("").map((char, i) => (
-              <p key={i}>{char}</p>
+            {ADAPTABILITY_CHARS.map((char, i) => (
+              <span key={i}>{char}</span>
             ))}
           </span>
           <video

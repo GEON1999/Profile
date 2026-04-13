@@ -11,7 +11,7 @@ export default function About() {
               ABOUT
             </span>
             <div>
-              <span className="text-base px-4 py-1 border-slate-400 text-slate-400">
+              <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
                 About real me
               </span>
             </div>
@@ -30,7 +30,7 @@ export default function About() {
             src="/images/awareness.png"
             width={145}
             height={145}
-            alt="about"
+            alt="개인 가치관 일러스트"
             className="w-[145px] h-[145px] hidden 2xl:block absolute top-96"
           />
 
@@ -48,16 +48,16 @@ export default function About() {
                   <div
                     className={`${!isEven ? "flex flex-col lg:items-end" : ""}`}
                   >
-                    <h1 className="md:text-2xl text-lg font-serif font-bold text-black">
+                    <h3 className="md:text-2xl text-lg font-serif font-bold text-black">
                       {section.titleEn}
-                    </h1>
-                    <h2
+                    </h3>
+                    <p
                       className={`mt-1 ${
                         index === 2 ? "mb-4" : "mb-5"
                       } font-bold text-[15px] text-[#404040]`}
                     >
                       &ldquo;{section.titleKo}&rdquo;
-                    </h2>
+                    </p>
                     <div
                       className={`lg:w-[478px] space-y-[30px] ${
                         !isEven ? "lg:text-end" : ""

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <div className="bg-[#F9FAFB]">
           <About />
