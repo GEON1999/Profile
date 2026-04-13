@@ -1,6 +1,35 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 import { Analytics } from "@vercel/analytics/react";
+import { Noto_Sans_KR, Noto_Serif_KR, Inter } from "next/font/google";
 import "./globals.css";
+
+const notoSans = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-noto-sans",
+  display: "swap",
+});
+
+const notoSerif = Noto_Serif_KR({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "GEON | Frontend Developer Portfolio",
@@ -41,7 +70,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="scroll-smooth">
-      <body className="antialiased">
+      <body className={`${notoSans.className} ${notoSans.variable} ${notoSerif.variable} ${inter.variable} antialiased`}>
+        <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         {children}
         <Analytics />
       </body>

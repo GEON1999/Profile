@@ -28,9 +28,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Left — Image Area */}
         <div className="relative border-gray-200 rounded overflow-hidden flex flex-col w-full xl:w-[842px] mb-6 xl:mb-0">
           <div className="flex flex-col xl:flex-row xl:items-end justify-between container mb-3 xl:mb-[18px] font-serif">
-            <h1 className="text-2xl xl:text-3xl font-bold mb-2 xl:mb-0">
+            <h3 className="text-2xl xl:text-3xl font-bold mb-2 xl:mb-0">
               {name}
-            </h1>
+            </h3>
             <div className="flex space-x-2 items-center text-[13px] font-sans">
               <p>{period}</p>
               {role === "personal" && (
@@ -54,12 +54,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   href={github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`GitHub 저장소 (${name})`}
                   className="flex items-center text-gray-700 hover:text-black transition-colors cursor-pointer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 496 512"
                     className="w-5 h-5"
+                    aria-hidden="true"
                   >
                     <path
                       fill="currentColor"
@@ -73,6 +75,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   href={website}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`외부 링크 방문 (${name})`}
                   className="flex items-center text-gray-700 hover:text-black transition-colors cursor-pointer"
                 >
                   <svg
@@ -80,6 +83,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     viewBox="0 -960 960 960"
                     fill="#374151"
                     className="w-6 h-6 transition-colors hover:fill-[#0026A4]"
+                    aria-hidden="true"
                   >
                     <path d="M838-65 720-183v89h-80v-226h226v80h-90l118 118-56 57ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 20-2 40t-6 40h-82q5-20 7.5-40t2.5-40q0-20-2.5-40t-7.5-40H654q3 20 4.5 40t1.5 40q0 20-1.5 40t-4.5 40h-80q3-20 4.5-40t1.5-40q0-20-1.5-40t-4.5-40H386q-3 20-4.5 40t-1.5 40q0 20 1.5 40t4.5 40h134v80H404q12 43 31 82.5t45 75.5q20 0 40-2.5t40-4.5v82q-20 2-40 4.5T480-80ZM170-400h136q-3-20-4.5-40t-1.5-40q0-20 1.5-40t4.5-40H170q-5 20-7.5 40t-2.5 40q0 20 2.5 40t7.5 40Zm34-240h118q9-37 22.5-72.5T376-782q-55 18-99 54.5T204-640Zm172 462q-18-34-31.5-69.5T322-320H204q29 51 73 87.5t99 54.5Zm28-462h152q-12-43-31-82.5T480-798q-26 36-45 75.5T404-640Zm234 0h118q-29-51-73-87.5T584-782q18 34 31.5 69.5T638-640Z" />
                   </svg>
@@ -87,6 +91,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               )}
               <Link
                 href="mailto:phgst12@gmail.com"
+                aria-label="이메일 보내기"
                 className="flex items-center text-gray-700 hover:text-black transition-colors cursor-pointer"
               >
                 <svg
@@ -96,6 +101,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -112,7 +118,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex flex-col space-y-6 w-full md:w-[564px]">
           {/* Technologies */}
           <div>
-            <h3 className="text-[20px] font-bold mb-2">Technologies</h3>
+            <h4 className="text-[20px] font-bold mb-2">Technologies</h4>
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech, index) => (
                 <TechBadge key={index} name={tech} />
@@ -123,14 +129,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {/* Work */}
           {work && work.length > 0 && (
             <div>
-              <h3 className="text-[20px] font-bold mb-2">Work</h3>
+              <h4 className="text-[20px] font-bold mb-2">Work</h4>
               <ul className="space-y-[3px]">
                 {work.map((item, index) => (
                   <li key={index} className="flex">
                     <div className="mr-2">•</div>
                     <div className="text-[15px] space-x-1">
                       <span className="font-bold">{item.title}</span>{" "}
-                      <span className="text-sm text-[#777777]">
+                      <span className="text-sm text-gray-500">
                         {item.description[0]}
                       </span>
                     </div>
