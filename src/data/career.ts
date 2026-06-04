@@ -9,35 +9,43 @@ export const careers: Career[] = [
     logoHeight: 52,
     period: "2025.07 - 현재",
     description:
-      "1인 프론트엔드 체제에서 4개 이상의 주요 프로덕트 런칭을 주도하고, AI 워크플로우를 사내에 안착시킨 성과를 인정받았습니다.",
+      "성형 정보 플랫폼. 서비스 본체는 앱이며, 병원(파트너) 웹·자사 어드민·랜딩 웹 등 웹 전반을 1인으로 초기 구축부터 런칭까지 주도.",
     role: "프론트엔드 개발자",
     roleColor: "#7C3AED",
-    specialAchievement: "🏆 입사 6개월 만에 대리 조기 진급",
-    techStack: ["Next.js(App Router)", "TypeScript", "Zustand", "TailwindCSS", "Storybook"],
+    specialAchievement: "🏆 입사 6개월 만에 사원 → 대리 조기 진급",
+    techStack: ["Next.js(App Router)", "TypeScript", "Zustand", "TailwindCSS", "Storybook", "Turborepo"],
     dxTools: ["Claude(Skill-creator)", "Antigravity AI", "Windsurf", "Figma MCP"],
     achievements: [
       {
-        title: "AI 에이전트 기반 사내 워크플로우 자체 구축",
+        title: "협업 · 운영 자율화",
         description: [
-          "Skill-creator를 활용해 사내 컨벤션에 맞춘 맞춤형 Claude Skill 설계.",
-          "Antigravity AI와 Figma MCP를 연동하여 디자인 검증 ➔ 코드 생성 ➔ 시각 검증으로 이어지는 자동화 파이프라인 구축.",
-          "프론트엔드 신규 UI 구현 시간을 수일에서 수시간 단위로 획기적으로 단축하고, 개발팀 내 AI 기술 전파 주도."
+          "약관 페이지 내재화 — Notion API + Next.js ISR 기반 정적 렌더링으로 Lighthouse 57 → 88점, LCP 80% 단축(11.5s → 2.3s). 운영팀은 Notion에서 그대로 작성, 약관 수정 시 개발 배포 0회.",
+          "GTM 이벤트 추적 관리 시스템 — data-track 선언적 부착 + 도메인별 TS 레지스트리로 이벤트 중앙화, GTM API 서버 액션 호출 관리 페이지 구현. 비개발자가 배포 없이 이벤트 ON/OFF.",
+          "운영자용 앱 온보딩 가이드 관리 기능 개발 — 기존 어드민 컴포넌트를 재활용해 디자인 리소스 없이 구현.",
         ]
       },
       {
-        title: "Next.js RSC & BFF 패턴 도입",
+        title: "AI 활용",
         description: [
-          "프론트엔드-백엔드 간 배포 강결합 및 스키마 변경 시 발생하는 연쇄 에러 해결을 위해 BFF(Backend For Frontend) 아키텍처 도입.",
-          "page.tsx 내 서버 간 병렬 페칭으로 원시 데이터를 호출하고, 프론트엔드 뷰에 맞게 데이터를 포매팅하여 클라이언트 번들 사이즈 최적화 및 체감 로딩 시간(UX) 개선."
+          "AI 개발 워크플로우 구축 및 사내 전파 — 사내 컨벤션 맞춤 Claude Skill 자체 구축, figma-design-validator → figma-to-purple-ui → figma-visual-diff 검증 파이프라인 설계. UI·디자인 반영 수일 → 수시간 단축.",
+          "디자이너용 Figma 사내 AI 플러그인 — 별도 IDE·MCP 설정 없이 Figma 안에서 디자인 검토·UI 구현 요청 수행. Gemini PoC → Codex CLI + 로컬 브릿지 연동으로 전환.",
         ]
       },
       {
-        title: "TF팀 리더 및 주요 프로덕트 런칭",
+        title: "기술 · 시스템 설계",
         description: [
-          "자사 랜딩 웹, B2B 파트너 어드민, 사내 매니저 어드민 등 주요 서비스 초기 세팅부터 런칭까지 단독 수행.",
-          "신설 채용 TF팀 리더를 맡아 기획, 임직원 인터뷰, 프론트엔드 개발 전 과정을 총괄 진행 중."
+          "디자인 시스템 모노레포 — Turborepo + pnpm workspace에 21종 공통 컴포넌트(CSS Modules)·Storybook 카탈로그 구축. Style Dictionary로 Figma 토큰 JSON → CSS Variables·JS 상수 자동 변환, GitHub Packages 자동 배포. 공통 UI 수정 포인트 3곳 → 1곳.",
+          "병원 파트너 정보 변경 승인 검수 화면 개발 — 의료진·라이선스·영업시간 등 다중 필드의 변경 전/후 비교 UI 구현.",
         ]
-      }
+      },
+      {
+        title: "리딩 · 프로덕트 오너십",
+        description: [
+          "신규 채용 웹 프로젝트 TF 리딩 — 신입 기획자·디자이너와 3인 TF 구성, 기획~임직원 인터뷰~프론트엔드 개발 총괄. AI로 약 9종 웹 프로토타입 제작, 자체 채용 파이프라인 MVP 완성.",
+          "B2B 파트너 웹·사내 매니저 어드민·공식 웹사이트 단독 런칭 — 초기 세팅부터 오픈까지 주도, AI 기본법·워터마크 API 등 정책·보안 요구 신속 반영.",
+          "모바일 앱 핵심 화면 개발 — 플랜 생성 가이드·마이페이지·본인 인증 등 웹/어드민 외 앱까지 출시 범위 확장.",
+        ]
+      },
     ]
   },
   {
@@ -48,12 +56,20 @@ export const careers: Career[] = [
     logoHeight: 90,
     period: "2023.04 - 2024.09",
     description:
-      "PC방 런처를 기반으로 e스포츠 토너먼트 대회를 주최하는 플랫폼 서비스",
+      "PC방 런처 기반 e스포츠 토너먼트 플랫폼. 서비스 프론트엔드 개발과 레거시 어드민 마이그레이션 담당.",
     role: "프론트엔드 개발",
     roleColor: "#9F0F0F",
     techStack: ["JavaScript", "TypeScript", "React.js", "Next.js", "Zustand", "TanStack Query"],
     dxTools: ["Github Copilot", "Cursor"],
     achievements: [
+      {
+        title: "레거시 어드민 모던 프론트엔드 현대화",
+        description: [
+          "레거시 템플릿 엔진(Trimou)을 Next.js 12(Page Router)로 전면 재구축.",
+          "TanStack Query(서버 상태)와 Zustand(클라이언트 상태)로 데이터 관심사 분리 및 패턴 일관화.",
+          "신규 기능 배포 주기 단축, SPA 라우팅·상태 캐싱으로 어드민 체감 로딩(LCP) 및 사용 부서 업무 효율 개선.",
+        ],
+      },
       {
         title: "주요 수행 업무",
         description: [
@@ -61,7 +77,6 @@ export const careers: Career[] = [
           "PC방 사용자의 활동을 추적하는 웹 MVP 개발",
           "PC방 런처 어드민 페이지 신규 개발 및 유지보수",
           "포트폴리오 웹 퍼블리싱 및 유지보수 전담",
-          "Code Migration (Trimou → Next.js)",
         ],
       },
     ],
