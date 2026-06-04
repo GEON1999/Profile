@@ -1,6 +1,273 @@
 import type { Project } from "@/types";
 
 export const projects: Project[] = [
+  {
+    id: "PurpleYoung-Admin",
+    name: "PurpleYoung Admin",
+    description:
+      "퍼플영 B2B 파트너 및 사내 매니저를 위한 맞춤형 견적·공고 관리 어드민 플랫폼",
+    technologies: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Zustand",
+      "TailwindCSS",
+      "TanStack Query",
+    ],
+    images: [
+      "/images/purple-admin/4.jpg",
+      "/images/purple-admin/1.jpg",
+      "/images/purple-admin/2.jpg",
+      "/images/purple-admin/3.jpg",
+      "/images/purple-admin/6.jpg",
+    ],
+    period: "2025.09 ~ 현재",
+    role: "전담",
+    work: [
+      {
+        title: "B2B/사내 어드민 Full-Cycle 주도",
+        description: [
+          "백엔드·인프라·기획과 일정을 조율해 초기 세팅부터 오픈까지 주도, AI 기본법·워터마크 API 등 정책·보안 요구 신속 반영",
+        ],
+      },
+      {
+        title: "GTM 이벤트 추적 관리 시스템",
+        description: [
+          "data-track 선언적 부착 + 도메인별 TS 레지스트리로 이벤트 중앙화, GTM API 서버 액션 호출 관리 페이지 구현. 비개발자가 배포 없이 이벤트 ON/OFF",
+        ],
+      },
+      {
+        title: "운영자용 앱 온보딩 가이드 관리 기능",
+        description: [
+          "기존 어드민 컴포넌트를 재활용해 디자인 리소스 없이 구현, 운영자가 개발 없이 온보딩 콘텐츠(이미지·텍스트·순서·버전)를 직접 수정",
+        ],
+      },
+      {
+        title: "병원 파트너 정보 변경 승인 검수 화면",
+        description: [
+          "의료진·라이선스·영업시간 등 다중 필드의 변경 전/후 비교 UI 구현",
+        ],
+      },
+      {
+        title: "모바일 앱 핵심 화면 개발",
+        description: [
+          "플랜 생성 가이드·마이페이지(개인정보 조회/수정)·본인 인증 등, 웹/어드민 외 앱까지 출시 범위 확장",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "UI 변경에 따른 잦은 API 수정 및 배포 병목 현상",
+        description: [
+          "기존 API 응답 구조에 UI가 강하게 결합되어 있어, 화면 변경 시 서버 배포가 동반되어야 하는 비효율 발생",
+        ],
+        techDetails: [
+          {
+            category: "BFF 패턴 도입: Next.js RSC",
+            reasoning: [
+              "page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 적용",
+              "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성 분리",
+            ],
+          },
+        ],
+        solution: [
+          "Next.js RSC를 활용하여 page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 도입",
+          "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성을 분리",
+        ],
+        result: [
+          "API 수정 없이 유연한 UI 변경 가능",
+          "배포 병목 해소 및 개발 주기 단축",
+        ],
+      },
+      {
+        title: "복잡한 포매팅 로직으로 인한 클라이언트 성능 저하 및 번들 비대화",
+        description: [
+          "클라이언트에서 대량의 데이터를 매핑하고 가공함에 따라 로딩 지연 및 번들 사이즈 증가",
+        ],
+        techDetails: [
+          {
+            category: "서버 컴포넌트(RSC) 격리",
+            reasoning: [
+              "데이터 페칭과 포매팅 로직을 서버 컴포넌트로 격리",
+              "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI 즉각 제공",
+            ],
+          },
+        ],
+        solution: [
+          "서버 컴포넌트(RSC)로 데이터 페칭과 포매팅 로직을 격리하여 클라이언트 번들 사이즈 대폭 축소",
+          "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI를 즉각 제공",
+        ],
+        result: [
+          "클라이언트 번들 사이즈 대폭 축소",
+          "체감 로딩 시간(UX) 획기적 개선",
+        ],
+      },
+    ],
+    website: "https://partner.purpleyoung.com/login",
+  },
+
+  {
+    id: "PurpleYoung",
+    name: "Purple Young",
+    description:
+      "퍼플영 서비스 소개를 위한 반응형 랜딩 페이지 및 Notion API 기반 동적 약관·정책 연동 웹페이지",
+    technologies: [
+      "Next.js 15",
+      "React 19",
+      "Tailwind CSS",
+      "Notion API",
+      "Framer Motion",
+      "Turbopack",
+    ],
+    images: [
+      "/images/purple/2.jpg",
+      "/images/purple/3.jpg",
+      "/images/purple/4.jpg",
+    ],
+    period: "2026.01 ~ 현재",
+    role: "frontend",
+    work: [
+      {
+        title: "약관 페이지 내재화 — Lighthouse 57 → 88점",
+        description: [
+          "Notion API + Next.js ISR 기반 정적 렌더링으로 약관을 서비스 내부에 통합. 운영팀은 Notion에서 그대로 작성, 약관 수정 시 개발 배포 0회",
+        ],
+      },
+      {
+        title: "초기 랜딩 페이지 대용량 미디어 에셋 최적화",
+        description: [
+          "기존 100MB 이상의 거대 GIF 에셋을 MP4 비디오 요소로 전환하여 99% 용량 최적화 수행",
+        ],
+      },
+      {
+        title: "다중 루트 레이아웃(Multiple Root Layout) 설계",
+        description: [
+          "Route Groups 구조를 활용해 랜딩 페이지와 약관 스토어 뷰의 글로벌 스타일 충돌 격리",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "약관 페이지 외부 Notion 이탈 및 성능 저하",
+        description: [
+          "고객·고객사 약관이 외부 Notion 페이지로 운영돼 서비스 밖으로 퍼널 이탈하고, Notion 특유의 느린 초기 로딩으로 UX 저하",
+        ],
+        techDetails: [
+          {
+            category: "Notion API + ISR 정적 렌더링",
+            reasoning: [
+              "약관을 코드에 하드코딩하면 로딩은 빠르나 수정마다 개발 배포가 필요",
+              "'운영팀은 Notion에서 그대로 작성 + 서비스는 정적 렌더링'으로 두 요구를 모두 충족하는 구조 선택",
+            ],
+          },
+        ],
+        solution: [
+          "약관을 Notion DB(사용자 유형 × 약관 유형 × 버전·시행일·상태)로 구조화 후 Notion API로 조회, Next.js ISR로 정적 캐싱(24시간 자동 갱신)",
+          "긴급 수정용으로 관리자 웹에서 Secret 토큰 기반 캐시 무효화 API 호출",
+          "현행/과거 버전 열람·탭 네비게이션 자체 구현",
+        ],
+        result: [
+          "Lighthouse 57 → 88점, LCP 11.5s → 2.3s(80% 단축), FCP 2.4s → 0.5s(79% 단축), TBT 40ms → 0ms",
+          "퍼널 이탈 차단 + 약관 수정 시 개발 배포 0회",
+        ],
+      },
+      {
+        title: "미디어 로딩 병목 및 모바일 iOS 동영상 이슈 해결",
+        description: [
+          "고용량 GIF로 인한 LCP 렌더링 저하 및 iOS Safari 영상 자동 재생 차단 현상",
+        ],
+        techDetails: [
+          {
+            category: "최신 코덱(MP4) 파이프라인 전환 및 iOS 호환성 최적화",
+            reasoning: [
+              "애니메이션 용량 안정화 및 모바일 저전력 모드의 렌더링 정책 우회 필요",
+            ],
+          },
+        ],
+        solution: [
+          "기존 GIF를 최신 H.264 기반의 <video> 태그(MP4)로 교체하여 압축률 극대화",
+          "비디오 요소에 playsInline, muted 속성을 강제 부여하여 모바일 블랙아웃 원천 방지",
+        ],
+        result: [
+          "초기 다운로드 용량 99% 이상 절감 및 메인 LCP 렌더링 속도 획기적 개선",
+          "모바일 기기 및 환경에 구애받지 않는 안정적인 미디어 크로스 브라우징 달성",
+        ],
+      },
+    ],
+    website: "https://www.purpleyoung.com/",
+  },
+  {
+    id: "RecruitTF",
+    name: "Recruit TF",
+    description:
+      "퍼플영 자체 채용 브랜딩 및 공고·지원 시스템 구축을 위한 TF 프로젝트",
+    technologies: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "TailwindCSS",
+      "AI (veo3.1)",
+    ],
+    images: [
+      "/images/tf/1.png",
+      "/images/tf/2.png",
+      "/images/tf/3.png",
+      "/images/tf/4.png",
+    ],
+    period: "2026.04 ~ 현재",
+    role: "전담",
+    work: [
+      {
+        title: "TF 리더로서 기획~런칭 A to Z 총괄",
+        description: [
+          "신입 기획자·디자이너와 3인 TF를 구성하여, 프로젝트 기획·임직원 인터뷰·콘텐츠 구조화부터 프론트엔드 개발까지 총괄",
+        ],
+      },
+      {
+        title: "AI 프로토타이핑을 통한 의사결정 가속화",
+        description: [
+          "AI로 약 9종 웹 프로토타입을 제작하여, 추상적인 브랜딩 논의를 빠르게 수렴시키는 의사결정 기준 제시",
+        ],
+      },
+      {
+        title: "지원자 웹 및 관리자 웹 단독 구축",
+        description: [
+          "직군별 공고 필터·다단계 지원 폼을 갖춘 지원자 웹과, 공고 CRUD·지원자 관리 기능의 관리자 웹을 단독 개발",
+        ],
+      },
+      {
+        title: "히어로 영상 AI 제작",
+        description: [
+          "채용 페이지 히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "채용 브랜딩 부재 및 외부 플랫폼 의존 탈피",
+        description: [
+          "자체 채용 브랜딩 경험과 공고/지원 시스템이 부재하여 외부 채용 플랫폼에 의존 중이었음",
+          "기획·디자인 경험이 적은 신입 멤버와 약결합 TF로 신규 시스템을 구축해야 하는 상황",
+        ],
+        techDetails: [
+          {
+            category: "AI 프로토타이핑 기반 신입 TF 리딩",
+            reasoning: [
+              "외부 플랫폼을 쓰면 빠르나 브랜딩·지원 데이터 통제가 어려움",
+              "추상적인 브랜딩 논의를 수렴시키기 위해 AI 프로토타입을 먼저 제작하여 의사결정 기준을 제시",
+            ],
+          },
+        ],
+        solution: [
+          "AI로 약 9종 웹 프로토타입을 제작하여 기획 방향을 빠르게 확정",
+          "지원자 웹(직군별 공고 필터·다단계 지원 폼)과 관리자 웹(공고 CRUD·지원자 관리)을 단독 구축",
+          "히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
+        ],
+        result: [
+          "외부 채용 플랫폼 의존 없는 자체 채용 파이프라인 MVP 완성",
+          "신입 직군 리딩 + 기획~디자인~개발 총괄 경험 확보",
+        ],
+      },
+    ],
+  },
     {
     id: "PurpleUI",
     name: "Purple UI",
@@ -125,273 +392,6 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: "RecruitTF",
-    name: "채용 TF",
-    description:
-      "퍼플영 자체 채용 브랜딩 및 공고·지원 시스템 구축을 위한 TF 프로젝트",
-    technologies: [
-      "Next.js (App Router)",
-      "TypeScript",
-      "TailwindCSS",
-      "AI (veo3.1)",
-    ],
-    images: [
-      "/images/tf/1.png",
-      "/images/tf/2.png",
-      "/images/tf/3.png",
-      "/images/tf/4.png",
-    ],
-    period: "2026.04 ~ 현재",
-    role: "전담",
-    work: [
-      {
-        title: "TF 리더로서 기획~런칭 A to Z 총괄",
-        description: [
-          "신입 기획자·디자이너와 3인 TF를 구성하여, 프로젝트 기획·임직원 인터뷰·콘텐츠 구조화부터 프론트엔드 개발까지 총괄",
-        ],
-      },
-      {
-        title: "AI 프로토타이핑을 통한 의사결정 가속화",
-        description: [
-          "AI로 약 9종 웹 프로토타입을 제작하여, 추상적인 브랜딩 논의를 빠르게 수렴시키는 의사결정 기준 제시",
-        ],
-      },
-      {
-        title: "지원자 웹 및 관리자 웹 단독 구축",
-        description: [
-          "직군별 공고 필터·다단계 지원 폼을 갖춘 지원자 웹과, 공고 CRUD·지원자 관리 기능의 관리자 웹을 단독 개발",
-        ],
-      },
-      {
-        title: "히어로 영상 AI 제작",
-        description: [
-          "채용 페이지 히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
-        ],
-      },
-    ],
-    issues: [
-      {
-        title: "채용 브랜딩 부재 및 외부 플랫폼 의존 탈피",
-        description: [
-          "자체 채용 브랜딩 경험과 공고/지원 시스템이 부재하여 외부 채용 플랫폼에 의존 중이었음",
-          "기획·디자인 경험이 적은 신입 멤버와 약결합 TF로 신규 시스템을 구축해야 하는 상황",
-        ],
-        techDetails: [
-          {
-            category: "AI 프로토타이핑 기반 신입 TF 리딩",
-            reasoning: [
-              "외부 플랫폼을 쓰면 빠르나 브랜딩·지원 데이터 통제가 어려움",
-              "추상적인 브랜딩 논의를 수렴시키기 위해 AI 프로토타입을 먼저 제작하여 의사결정 기준을 제시",
-            ],
-          },
-        ],
-        solution: [
-          "AI로 약 9종 웹 프로토타입을 제작하여 기획 방향을 빠르게 확정",
-          "지원자 웹(직군별 공고 필터·다단계 지원 폼)과 관리자 웹(공고 CRUD·지원자 관리)을 단독 구축",
-          "히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
-        ],
-        result: [
-          "외부 채용 플랫폼 의존 없는 자체 채용 파이프라인 MVP 완성",
-          "신입 직군 리딩 + 기획~디자인~개발 총괄 경험 확보",
-        ],
-      },
-    ],
-  },
-  {
-    id: "PurpleYoung",
-    name: "Purple Young",
-    description:
-      "퍼플영 서비스 소개를 위한 반응형 랜딩 페이지 및 Notion API 기반 동적 약관·정책 연동 웹페이지",
-    technologies: [
-      "Next.js 15",
-      "React 19",
-      "Tailwind CSS",
-      "Notion API",
-      "Framer Motion",
-      "Turbopack",
-    ],
-    images: [
-      "/images/purple/2.jpg",
-      "/images/purple/3.jpg",
-      "/images/purple/4.jpg",
-    ],
-    period: "2026.01 ~ 현재",
-    role: "frontend",
-    work: [
-      {
-        title: "약관 페이지 내재화 — Lighthouse 57 → 88점",
-        description: [
-          "Notion API + Next.js ISR 기반 정적 렌더링으로 약관을 서비스 내부에 통합. 운영팀은 Notion에서 그대로 작성, 약관 수정 시 개발 배포 0회",
-        ],
-      },
-      {
-        title: "초기 랜딩 페이지 대용량 미디어 에셋 최적화",
-        description: [
-          "기존 100MB 이상의 거대 GIF 에셋을 MP4 비디오 요소로 전환하여 99% 용량 최적화 수행",
-        ],
-      },
-      {
-        title: "다중 루트 레이아웃(Multiple Root Layout) 설계",
-        description: [
-          "Route Groups 구조를 활용해 랜딩 페이지와 약관 스토어 뷰의 글로벌 스타일 충돌 격리",
-        ],
-      },
-    ],
-    issues: [
-      {
-        title: "약관 페이지 외부 Notion 이탈 및 성능 저하",
-        description: [
-          "고객·고객사 약관이 외부 Notion 페이지로 운영돼 서비스 밖으로 퍼널 이탈하고, Notion 특유의 느린 초기 로딩으로 UX 저하",
-        ],
-        techDetails: [
-          {
-            category: "Notion API + ISR 정적 렌더링",
-            reasoning: [
-              "약관을 코드에 하드코딩하면 로딩은 빠르나 수정마다 개발 배포가 필요",
-              "'운영팀은 Notion에서 그대로 작성 + 서비스는 정적 렌더링'으로 두 요구를 모두 충족하는 구조 선택",
-            ],
-          },
-        ],
-        solution: [
-          "약관을 Notion DB(사용자 유형 × 약관 유형 × 버전·시행일·상태)로 구조화 후 Notion API로 조회, Next.js ISR로 정적 캐싱(24시간 자동 갱신)",
-          "긴급 수정용으로 관리자 웹에서 Secret 토큰 기반 캐시 무효화 API 호출",
-          "현행/과거 버전 열람·탭 네비게이션 자체 구현",
-        ],
-        result: [
-          "Lighthouse 57 → 88점, LCP 11.5s → 2.3s(80% 단축), FCP 2.4s → 0.5s(79% 단축), TBT 40ms → 0ms",
-          "퍼널 이탈 차단 + 약관 수정 시 개발 배포 0회",
-        ],
-      },
-      {
-        title: "미디어 로딩 병목 및 모바일 iOS 동영상 이슈 해결",
-        description: [
-          "고용량 GIF로 인한 LCP 렌더링 저하 및 iOS Safari 영상 자동 재생 차단 현상",
-        ],
-        techDetails: [
-          {
-            category: "최신 코덱(MP4) 파이프라인 전환 및 iOS 호환성 최적화",
-            reasoning: [
-              "애니메이션 용량 안정화 및 모바일 저전력 모드의 렌더링 정책 우회 필요",
-            ],
-          },
-        ],
-        solution: [
-          "기존 GIF를 최신 H.264 기반의 <video> 태그(MP4)로 교체하여 압축률 극대화",
-          "비디오 요소에 playsInline, muted 속성을 강제 부여하여 모바일 블랙아웃 원천 방지",
-        ],
-        result: [
-          "초기 다운로드 용량 99% 이상 절감 및 메인 LCP 렌더링 속도 획기적 개선",
-          "모바일 기기 및 환경에 구애받지 않는 안정적인 미디어 크로스 브라우징 달성",
-        ],
-      },
-    ],
-    website: "https://www.purpleyoung.com/",
-  },
-  {
-    id: "PurpleYoung-Admin",
-    name: "PurpleYoung Admin",
-    description:
-      "퍼플영 B2B 파트너 및 사내 매니저를 위한 맞춤형 견적·공고 관리 어드민 플랫폼",
-    technologies: [
-      "Next.js (App Router)",
-      "TypeScript",
-      "Zustand",
-      "TailwindCSS",
-      "TanStack Query",
-    ],
-    images: [
-      "/images/purple-admin/4.jpg",
-      "/images/purple-admin/1.jpg",
-      "/images/purple-admin/2.jpg",
-      "/images/purple-admin/3.jpg",
-      "/images/purple-admin/6.jpg",
-    ],
-    period: "2025.09 ~ 현재",
-    role: "전담",
-    work: [
-      {
-        title: "B2B/사내 어드민 Full-Cycle 주도",
-        description: [
-          "백엔드·인프라·기획과 일정을 조율해 초기 세팅부터 오픈까지 주도, AI 기본법·워터마크 API 등 정책·보안 요구 신속 반영",
-        ],
-      },
-      {
-        title: "GTM 이벤트 추적 관리 시스템",
-        description: [
-          "data-track 선언적 부착 + 도메인별 TS 레지스트리로 이벤트 중앙화, GTM API 서버 액션 호출 관리 페이지 구현. 비개발자가 배포 없이 이벤트 ON/OFF",
-        ],
-      },
-      {
-        title: "운영자용 앱 온보딩 가이드 관리 기능",
-        description: [
-          "기존 어드민 컴포넌트를 재활용해 디자인 리소스 없이 구현, 운영자가 개발 없이 온보딩 콘텐츠(이미지·텍스트·순서·버전)를 직접 수정",
-        ],
-      },
-      {
-        title: "병원 파트너 정보 변경 승인 검수 화면",
-        description: [
-          "의료진·라이선스·영업시간 등 다중 필드의 변경 전/후 비교 UI 구현",
-        ],
-      },
-      {
-        title: "모바일 앱 핵심 화면 개발",
-        description: [
-          "플랜 생성 가이드·마이페이지(개인정보 조회/수정)·본인 인증 등, 웹/어드민 외 앱까지 출시 범위 확장",
-        ],
-      },
-    ],
-    issues: [
-      {
-        title: "UI 변경에 따른 잦은 API 수정 및 배포 병목 현상",
-        description: [
-          "기존 API 응답 구조에 UI가 강하게 결합되어 있어, 화면 변경 시 서버 배포가 동반되어야 하는 비효율 발생",
-        ],
-        techDetails: [
-          {
-            category: "BFF 패턴 도입: Next.js RSC",
-            reasoning: [
-              "page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 적용",
-              "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성 분리",
-            ],
-          },
-        ],
-        solution: [
-          "Next.js RSC를 활용하여 page.tsx에서 서버 간 병렬 페칭으로 원시 데이터를 호출하는 BFF 패턴 도입",
-          "데이터 조합을 프론트엔드로 이관하여 백엔드 의존성을 분리",
-        ],
-        result: [
-          "API 수정 없이 유연한 UI 변경 가능",
-          "배포 병목 해소 및 개발 주기 단축",
-        ],
-      },
-      {
-        title: "복잡한 포매팅 로직으로 인한 클라이언트 성능 저하 및 번들 비대화",
-        description: [
-          "클라이언트에서 대량의 데이터를 매핑하고 가공함에 따라 로딩 지연 및 번들 사이즈 증가",
-        ],
-        techDetails: [
-          {
-            category: "서버 컴포넌트(RSC) 격리",
-            reasoning: [
-              "데이터 페칭과 포매팅 로직을 서버 컴포넌트로 격리",
-              "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI 즉각 제공",
-            ],
-          },
-        ],
-        solution: [
-          "서버 컴포넌트(RSC)로 데이터 페칭과 포매팅 로직을 격리하여 클라이언트 번들 사이즈 대폭 축소",
-          "loading.tsx를 통한 Suspense 자동 연동으로 스켈레톤 UI를 즉각 제공",
-        ],
-        result: [
-          "클라이언트 번들 사이즈 대폭 축소",
-          "체감 로딩 시간(UX) 획기적 개선",
-        ],
-      },
-    ],
-    website: "https://partner.purpleyoung.com/login",
-  },
-
   {
     id: "DayShare",
     name: "DayShare",
