@@ -111,6 +111,79 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "RecruitTF",
+    name: "채용 TF",
+    description:
+      "퍼플영 자체 채용 브랜딩 및 공고·지원 시스템 구축을 위한 TF 프로젝트",
+    technologies: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "TailwindCSS",
+      "AI (veo3.1)",
+    ],
+    images: [
+      "/images/tf/1.png",
+      "/images/tf/2.png",
+      "/images/tf/3.png",
+      "/images/tf/4.png",
+    ],
+    period: "2026.04 ~ 현재",
+    role: "전담",
+    work: [
+      {
+        title: "TF 리더로서 기획~런칭 A to Z 총괄",
+        description: [
+          "신입 기획자·디자이너와 3인 TF를 구성하여, 프로젝트 기획·임직원 인터뷰·콘텐츠 구조화부터 프론트엔드 개발까지 총괄",
+        ],
+      },
+      {
+        title: "AI 프로토타이핑을 통한 의사결정 가속화",
+        description: [
+          "AI로 약 9종 웹 프로토타입을 제작하여, 추상적인 브랜딩 논의를 빠르게 수렴시키는 의사결정 기준 제시",
+        ],
+      },
+      {
+        title: "지원자 웹 및 관리자 웹 단독 구축",
+        description: [
+          "직군별 공고 필터·다단계 지원 폼을 갖춘 지원자 웹과, 공고 CRUD·지원자 관리 기능의 관리자 웹을 단독 개발",
+        ],
+      },
+      {
+        title: "히어로 영상 AI 제작",
+        description: [
+          "채용 페이지 히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "채용 브랜딩 부재 및 외부 플랫폼 의존 탈피",
+        description: [
+          "자체 채용 브랜딩 경험과 공고/지원 시스템이 부재하여 외부 채용 플랫폼에 의존 중이었음",
+          "기획·디자인 경험이 적은 신입 멤버와 약결합 TF로 신규 시스템을 구축해야 하는 상황",
+        ],
+        techDetails: [
+          {
+            category: "AI 프로토타이핑 기반 신입 TF 리딩",
+            reasoning: [
+              "외부 플랫폼을 쓰면 빠르나 브랜딩·지원 데이터 통제가 어려움",
+              "추상적인 브랜딩 논의를 수렴시키기 위해 AI 프로토타입을 먼저 제작하여 의사결정 기준을 제시",
+            ],
+          },
+        ],
+        solution: [
+          "AI로 약 9종 웹 프로토타입을 제작하여 기획 방향을 빠르게 확정",
+          "지원자 웹(직군별 공고 필터·다단계 지원 폼)과 관리자 웹(공고 CRUD·지원자 관리)을 단독 구축",
+          "히어로 영상을 AI(veo3.1)로 직접 제작하여 디자인 리소스 절감",
+        ],
+        result: [
+          "외부 채용 플랫폼 의존 없는 자체 채용 파이프라인 MVP 완성",
+          "신입 직군 리딩 + 기획~디자인~개발 총괄 경험 확보",
+        ],
+      },
+    ],
+  },
+  {
     id: "PurpleYoung",
     name: "Purple Young",
     description:
