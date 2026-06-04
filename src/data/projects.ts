@@ -5,13 +5,16 @@ export const projects: Project[] = [
     id: "PurpleUI",
     name: "Purple UI",
     description:
-      "기획, 디자인, 개발 간의 병목을 해결하고 워크플로우를 자동화하는 사내 통합 디자인 시스템",
+      "3개 프로덕트의 공통 UI를 단일 소스로 통합하는 모노레포 기반 사내 디자인 시스템",
     technologies: [
+      "Turborepo",
+      "pnpm workspace",
+      "CSS Modules",
+      "Style Dictionary",
+      "Storybook",
+      "GitHub Packages",
       "Claude (Skill-creator)",
       "Figma MCP",
-      "Antigravity AI",
-      "Windsurf",
-      "Storybook",
     ],
     images: [
       "/images/purple-ui/1.png",
@@ -20,69 +23,81 @@ export const projects: Project[] = [
     role: "전담",
     work: [
       {
-        title: "모노레포 기반 3-Layer 아키텍처 설계",
+        title: "Turborepo + pnpm workspace 모노레포 구축",
         description: [
-          "원자, 비즈니스 조합, 프로젝트 레이어로 컴포넌트 분리",
+          "21종 공통 컴포넌트(CSS Modules)와 Storybook 카탈로그 구축",
+        ],
+      },
+      {
+        title: "Figma 토큰 자동 변환 파이프라인",
+        description: [
+          "Style Dictionary로 Figma 토큰 JSON → CSS Variables·JS 상수 자동 변환, main 머지 시 GitHub Packages 자동 배포(CI/CD)",
         ],
       },
       {
         title: "AI 에이전트 연동 자동화 파이프라인 구축",
         description: [
-          "디자인 검증, 코드 생성, 시각 검증의 End-to-End 자동화",
+          "사내 컨벤션 맞춤 Claude Skill 자체 구축, figma-design-validator → figma-to-purple-ui → figma-visual-diff 검증 파이프라인 설계",
+        ],
+      },
+      {
+        title: "디자이너용 Figma 사내 AI 플러그인",
+        description: [
+          "별도 IDE·MCP 설정 없이 Figma 안에서 디자인 검토·UI 구현 요청 수행. Gemini PoC → Codex CLI + 로컬 브릿지 연동으로 전환",
         ],
       },
       {
         title: "점진적 레거시 마이그레이션 전략 적용",
         description: [
-          "환경별 패키지 전환 및 Strangler Fig 패턴 도입",
+          "'2개 프로젝트에서 반복될 때만 공용 승격' 거버넌스로 조기 추상화 방지, Strangler Fig 패턴 도입",
         ],
       },
     ],
     issues: [
       {
+        title: "3개 프로덕트 간 공통 컴포넌트·토큰 중복 정의",
+        description: [
+          "서비스·파트너·어드민 3개 프로젝트에 공통 컴포넌트·디자인 토큰이 중복 정의돼, 디자인 변경 시 3곳을 각각 수정해야 하고 Figma→코드 핸드오프에서 토큰 불일치가 잦음",
+        ],
+        techDetails: [
+          {
+            category: "모노레포 + 토큰 자동화 파이프라인",
+            reasoning: [
+              "모든 컴포넌트를 처음부터 공용화하면 디자인 시스템 미확정 상태에서 잘못된 추상화가 굳을 위험",
+              "'2개 프로젝트에서 반복될 때만 공용 승격' 거버넌스로 조기 추상화를 막고, 토큰은 자동 파이프라인으로 일원화",
+            ],
+          },
+        ],
+        solution: [
+          "Turborepo + pnpm workspace 모노레포에 21종 공통 컴포넌트(CSS Modules)·Storybook 카탈로그 구축",
+          "Figma 토큰 JSON을 Style Dictionary로 CSS Variables·JS 상수로 변환, main 머지 시 GitHub Packages 자동 배포",
+        ],
+        result: [
+          "공통 UI 수정 포인트 3곳 → 1곳으로 통합",
+          "디자인 시스템 확정 시 토큰 교체만으로 전 서비스 일괄 반영 가능한 구조 확보",
+        ],
+      },
+      {
         title: "디자인-개발 간 싱크로율 저하 및 반복 구현의 비효율",
         description: [
-          "프로젝트마다 디자인 토큰이 미세하게 다르고, 수동 코딩으로 인한 시각적 불일치(Drift) 누적",
+          "다수의 웹/어드민 프로젝트를 1인이 병행하며 UI 구현·디자인 검수·기획 변경 대응에 반복적인 수작업 비용이 큼",
         ],
         techDetails: [
           {
             category: "AI 자동화 파이프라인",
             reasoning: [
-              "Skill-creator를 활용해 사내 컨벤션에 맞춘 Claude Skill 자체 구축",
-              "Figma MCP 및 Antigravity AI를 연동하여 토큰 검증 → 코드 자동 생성 → pixel 비교 자동화 스킬 구현",
+              "범용 AI를 그대로 쓰면 사내 컨벤션·디자인 시스템을 매번 프롬프트로 설명해야 해 결과 일관성이 떨어짐",
+              "사내 규칙을 내장한 전용 도구(Claude Skill)와 디자인→코드→시각 검증을 잇는 파이프라인을 직접 구축",
             ],
           },
         ],
         solution: [
           "figma-design-validator(토큰 검증) → figma-to-purple-ui(코드 자동 생성) → figma-visual-diff(pixel 비교) 자동화 스킬 구현",
-          "Figma MCP 및 Antigravity AI 연동으로 End-to-End 자동화",
+          "Antigravity + Figma MCP 연동으로 시안 기반 UI 구현·시각 검증 자동화, 활용법 가이드 문서화",
         ],
         result: [
-          "신규 UI 반영 시간을 수일에서 수시간으로 단축",
-          "시각적 불일치(Drift) 제거",
-        ],
-      },
-      {
-        title: "다중 어드민 환경에서의 UI 파편화 및 높은 유지보수 비용",
-        description: [
-          "파트너 및 매니저 어드민에서 동일 컴포넌트를 중복 구현하여 브랜드 일관성 훼손",
-        ],
-        techDetails: [
-          {
-            category: "SSOT(Single Source of Truth) 디자인 시스템",
-            reasoning: [
-              "단일 소스 오브 트루스(SSOT) 역할을 하는 purple-ui 패키지 구축",
-              "중복 컴포넌트를 0개로 단일화",
-            ],
-          },
-        ],
-        solution: [
-          "단일 소스 오브 트루스(SSOT) 역할을 하는 purple-ui 디자인 시스템 패키지 구축",
-          "중복 컴포넌트를 0개로 단일화",
-        ],
-        result: [
-          "1인 프론트엔드 체제의 유지보수 리소스 최소화",
-          "브랜드 일관성 확보",
+          "신규 UI·디자인 반영 시간을 수일에서 수시간으로 단축",
+          "시안-구현 차이 및 반복 디자인 QA 비용 감소, 개발팀 내 AI 워크플로우 정착 기여",
         ],
       },
       {
@@ -187,7 +202,7 @@ export const projects: Project[] = [
     id: "PurpleYoung",
     name: "Purple Young",
     description:
-      "퍼플영 서비스 소개를 위한 반응형 랜딩 페이지 및 사내 관리용 Notion 기반 동적 약관·정책 연동 웹페이지",
+      "퍼플영 서비스 소개를 위한 반응형 랜딩 페이지 및 Notion API 기반 동적 약관·정책 연동 웹페이지",
     technologies: [
       "Next.js 15",
       "React 19",
@@ -205,15 +220,15 @@ export const projects: Project[] = [
     role: "frontend",
     work: [
       {
-        title: "초기 랜딩 페이지 대용량 미디어 에셋 최적화",
+        title: "약관 페이지 내재화 — Lighthouse 57 → 88점",
         description: [
-          "기존 100MB 이상의 거대 GIF 에셋을 추출하여 MP4 비디오 요소를 통한 99% 용량 최적화 수행",
+          "Notion API + Next.js ISR 기반 정적 렌더링으로 약관을 서비스 내부에 통합. 운영팀은 Notion에서 그대로 작성, 약관 수정 시 개발 배포 0회",
         ],
       },
       {
-        title: "약관 및 정책 가이드 Notion API(Notion-client) 연동",
+        title: "초기 랜딩 페이지 대용량 미디어 에셋 최적화",
         description: [
-          "사내 팀원들이 작성하는 Notion 페이지를 정적 데이터 파싱하여 웹사이트에 배포 단에서 동기화",
+          "기존 100MB 이상의 거대 GIF 에셋을 MP4 비디오 요소로 전환하여 99% 용량 최적화 수행",
         ],
       },
       {
@@ -224,6 +239,30 @@ export const projects: Project[] = [
       },
     ],
     issues: [
+      {
+        title: "약관 페이지 외부 Notion 이탈 및 성능 저하",
+        description: [
+          "고객·고객사 약관이 외부 Notion 페이지로 운영돼 서비스 밖으로 퍼널 이탈하고, Notion 특유의 느린 초기 로딩으로 UX 저하",
+        ],
+        techDetails: [
+          {
+            category: "Notion API + ISR 정적 렌더링",
+            reasoning: [
+              "약관을 코드에 하드코딩하면 로딩은 빠르나 수정마다 개발 배포가 필요",
+              "'운영팀은 Notion에서 그대로 작성 + 서비스는 정적 렌더링'으로 두 요구를 모두 충족하는 구조 선택",
+            ],
+          },
+        ],
+        solution: [
+          "약관을 Notion DB(사용자 유형 × 약관 유형 × 버전·시행일·상태)로 구조화 후 Notion API로 조회, Next.js ISR로 정적 캐싱(24시간 자동 갱신)",
+          "긴급 수정용으로 관리자 웹에서 Secret 토큰 기반 캐시 무효화 API 호출",
+          "현행/과거 버전 열람·탭 네비게이션 자체 구현",
+        ],
+        result: [
+          "Lighthouse 57 → 88점, LCP 11.5s → 2.3s(80% 단축), FCP 2.4s → 0.5s(79% 단축), TBT 40ms → 0ms",
+          "퍼널 이탈 차단 + 약관 수정 시 개발 배포 0회",
+        ],
+      },
       {
         title: "미디어 로딩 병목 및 모바일 iOS 동영상 이슈 해결",
         description: [
@@ -244,28 +283,6 @@ export const projects: Project[] = [
         result: [
           "초기 다운로드 용량 99% 이상 절감 및 메인 LCP 렌더링 속도 획기적 개선",
           "모바일 기기 및 환경에 구애받지 않는 안정적인 미디어 크로스 브라우징 달성",
-        ],
-      },
-      {
-        title: "약관 페이지 Notion 내부 링크 이탈 방지 구축",
-        description: [
-          "약관 내 링크 클릭 시 외부 Notion 도메인으로 이탈하는 문제 및 캐시 혼선 리스크",
-        ],
-        techDetails: [
-          {
-            category: "SSG 전환 및 Next.js Middleware 기반 라우팅 가로채기",
-            reasoning: [
-              "운영 보안을 고려한 정적 빌드 서빙 및 외부 이탈 라우팅에 대한 선제적 차단 필요",
-            ],
-          },
-        ],
-        solution: [
-          "불안정한 런타임 ISR 방식을 벗어나 노션 API 연동 구조를 완전 정적 빌드(SSG)로 개편",
-          "Next.js Middleware를 통해 원본 앵커(Anchor) 태그 연결을 서비스 내부 동적 경로로 가로채기",
-        ],
-        result: [
-          "외부 플랫폼 유저 이탈률 0% 달성 및 안정적인 자사 웹서비스 경험(UX) 확보",
-          "서드파티 캐시 변조 가능성 차단 및 정적 렌더링을 통한 SEO 기반 구축",
         ],
       },
     ],
@@ -296,19 +313,31 @@ export const projects: Project[] = [
       {
         title: "B2B/사내 어드민 Full-Cycle 주도",
         description: [
-          "초기 환경 세팅부터 컴포넌트 설계, 런칭까지 단독 수행",
+          "백엔드·인프라·기획과 일정을 조율해 초기 세팅부터 오픈까지 주도, AI 기본법·워터마크 API 등 정책·보안 요구 신속 반영",
         ],
       },
       {
-        title: "BFF(Backend For Frontend) 아키텍처 설계",
+        title: "GTM 이벤트 추적 관리 시스템",
         description: [
-          "클라이언트와 서버 간 데이터 의존성 분리 및 최적화",
+          "data-track 선언적 부착 + 도메인별 TS 레지스트리로 이벤트 중앙화, GTM API 서버 액션 호출 관리 페이지 구현. 비개발자가 배포 없이 이벤트 ON/OFF",
         ],
       },
       {
-        title: "비즈니스 규제 및 보안 대응",
+        title: "운영자용 앱 온보딩 가이드 관리 기능",
         description: [
-          "AI 기본법 대응 및 이미지 워터마크 API 일괄 적용 등 신속한 로직 구현",
+          "기존 어드민 컴포넌트를 재활용해 디자인 리소스 없이 구현, 운영자가 개발 없이 온보딩 콘텐츠(이미지·텍스트·순서·버전)를 직접 수정",
+        ],
+      },
+      {
+        title: "병원 파트너 정보 변경 승인 검수 화면",
+        description: [
+          "의료진·라이선스·영업시간 등 다중 필드의 변경 전/후 비교 UI 구현",
+        ],
+      },
+      {
+        title: "모바일 앱 핵심 화면 개발",
+        description: [
+          "플랜 생성 가이드·마이페이지(개인정보 조회/수정)·본인 인증 등, 웹/어드민 외 앱까지 출시 범위 확장",
         ],
       },
     ],
@@ -357,28 +386,6 @@ export const projects: Project[] = [
         result: [
           "클라이언트 번들 사이즈 대폭 축소",
           "체감 로딩 시간(UX) 획기적 개선",
-        ],
-      },
-      {
-        title: "글로벌 타입(Swagger) 에러의 연쇄 전파",
-        description: [
-          "단일 OpenAPI 스키마 의존으로 인해 한 필드의 변경이 전체 페이지의 타입 에러로 직결",
-        ],
-        techDetails: [
-          {
-            category: "페이지 단위 타입 격리(Isolation)",
-            reasoning: [
-              "클라이언트 컴포넌트가 독립적인 인터페이스(DTO)를 가지도록 설계",
-              "스키마 변경 시 영향 범위를 해당 페이지로만 국한",
-            ],
-          },
-        ],
-        solution: [
-          "페이지 단위 타입 격리(Isolation) 적용",
-          "클라이언트 컴포넌트가 독립적인 인터페이스(DTO)를 가지도록 설계",
-        ],
-        result: [
-          "스키마 변경 시 영향 범위를 해당 페이지로만 국한시키는 타입 안정성 확보",
         ],
       },
     ],
