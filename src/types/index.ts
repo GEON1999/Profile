@@ -26,6 +26,13 @@ export interface ProjectImage {
   unoptimized?: boolean;
 }
 
+/**
+ * personal: 1인 개인 프로젝트
+ * frontend: 팀 내 프론트엔드 담당
+ * solo: 회사 프로젝트 프론트엔드 단독 전담
+ */
+export type ProjectRole = "personal" | "frontend" | "solo";
+
 export interface Project {
   id: string;
   name: string;
@@ -33,7 +40,7 @@ export interface Project {
   technologies: string[];
   images: (string | ProjectImage)[];
   period: string;
-  role: "personal" | "frontend" | "fullstack" | string;
+  role: ProjectRole;
   work: WorkItem[];
   issues?: Issue[];
   github?: string;
