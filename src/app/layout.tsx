@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className="scroll-smooth">
+    <html lang="ko">
       <body className={`${notoSans.className} ${notoSans.variable} ${notoSerif.variable} antialiased`}>
         <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         {children}

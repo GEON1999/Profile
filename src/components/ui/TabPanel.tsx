@@ -74,14 +74,19 @@ export default function TabPanel({ issues, idPrefix }: TabPanelProps) {
   const handleKeyDown = (e: React.KeyboardEvent, currentTab: TabKey) => {
     const tabs: TabKey[] = ["challenges", "tech", "solutions", "result"];
     const currentIndex = tabs.indexOf(currentTab);
-    
+
+    let nextTab: TabKey | null = null;
     if (e.key === "ArrowRight") {
-      e.preventDefault();
-      setActiveTab(tabs[(currentIndex + 1) % tabs.length]);
+      nextTab = tabs[(currentIndex + 1) % tabs.length];
     } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      setActiveTab(tabs[(currentIndex - 1 + tabs.length) % tabs.length]);
+      nextTab = tabs[(currentIndex - 1 + tabs.length) % tabs.length];
     }
+    if (!nextTab) return;
+
+    e.preventDefault();
+    setActiveTab(nextTab);
+    // roving tabindex: 선택 이동 시 포커스도 함께 이동
+    document.getElementById(`${idPrefix}-tab-${nextTab}`)?.focus();
   };
 
   return (

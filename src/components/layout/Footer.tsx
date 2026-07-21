@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CopyrightYear from "@/components/ui/CopyrightYear";
 
 export default function Footer() {
   return (
@@ -33,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-800 text-center text-xs">
-          <p>&copy; {new Date().getFullYear()} GEON. All rights reserved.</p>
+          <p>&copy; <CopyrightYear /> GEON. All rights reserved.</p>
         </div>
       </div>
     </footer>
