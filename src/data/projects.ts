@@ -21,7 +21,7 @@ export const projects: Project[] = [
       "/images/purple-admin/6.jpg",
     ],
     period: "2025.09 ~ 현재",
-    role: "전담",
+    role: "solo",
     work: [
       {
         title: "B2B/사내 어드민 Full-Cycle 주도",
@@ -213,7 +213,7 @@ export const projects: Project[] = [
       "/images/tf/4.png",
     ],
     period: "2026.04 ~ 현재",
-    role: "전담",
+    role: "solo",
     work: [
       {
         title: "TF 리더로서 기획~런칭 A to Z 총괄",
@@ -287,7 +287,7 @@ export const projects: Project[] = [
       { src: "/images/purple-ui/1.png", compact: true, unoptimized: true },
     ],
     period: "2026.03 ~ 현재",
-    role: "전담",
+    role: "solo",
     work: [
       {
         title: "Turborepo + pnpm workspace 모노레포 구축",
