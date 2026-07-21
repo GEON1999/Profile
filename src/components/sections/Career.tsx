@@ -4,7 +4,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Career() {
   return (
-    <section id="career" className="my-24 scroll-mt-40 bg-[#F9FAFB]">
+    <section id="career" className="my-24 scroll-mt-24 bg-[#F9FAFB]">
       <SectionTitle
         title="CAREER"
         subtitle="A collection of my work experience"

@@ -31,18 +31,18 @@ export default function Header() {
           <div className="group flex space-x-3 justify-center items-center">
             <div className="flex flex-col cursor-pointer">
               <span className="text-5xl font-thin flex items-end text-gray-700 -space-x-4">
-                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                <span className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
                   G
-                </p>
-                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                </span>
+                <span className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
                   E
-                </p>
-                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                </span>
+                <span className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
                   O
-                </p>
-                <p className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
+                </span>
+                <span className="md:group-hover:mx-[0.5px] md:hover:ease-out duration-150">
                   N
-                </p>
+                </span>
               </span>
             </div>
             <div className="flex flex-col font-thin items-start text-sm">
@@ -67,7 +67,7 @@ export default function Header() {
         <button
           className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="메뉴 열기"
+          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={isOpen}
         >
           <span

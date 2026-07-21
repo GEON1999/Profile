@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="pt-36 pb-80 px-10 bg-[#F9FAFB] border-t border-[#999999]"
+      className="pt-36 pb-80 px-10 bg-[#F9FAFB] border-t border-[#999999] scroll-mt-24"
     >
       <SectionTitle
         title="CONTACT"
