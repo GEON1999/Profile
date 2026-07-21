@@ -18,12 +18,20 @@ export interface WorkItem {
   description: string[];
 }
 
+export interface ProjectImage {
+  src: string;
+  /** 원본이 작은 UI 캡처 등 축소된 고정 크기로 표시할 이미지 */
+  compact?: boolean;
+  /** next/image 최적화를 건너뛸 이미지 */
+  unoptimized?: boolean;
+}
+
 export interface Project {
   id: string;
   name: string;
   description: string;
   technologies: string[];
-  images: string[];
+  images: (string | ProjectImage)[];
   period: string;
   role: "personal" | "frontend" | "fullstack" | string;
   work: WorkItem[];
