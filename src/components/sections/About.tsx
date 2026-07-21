@@ -1,22 +1,16 @@
 import { aboutSections } from "@/data/about";
 import Image from "next/image";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function About() {
   return (
     <section id="about" className="py-24 my-24 bg-[#F9FAFB] scroll-mt-24">
       <div>
-        <div className="flex justify-center text-center font-serif text-4xl lg:text-5xl md:mb-[105px] mb-5">
-          <div className="flex flex-col">
-            <span className="border-b-2 px-8 py-1 border-black border-opacity-70">
-              ABOUT
-            </span>
-            <div>
-              <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
-                About real me
-              </span>
-            </div>
-          </div>
-        </div>
+        <SectionTitle
+          title="ABOUT"
+          subtitle="About real me"
+          className="md:mb-[105px] mb-5"
+        />
         <div className="md:mx-20 mx-4 flex justify-center relative">
           {/* Timeline — desktop only */}
           <div className="flex-col justify-center items-center hidden 2xl:flex absolute top-20">

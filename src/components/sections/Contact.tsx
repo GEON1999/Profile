@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 interface ContactFormData {
   name: string;
@@ -45,18 +46,11 @@ export default function Contact() {
       id="contact"
       className="pt-36 pb-80 px-10 bg-[#F9FAFB] border-t border-[#999999]"
     >
-      <div className="flex justify-center text-center font-serif text-4xl lg:text-5xl flex-col mb-10">
-        <div>
-          <span className="border-b-2 border-black border-opacity-70 px-8 py-1">
-            CONTACT
-          </span>
-        </div>
-        <div>
-          <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
-            Contact me in a convenient way
-          </span>
-        </div>
-      </div>
+      <SectionTitle
+        title="CONTACT"
+        subtitle="Contact me in a convenient way"
+        className="mb-10"
+      />
 
       <div>
         <form
