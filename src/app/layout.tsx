@@ -7,7 +7,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 import { Analytics } from "@vercel/analytics/react";
-import { Noto_Sans_KR, Noto_Serif_KR, Inter } from "next/font/google";
+import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 
 const notoSans = Noto_Sans_KR({
@@ -21,13 +21,6 @@ const notoSerif = Noto_Serif_KR({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-serif",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-inter",
   display: "swap",
 });
 
@@ -70,7 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="scroll-smooth">
-      <body className={`${notoSans.className} ${notoSans.variable} ${notoSerif.variable} ${inter.variable} antialiased`}>
+      <body className={`${notoSans.className} ${notoSans.variable} ${notoSerif.variable} antialiased`}>
         <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         {children}
         <Analytics />
