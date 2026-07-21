@@ -2,43 +2,35 @@
 
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { useForm } from "react-hook-form";
 import SectionTitle from "@/components/ui/SectionTitle";
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
+const EMAILJS_PROJECT_ID = process.env.NEXT_PUBLIC_EMAILJS_PROJECT_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
   const formRef = useRef<HTMLFormElement>(null);
-  const { register, handleSubmit } = useForm<ContactFormData>();
 
-  const onSubmit = () => {
-    if (!formRef.current) return;
-    setLoading(true);
-    setSuccess(false);
-    setError(false);
-
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current || status === "sending") return;
+    if (!EMAILJS_PROJECT_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus("error");
+      return;
+    }
+    setStatus("sending");
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_PROJECT_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        EMAILJS_PROJECT_ID,
+        EMAILJS_TEMPLATE_ID,
         formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        EMAILJS_PUBLIC_KEY
       )
-      .then(() => {
-        setSuccess(true);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
+      .then(() => setStatus("success"))
+      .catch(() => setStatus("error"));
   };
 
   return (
@@ -55,13 +47,13 @@ export default function Contact() {
       <div>
         <form
           ref={formRef}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className="max-w-md mx-auto mt-8 flex flex-col items-center"
         >
           <div className="mb-4">
             <label htmlFor="contact_name" className="sr-only">Your Name</label>
             <input
-              {...register("name", { required: true })}
+              name="name"
               type="text"
               id="contact_name"
               placeholder="Your Name"
@@ -73,7 +65,7 @@ export default function Contact() {
           <div className="mb-4">
             <label htmlFor="contact_email" className="sr-only">Your Email</label>
             <input
-              {...register("email", { required: true })}
+              name="email"
               type="email"
               id="contact_email"
               placeholder="Your Email"
@@ -85,7 +77,7 @@ export default function Contact() {
           <div className="mb-4">
             <label htmlFor="contact_message" className="sr-only">Your Message</label>
             <textarea
-              {...register("message", { required: true })}
+              name="message"
               id="contact_message"
               placeholder="Your Message"
               required
@@ -97,10 +89,10 @@ export default function Contact() {
           <div className="flex flex-col lg:flex-row-reverse justify-between w-[340px] lg:w-[626px] text-[12px] lg:text-[15px] space-y-4 lg:space-y-0">
             <button
               type="submit"
-              disabled={loading}
+              disabled={status === "sending"}
               className="bg-black text-white py-2 lg:w-[138px] hover:bg-gray-800 transition-colors disabled:bg-gray-400"
             >
-              {loading ? "Sending..." : "Send Message"}
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
             <div className="flex space-x-5 justify-between lg:justify-center items-left">
               <div className="flex items-center space-x-2">
@@ -133,13 +125,13 @@ export default function Contact() {
           </div>
 
           <div aria-live="polite" className="mt-3">
-            {success && (
+            {status === "success" && (
               <p className="text-green-600 text-center" role="status">
                 Message sent successfully!
               </p>
             )}
 
-            {error && (
+            {status === "error" && (
               <p className="text-red-600 text-center" role="alert">
                 Failed to send message. Please try again.
               </p>
