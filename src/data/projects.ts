@@ -284,7 +284,7 @@ export const projects: Project[] = [
       "Figma MCP",
     ],
     images: [
-      "/images/purple-ui/1.png",
+      { src: "/images/purple-ui/1.png", compact: true, unoptimized: true },
     ],
     period: "2026.03 ~ 현재",
     role: "전담",
