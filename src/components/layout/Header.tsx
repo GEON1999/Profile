@@ -97,10 +97,11 @@ export default function Header() {
         <ul className="flex flex-col items-center gap-10">
           {navItems.map(({ label, href }, index) => (
             <li key={label} className="overflow-hidden">
-              <a 
-                href={href} 
-                onClick={() => setIsOpen(false)} 
-                className={`text-4xl font-light text-gray-800 hover:text-black transition-all duration-500 delay-[${index * 100}ms] block ${
+              <a
+                href={href}
+                onClick={() => setIsOpen(false)}
+                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`text-4xl font-light text-gray-800 hover:text-black transition-all duration-500 block ${
                   isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 }`}
               >
