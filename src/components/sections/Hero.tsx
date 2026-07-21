@@ -1,3 +1,5 @@
+import ResponsiveVideo from "@/components/ui/ResponsiveVideo";
+
 const ADAPTABILITY_CHARS = "Adaptability".split("");
 
 export default function Hero() {
@@ -13,28 +15,10 @@ export default function Hero() {
             <span>GEON</span>
           </div>
           {/* sea.mp4 for desktop, dark.mp4 for mobile — screen blend makes video show through black text, white stays white */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/videos/sea-poster.jpg"
-            className="absolute inset-0 w-full h-full object-cover hidden md:block pointer-events-none"
-            style={{ mixBlendMode: "screen" }}
-          >
-            <source src="/videos/sea.mp4" type="video/mp4" />
-          </video>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/videos/dark-poster.jpg"
-            className="absolute inset-0 w-full h-full object-cover md:hidden pointer-events-none"
-            style={{ mixBlendMode: "screen" }}
-          >
-            <source src="/videos/dark.mp4" type="video/mp4" />
-          </video>
+          <ResponsiveVideo
+            desktop={{ src: "/videos/sea.mp4", poster: "/videos/sea-poster.jpg" }}
+            mobile={{ src: "/videos/dark.mp4", poster: "/videos/dark-poster.jpg" }}
+          />
         </div>
 
         {/* Adaptability — video visible INSIDE each letter */}
