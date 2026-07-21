@@ -7,9 +7,10 @@ type TabKey = "challenges" | "tech" | "solutions" | "result";
 
 interface TabPanelProps {
   issues: Issue[];
+  idPrefix: string;
 }
 
-export default function TabPanel({ issues }: TabPanelProps) {
+export default function TabPanel({ issues, idPrefix }: TabPanelProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("challenges");
 
   const renderTabContent = (issue: Issue) => {
@@ -101,8 +102,8 @@ export default function TabPanel({ issues }: TabPanelProps) {
           onKeyDown={(e) => handleKeyDown(e, "challenges")}
           role="tab"
           aria-selected={activeTab === "challenges"}
-          aria-controls="panel-challenges"
-          id="tab-challenges"
+          aria-controls={`${idPrefix}-panel-challenges`}
+          id={`${idPrefix}-tab-challenges`}
           tabIndex={activeTab === "challenges" ? 0 : -1}
         >
           Issues
@@ -118,8 +119,8 @@ export default function TabPanel({ issues }: TabPanelProps) {
           onKeyDown={(e) => handleKeyDown(e, "tech")}
           role="tab"
           aria-selected={activeTab === "tech"}
-          aria-controls="panel-tech"
-          id="tab-tech"
+          aria-controls={`${idPrefix}-panel-tech`}
+          id={`${idPrefix}-tab-tech`}
           tabIndex={activeTab === "tech" ? 0 : -1}
         >
           TechDetails
@@ -135,8 +136,8 @@ export default function TabPanel({ issues }: TabPanelProps) {
           onKeyDown={(e) => handleKeyDown(e, "solutions")}
           role="tab"
           aria-selected={activeTab === "solutions"}
-          aria-controls="panel-solutions"
-          id="tab-solutions"
+          aria-controls={`${idPrefix}-panel-solutions`}
+          id={`${idPrefix}-tab-solutions`}
           tabIndex={activeTab === "solutions" ? 0 : -1}
         >
           Solutions
@@ -152,8 +153,8 @@ export default function TabPanel({ issues }: TabPanelProps) {
           onKeyDown={(e) => handleKeyDown(e, "result")}
           role="tab"
           aria-selected={activeTab === "result"}
-          aria-controls="panel-result"
-          id="tab-result"
+          aria-controls={`${idPrefix}-panel-result`}
+          id={`${idPrefix}-tab-result`}
           tabIndex={activeTab === "result" ? 0 : -1}
         >
           Result
@@ -164,8 +165,8 @@ export default function TabPanel({ issues }: TabPanelProps) {
       <div 
         className="space-y-4 mt-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-lg p-1"
         role="tabpanel"
-        id={`panel-${activeTab}`}
-        aria-labelledby={`tab-${activeTab}`}
+        id={`${idPrefix}-panel-${activeTab}`}
+        aria-labelledby={`${idPrefix}-tab-${activeTab}`}
         tabIndex={0}
       >
         {issues.map((issue, index) => (

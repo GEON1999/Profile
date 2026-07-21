@@ -10,6 +10,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const {
+    id,
     name,
     description,
     technologies,
@@ -147,7 +148,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           )}
 
           {/* Issues Tab Panel */}
-          {issues && issues.length > 0 && <TabPanel issues={issues} />}
+          {issues && issues.length > 0 && (
+            <TabPanel issues={issues} idPrefix={id} />
+          )}
         </div>
       </div>
     </div>
