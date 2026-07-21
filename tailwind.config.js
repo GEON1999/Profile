@@ -4,9 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Noto Sans"', "system-ui", "-apple-system", "sans-serif"],
-        serif: ['"Noto Serif"', "Georgia", "serif"],
-        mono: ['"Inter"', "monospace"],
+        sans: ["var(--font-noto-sans)", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["var(--font-noto-serif)", "Georgia", "serif"],
       },
     },
   },
