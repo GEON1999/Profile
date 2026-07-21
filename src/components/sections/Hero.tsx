@@ -11,9 +11,9 @@ export default function Hero() {
       <div className="mb-32 flex flex-col">
         {/* GEON — video visible INSIDE the text */}
         <div className="relative inline-block bg-white overflow-hidden">
-          <div className="text-[25vw] font-extrabold text-black flex flex-col leading-none select-none">
+          <h1 className="text-[25vw] font-extrabold text-black flex flex-col leading-none select-none">
             <span>GEON</span>
-          </div>
+          </h1>
           {/* sea.mp4 for desktop, dark.mp4 for mobile — screen blend makes video show through black text, white stays white */}
           <ResponsiveVideo
             desktop={{ src: "/videos/sea.mp4", poster: "/videos/sea-poster.jpg" }}
