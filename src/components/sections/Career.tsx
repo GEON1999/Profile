@@ -1,21 +1,15 @@
 import { careers } from "@/data/career";
 import Image from "next/image";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Career() {
   return (
     <section id="career" className="my-24 scroll-mt-40 bg-[#F9FAFB]">
-      <div className="flex justify-center text-center font-serif text-4xl lg:text-5xl mb-5 flex-col">
-        <div>
-          <span className="border-b-2 border-black border-opacity-70 px-8 py-1">
-            CAREER
-          </span>
-        </div>
-        <div>
-          <span className="text-base px-4 py-1 border-gray-500 text-gray-500">
-            A collection of my work experience
-          </span>
-        </div>
-      </div>
+      <SectionTitle
+        title="CAREER"
+        subtitle="A collection of my work experience"
+        className="mb-5"
+      />
       <div className="flex justify-center items-center">
         <div className="flex flex-col gap-10 px-4 lg:px-40 mt-4 lg:mt-10">
           {careers.map((career) => (
