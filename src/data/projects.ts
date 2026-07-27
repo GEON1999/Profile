@@ -546,7 +546,7 @@ export const projects: Project[] = [
     id: "DayShare",
     name: "DayShare",
     description:
-      "연인, 동호회, 육아 등 다양한 관계 속에서 함께 일기를 공유할 수 있는 웹",
+      "연인·동호회·육아 등 관계 단위로 초대해 일정과 기록을 함께 쌓는 프라이빗 공유 캘린더 웹/앱",
     technologies: [
       "Next.js",
       "Tailwind",
@@ -567,8 +567,10 @@ export const projects: Project[] = [
     role: "personal",
     work: [
       {
-        title: "AI 기반 일기 공감 시스템 개발",
-        description: ["감정 분석과 키워드 추출로 AI 맞춤 답변 제공"],
+        title: "초대 기반 공유 캘린더·기록 구현",
+        description: [
+          "관계 단위로 초대한 구성원이 같은 캘린더에 일정과 기록을 남기고, 활동이 서로에게 전파되는 구조 설계",
+        ],
       },
       {
         title: "크로스 플랫폼 모바일 앱 개발",
@@ -674,149 +676,56 @@ export const projects: Project[] = [
     website: "https://dayshare.site/",
   },
   {
-    id: "LauncherAdmin",
-    name: "LauncherAdmin",
-    description: "새로운 버전의 PC방 런처를 관리하는 웹",
-    technologies: [
-      "Next.js 14",
-      "TypeScript",
-      "NextAuth",
-      "multer",
-      "react-hook-form",
-      "axios",
-      "valtio",
-      "TanStack Query",
-      "TailwindCSS",
-    ],
-    images: ["/images/pcl/1.png", "/images/pcl/2.png"],
-    period: "2024.05 ~ 2024.09",
-    role: "frontend",
-    work: [
-      {
-        title: "퍼블리싱 작업",
-        description: ["Tailwind CSS로 Zeplin 시안 반응형 웹 퍼블리싱"],
-      },
-      {
-        title: "Valtio를 활용한 효율적인 상태 관리",
-        description: ["Valtio로 실시간 동기화 상태 관리 구현"],
-      },
-      {
-        title: "NextAuth를 활용한 인증 시스템 구현",
-        description: ["NextAuth로 로그인 인증 시스템 구현"],
-      },
-    ],
-    issues: [
-      {
-        title:
-          "Valtio를 활용한 전역 상태 관리 시스템 구축 및 아키텍처 최적화",
-        description: [
-          "컴포넌트 계층 구조가 깊어짐에 따라 상태를 전달하는 prop drilling이 빈번히 발생",
-          "컴포넌트 간 의존성↑ 유지보수와 재사용성↓",
-        ],
-        techDetails: [
-          {
-            category: "Zustand vs Valtio",
-            reasoning: [
-              "Valtio는 중첩 상태를 직접 mutate 가능함으로, Form·Table이 많은 백오피스 환경에서 개발 생산성을 높이는 데 더 적합하다고 판단",
-            ],
-          },
-        ],
-        solution: [
-          "Valtio로 글로벌 상태 관리 시스템 구축, Atomic 패턴 도입으로 필요한 상태만 구독",
-        ],
-        result: [
-          "복잡했던 상태 전파 로직을 단순화하여 신규 기능 개발 속도 증대 및 유지보수 공수 감소",
-          "컴포넌트 간 의존성을 분리하여 코드의 재사용성과 테스트 용이성 확보",
-          "중앙화된 상태 관리를 통해 데이터 흐름의 예측 가능성을 높여 잠재적 버그 발생률 감소",
-        ],
-      },
-    ],
-  },
-  {
-    id: "Battlepod",
-    name: "Battlepod",
+    id: "Playdonut",
+    name: "Playdonut",
     description:
-      "각종 게임을 통해 토너먼트를 개최하고 상품을 제공해주는 서비스",
+      "PC방 런처 기반 e스포츠 토너먼트 플랫폼 — 토너먼트 서비스 웹·대회 어드민·런처 어드민",
     technologies: [
+      "Next.js 12 · 14",
       "React",
+      "TypeScript",
+      "TanStack Query",
+      "Zustand",
+      "Valtio",
+      "TailwindCSS",
+      "MUI",
+      "NextAuth · Passport",
       "GSAP",
-      "multer",
-      "ngrok",
-      "react-hook-form",
-      "passport",
-      "react-dropzone",
-      "valtio",
-      "axios",
     ],
     images: [
       "/images/battlepod/1.png",
       "/images/battlepod/2.png",
-      "/images/battlepod/3.png",
-      "/images/battlepod/4.png",
-    ],
-    period: "2023.07 ~ 2024.08",
-    role: "frontend",
-    work: [
-      {
-        title: "Passport를 활용한 소셜 로그인 기능 구현",
-        description: ["카카오·로컬 소셜 로그인 기능 구현"],
-      },
-      {
-        title: "RSO(Riot Sign On) 연동",
-        description: ["라이엇 게임즈 OAuth 연동으로 게임 계정 인증 구현"],
-      },
-      {
-        title: "드래그 앤 드롭을 통한 파일 업로드 기능 구현",
-        description: ["React Dropzone으로 파일 업로드 구현"],
-      },
-      {
-        title: "기브어웨이 즉시추첨 기능 구현",
-        description: ["즉시추첨 기능으로 기브어웨이 UX 개선"],
-      },
-      {
-        title: "PC방 전광판 개발",
-        description: ["PC방 전용 전광판 페이지 개발 및 실시간 표시"],
-      },
-    ],
-  },
-  {
-    id: "Battlepod-Admin",
-    name: "Battlepod Admin",
-    description: "토너먼트 대회 및 이벤트 관리를 위한 어드민 페이지",
-    technologies: [
-      "Next.js 12",
-      "TypeScript",
-      "TanStack Query",
-      "passport",
-      "MUI",
-    ],
-    period: "2023.04 ~ 2023.08",
-    images: [
-      "/images/battlepod-admin/1.JPG",
-      "/images/battlepod-admin/2.JPG",
-      "/images/battlepod-admin/3.JPG",
       "/images/battlepod-admin/4.JPG",
-      "/images/battlepod-admin/5.JPG",
-      "/images/battlepod-admin/6.JPG",
-      "/images/battlepod-admin/7.JPG",
-      "/images/battlepod-admin/8.JPG",
-      "/images/battlepod-admin/9.JPG",
       "/images/battlepod-admin/10.JPG",
-      "/images/battlepod-admin/11.JPG",
-      "/images/battlepod-admin/12.JPG",
-      "/images/battlepod-admin/13.JPG",
+      "/images/pcl/1.png",
+      "/images/pcl/2.png",
     ],
+    period: "2023.04 ~ 2024.09",
     role: "frontend",
     work: [
       {
-        title: "이슈 관리",
+        title: "레거시 대회 어드민 Next.js 전면 재구축",
         description: [
-          "JIRA를 활용한 체계적 QA 이슈 관리로 버그 해결 프로세스 효율화",
+          "Trimou 템플릿 엔진 기반 어드민을 Next.js 12로 재구축, TanStack Query(서버 상태)와 Zustand(클라이언트 상태)로 관심사 분리",
         ],
       },
       {
-        title: "데이터 상태 관리",
-        description: ["TanStack Query 도입으로 데이터 상태 관리 향상"],
+        title: "토너먼트 서비스 웹 개발",
+        description: [
+          "카카오·로컬 소셜 로그인(Passport)과 RSO(Riot Sign On) 연동으로 게임 계정 인증, 기브어웨이 즉시추첨·PC방 전광판 구현",
+        ],
+      },
+      {
+        title: "PC방 런처 어드민 신규 구축",
+        description: [
+          "Next.js 14·Valtio 기반으로 신규 런처 관리 웹을 개발, NextAuth 인증과 Zeplin 시안 반응형 퍼블리싱 담당",
+        ],
+      },
+      {
+        title: "QA 이슈 관리 프로세스 운영",
+        description: [
+          "JIRA 기반으로 QA 이슈를 체계화해 버그 해결 프로세스 효율화",
+        ],
       },
     ],
     issues: [
@@ -852,6 +761,30 @@ export const projects: Project[] = [
           "코드 유지보수 공수 감소 및 신규 기능 개발 주기 단축 달성",
           "초기 로딩 속도 개선 및 전반적인 페이지 응답성 향상",
           "향후 기능 확장 및 유지보수를 위한 견고한 기술 기반 마련",
+        ],
+      },
+      {
+        title:
+          "Valtio를 활용한 전역 상태 관리 시스템 구축 및 아키텍처 최적화",
+        description: [
+          "컴포넌트 계층 구조가 깊어짐에 따라 상태를 전달하는 prop drilling이 빈번히 발생",
+          "컴포넌트 간 의존성↑ 유지보수와 재사용성↓",
+        ],
+        techDetails: [
+          {
+            category: "Zustand vs Valtio",
+            reasoning: [
+              "Valtio는 중첩 상태를 직접 mutate 가능함으로, Form·Table이 많은 백오피스 환경에서 개발 생산성을 높이는 데 더 적합하다고 판단",
+            ],
+          },
+        ],
+        solution: [
+          "Valtio로 글로벌 상태 관리 시스템 구축, Atomic 패턴 도입으로 필요한 상태만 구독",
+        ],
+        result: [
+          "복잡했던 상태 전파 로직을 단순화하여 신규 기능 개발 속도 증대 및 유지보수 공수 감소",
+          "컴포넌트 간 의존성을 분리하여 코드의 재사용성과 테스트 용이성 확보",
+          "중앙화된 상태 관리를 통해 데이터 흐름의 예측 가능성을 높여 잠재적 버그 발생률 감소",
         ],
       },
     ],
