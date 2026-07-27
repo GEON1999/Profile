@@ -71,6 +71,17 @@ export interface Career {
   }[];
 }
 
+// ─── Skills 데이터 타입 ───────────────────────────
+
+export interface SkillGroup {
+  title: string;
+  /** 이력서 Skills에 명시된 주력 스택. 나머지 그룹과 시각적으로 구분한다 */
+  core?: boolean;
+  /** 해당 스택을 실제로 사용한 근거 (어느 프로젝트·업무에서 썼는지) */
+  context?: string;
+  items: string[];
+}
+
 // ─── About 데이터 타입 ────────────────────────────
 
 export interface AboutSection {

@@ -40,6 +40,11 @@ export default function Hero() {
             <source src="/videos/dark.mp4" type="video/mp4" />
           </video>
         </div>
+
+        {/* 직군 표기 — 비디오 블렌드는 GEON·Adaptability에만 두고 평문으로 읽히게 한다 */}
+        <p className="mt-5 md:mt-7 text-[11px] md:text-sm font-semibold tracking-[0.3em] uppercase text-gray-500">
+          Frontend Engineer
+        </p>
       </div>
     </section>
   );
