@@ -7,6 +7,17 @@
     scroll-behavior: smooth;
   }
 
+  /*
+    Hero의 텍스트-인-비디오 연출은 mix-blend-mode: screen에 의존한다.
+    screen은 흰색과 섞일 때만 흰색이 되는데, body에 배경색이 없으면
+    배경이 투명이라 섞일 대상이 없어 영상 원본 색이 그대로 드러난다.
+    (비디오가 컨테이너를 소수점 단위로 넘칠 때 가로줄로 보이던 원인)
+    배경을 명시해 두면 넘치더라도 흰색과 섞여 사라진다.
+  */
+  body {
+    background-color: #ffffff;
+  }
+
   /* Accessibility: Focus visible */
   :focus {
     outline: none;
