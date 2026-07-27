@@ -4,7 +4,7 @@ import TechBadge from "@/components/ui/TechBadge";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-[#F9FAFB] scroll-mt-24">
+    <section id="skills" className="py-40 bg-[#F9FAFB] scroll-mt-24">
       <SectionTitle
         title="SKILLS"
         subtitle="What I build with"

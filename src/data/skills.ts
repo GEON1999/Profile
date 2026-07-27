@@ -20,7 +20,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "State & Data",
     core: true,
-    items: ["Zustand", "TanStack Query", "Valtio"],
+    items: ["Zustand", "TanStack Query"],
   },
   {
     title: "Design System",
@@ -36,13 +36,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Backend & Infra",
     context: "JobLog · DayShare — 개인 프로젝트에서 직접 구축",
-    items: [
-      "Supabase (Postgres · Storage · Auth)",
-      "Drizzle ORM",
-      "FastAPI",
-      "AWS (EC2 · RDS)",
-      "Vercel",
-    ],
+    items: ["Supabase (Postgres · Storage · Auth)", "AWS (EC2 · RDS)", "Vercel"],
   },
   {
     title: "AI & DX",
