@@ -1,8 +1,18 @@
 import Link from "next/link";
-import type { Project } from "@/types";
+import type { Project, ProjectRole } from "@/types";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import TechBadge from "@/components/ui/TechBadge";
 import TabPanel from "@/components/ui/TabPanel";
+
+/**
+ * 역할별 표시 라벨. Record<ProjectRole, string>이라 ProjectRole에 값이
+ * 추가되면 컴파일 단계에서 누락이 잡힌다.
+ */
+const ROLE_LABELS: Record<ProjectRole, string> = {
+  personal: "1人 개인 프로젝트",
+  solo: "프론트엔드 단독 전담",
+  frontend: "팀 내 프론트엔드",
+};
 
 interface ProjectCardProps {
   project: Project;
@@ -32,14 +42,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <h3 className="text-2xl xl:text-3xl font-bold mb-2 xl:mb-0">
               {name}
             </h3>
-            <div className="flex space-x-2 items-center text-[13px] font-sans">
+            <div className="flex flex-wrap gap-x-2 items-center text-[13px] font-sans">
               <p>{period}</p>
-              {role === "personal" && (
-                <>
-                  <div>|</div>
-                  <p>1人 개인 프로젝트</p>
-                </>
-              )}
+              <span aria-hidden="true">|</span>
+              <p>{ROLE_LABELS[role]}</p>
             </div>
           </div>
 
