@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 // 순서는 page.tsx의 섹션 배치와 일치시킨다.
-// ABOUT은 임시 숨김 — 섹션 복구 시 { label: "ABOUT", href: "#about" }를 맨 앞에 되살릴 것
 const navItems = [
   { label: "CAREER", href: "#career" },
   { label: "PROJECTS", href: "#projects" },
   { label: "SKILLS", href: "#skills" },
+  { label: "ABOUT", href: "#about" },
   { label: "CONTACT", href: "#contact" },
 ];
 
