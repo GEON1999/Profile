@@ -2,6 +2,139 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "Damma",
+    name: "DAMMA",
+    description:
+      "리넨 의류 브랜드 '담마'의 매거진형 B2C 커머스 — 기획·설계·FE·BE·인프라까지 풀스택 단독 구축",
+    technologies: [
+      "Next.js 16 (App Router)",
+      "React 19",
+      "Tailwind CSS v4",
+      "Nest.js",
+      "TypeORM · PostgreSQL",
+      "Turborepo",
+      "포트원(PortOne)",
+      "OCI · Docker · Vercel",
+    ],
+    images: [
+      "/images/damma/1.jpg",
+      "/images/damma/2.jpg",
+      "/images/damma/3.jpg",
+      "/images/damma/4.jpg",
+      "/images/damma/5.jpg",
+      "/images/damma/6.jpg",
+      "/images/damma/7.jpg",
+      "/images/damma/8.jpg",
+      "/images/damma/9.jpg",
+    ],
+    period: "2026.07 ~ 현재 (MVP 개발 중)",
+    role: "personal",
+    work: [
+      {
+        title: "모노레포 기반 커머스 코어 풀스택 구축",
+        description: [
+          "Turborepo에 Next.js 웹·Nest.js API·shared-types 패키지를 구성, 카탈로그·장바구니·주문·결제·주문 조회까지 커머스 핵심 플로우를 단독 구현",
+        ],
+      },
+      {
+        title: "설계 문서 주도 개발 — 도메인 용어집 + ADR 20건",
+        description: [
+          "FE/BE가 공유하는 도메인 용어집(ubiquitous language)과 ADR로 결정 근거를 먼저 기록, 도메인 로직은 프레임워크 무관한 순수 rules 파일로 격리해 Nest·DB 없이 테스트 가능한 구조 유지",
+        ],
+      },
+      {
+        title: "포트원 결제 파이프라인 구축",
+        description: [
+          "서버 금액 재검증·웹훅 서명 검증·결제 취소 반영까지 결제 전 구간 구현, Testcontainers로 실제 Postgres를 띄우는 통합 테스트로 주문~결제 시나리오 검증",
+        ],
+      },
+      {
+        title: "JWT 인증 자체 구축",
+        description: [
+          "Access/Refresh 토큰 분리, refresh 회전·재사용 감지, 이메일 인증 기반 게스트 주문 조회까지 인증 전반을 라이브러리 없이 직접 설계·구현",
+        ],
+      },
+      {
+        title: "OCI VM + Docker 배포 파이프라인 운영",
+        description: [
+          "API는 OCI VM에 Docker·nginx·Let's Encrypt로, FE는 Vercel로 배포. GitHub Actions CI/CD와 헬스체크 기반 배포 검증 구성",
+        ],
+      },
+    ],
+    issues: [
+      {
+        title: "클라이언트 금액을 믿지 않는 결제 파이프라인",
+        description: [
+          "PG 결제는 클라이언트에서 시작되므로, 요청에 실린 금액을 그대로 승인하면 가격 위변조에 노출됨",
+        ],
+        techDetails: [
+          {
+            category: "서버 재검증 + 웹훅 서명 검증",
+            reasoning: [
+              "클라이언트가 보낸 금액은 '사용자가 본 값이 아직 유효한가' 확인에만 쓰고, 승인 금액은 항상 서버가 DB 가격으로 재계산",
+              "주문은 상품명·색상·사이즈·단가를 주문 시점 값으로 스냅샷 — 상품이 바뀌어도 과거 주문은 불변이라는 원칙 유지",
+            ],
+          },
+        ],
+        solution: [
+          "서버가 DB 가격으로 금액을 재계산해 일치할 때만 PG 승인 API 호출, 불일치 시 주문 자체를 생성하지 않음",
+          "웹훅은 서명 검증을 통과해야만 신뢰하고, 재고는 주문 시 검증만 하고 차감은 결제 승인 시점으로 분리해 미결제 주문이 재고를 잠그지 않도록 설계",
+        ],
+        result: [
+          "금액 위변조가 구조적으로 불가능한 결제 플로우 확보",
+          "결제 확정·취소·웹훅 시나리오를 통합 테스트로 회귀 검증",
+        ],
+      },
+      {
+        title: "게스트 주문과 회원 체계의 공존 — 구매·인증 관심사 분리",
+        description: [
+          "비회원 주문을 허용하면서 회원 체계도 지원해야 하는데, 단일 User 모델로는 '주문 주체'와 '로그인 정체성'이라는 다른 축이 뭉개짐",
+        ],
+        techDetails: [
+          {
+            category: "Customer / Account / Session 분리 모델",
+            reasoning: [
+              "구매 주체(Customer)와 인증 정체성(Account)을 1:1로 분리 — 게스트도 Customer 행으로 표현돼 모든 주문이 동일하게 Customer에 연결됨",
+              "수령인 정보는 사람이 아니라 배송의 속성으로 보고 ShippingAddress가 소유, 주문에는 스냅샷으로 보존",
+            ],
+          },
+        ],
+        solution: [
+          "게스트는 Account 없는 Customer로 주문을 생성하고, 이메일 인증(단일사용 토큰)으로 게스트 주문 조회 지원",
+          "refresh 토큰을 Session 레코드로 관리해 발급·회전·재사용 감지·폐기를 단위별로 제어",
+        ],
+        result: [
+          "게스트와 회원이 같은 주문 파이프라인을 타는 일관된 구조 확보",
+          "소셜 로그인·B2B 등 후속 확장에 열린 정체성 모델 정착",
+        ],
+      },
+      {
+        title: "매거진 콘텐츠(Journal)의 XSS 구조적 차단",
+        description: [
+          "브랜드 매거진 특성상 운영자가 이미지·인용이 섞인 긴 글을 발행해야 하는데, HTML을 저장하면 어드민 계정 탈취 시 고객 화면에 스크립트가 주입될 수 있음",
+        ],
+        techDetails: [
+          {
+            category: "블록 배열 저장 + 자체 렌더러",
+            reasoning: [
+              "HTML·리치 텍스트 문서를 저장하는 순간 그 값을 그대로 그리는 곳이 생김 — sanitize에 의존하는 대신 위험한 값 자체를 저장하지 않는 구조 선택",
+              "표현력 추가는 블록 타입 추가(코드 배포)로 한정해 콘텐츠와 렌더링의 경계를 명확화",
+            ],
+          },
+        ],
+        solution: [
+          "본문을 문단·이미지·인용 블록 배열로 저장하고, 렌더링은 자체 컴포넌트가 블록 타입별로 담당",
+          "이미지는 Object Storage 키만 저장하고 URL 조합은 API 경계에서 수행",
+        ],
+        result: [
+          "저장 데이터에 마크업이 없어 XSS 경로가 구조적으로 존재하지 않는 콘텐츠 시스템 구축",
+          "상품 연결이 선택인 독립 매거진 구조로 브랜드 콘텐츠 확장 기반 마련",
+        ],
+      },
+    ],
+    website: "https://www.damma.co.kr/",
+  },
+  {
     id: "PurpleYoung",
     name: "Purple Young",
     description:
@@ -202,7 +335,7 @@ export const projects: Project[] = [
       },
     ],
   },
-    {
+  {
     id: "PurpleUI",
     name: "Purple UI",
     description:
@@ -613,8 +746,7 @@ export const projects: Project[] = [
     ],
     issues: [
       {
-        title:
-          "프론트엔드 현대화: Trimou에서 Next.js 기반 아키텍처로 전환",
+        title: "프론트엔드 현대화: Trimou에서 Next.js 기반 아키텍처로 전환",
         description: [
           "기존 Trimou 시스템의 구조적 한계로 인한 유지보수성 및 확장성 저하, 개발 속도 지연 발생",
         ],
@@ -647,8 +779,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title:
-          "Valtio를 활용한 전역 상태 관리 시스템 구축 및 아키텍처 최적화",
+        title: "Valtio를 활용한 전역 상태 관리 시스템 구축 및 아키텍처 최적화",
         description: [
           "컴포넌트 계층 구조가 깊어짐에 따라 상태를 전달하는 prop drilling이 빈번히 발생",
           "컴포넌트 간 의존성↑ 유지보수와 재사용성↓",
